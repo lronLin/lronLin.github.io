@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="Liunx12时间和空间是不可调和的矛盾硬件和软件在逻辑上是等效的 基础命令12345678910111213141516171819202122232425261. 获取登录信息 -- w/who/last(查看登录历史记录)2. 查看自己使用的Shell -- ps	ps -aux | grep nginx 查看进程	3. 查看命令的说明 -- whatis    [root@ping ~]#">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="http://yoursite.com/2018/05/12/Linux命令操作/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Liunx12时间和空间是不可调和的矛盾硬件和软件在逻辑上是等效的 基础命令12345678910111213141516171819202122232425261. 获取登录信息 -- w/who/last(查看登录历史记录)2. 查看自己使用的Shell -- ps	ps -aux | grep nginx 查看进程	3. 查看命令的说明 -- whatis    [root@ping ~]#">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-26T08:50:13.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux">
+<meta name="twitter:description" content="Liunx12时间和空间是不可调和的矛盾硬件和软件在逻辑上是等效的 基础命令12345678910111213141516171819202122232425261. 获取登录信息 -- w/who/last(查看登录历史记录)2. 查看自己使用的Shell -- ps	ps -aux | grep nginx 查看进程	3. 查看命令的说明 -- whatis    [root@ping ~]#">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-Linux命令操作" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Linux
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-05-12
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="Liunx"><a href="#Liunx" class="headerlink" title="Liunx"></a>Liunx</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">时间和空间是不可调和的矛盾</span><br><span class="line">硬件和软件在逻辑上是等效的</span><br></pre></td></tr></table></figure>
+<h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1. 获取登录信息 -- w/who/last(查看登录历史记录)</span><br><span class="line"></span><br><span class="line">2. 查看自己使用的Shell -- ps</span><br><span class="line">	ps -aux | grep nginx 查看进程</span><br><span class="line">	</span><br><span class="line">3. 查看命令的说明 -- whatis</span><br><span class="line">    [root@ping ~]# whatis python</span><br><span class="line">    </span><br><span class="line">4. 查看命令的位置 -- which / whereis</span><br><span class="line"></span><br><span class="line">5. 查看帮助文档 -- man / info / apropos / help</span><br><span class="line">	man 关键字  查看帮助文档</span><br><span class="line">	help -m 关键字  显示较详细的使用方法</span><br><span class="line"></span><br><span class="line">6. 切换用户命令 -- su</span><br><span class="line"></span><br><span class="line">7. 以管理员身份执行命令 -- sudo</span><br><span class="line"></span><br><span class="line">8. 登入登出相关 -- logout / exit / adduser / userdel / passwd / ssh</span><br><span class="line">	ssh root @47.106.99.221 远程访问服务器</span><br><span class="line">	</span><br><span class="line">9. 查看系统的主机名 - uname / hostname</span><br><span class="line">	[root@ping ~]# cat /etc/centos-release 查看服务器版本号</span><br><span class="line">	CentOS release 6.8 (Final)</span><br><span class="line">	</span><br><span class="line">10. 重启和关机 -- reboot / init 6 / shutdown / init 0</span><br></pre></td></tr></table></figure>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="1-查看-切换目录-—-pwd-cd-ls"><a href="#1-查看-切换目录-—-pwd-cd-ls" class="headerlink" title="1. 查看/切换目录 — pwd / cd / ls"></a>1. 查看/切换目录 — pwd / cd / ls</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pwd -- print working directory 打印当前工作目录</span><br><span class="line">	</span><br><span class="line">cd -- 切换路径</span><br><span class="line">	./ 当前路径</span><br><span class="line">    ../ 上一级路径</span><br><span class="line">    /home/gavinliu/  /开头 绝对路径</span><br><span class="line">    ../../ 相对路径</span><br><span class="line">    cd / 根目录</span><br><span class="line">    </span><br><span class="line">ls -- list directory contents 查看目录内容 </span><br><span class="line">	ls -l  查看目录详情 </span><br><span class="line">	ls -a  查看所有目录详情(显示影藏文件(.开头的文件/文件夹))</span><br><span class="line">	ls -R  递归展开目录</span><br><span class="line">	ls -r  倒序展开</span><br></pre></td></tr></table></figure>
+<h4 id="2-创建-删除目录-—-mkdir-rmdir"><a href="#2-创建-删除目录-—-mkdir-rmdir" class="headerlink" title="2. 创建/删除目录 — mkdir / rmdir"></a>2. 创建/删除目录 — mkdir / rmdir</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -- make directory 创建文件目录</span><br><span class="line"></span><br><span class="line">rmdir -- remove directory 移除文件目录(只能删除空文件夹)</span><br></pre></td></tr></table></figure>
+<h4 id="3-创建-删除文件-—-touch-rm"><a href="#3-创建-删除文件-—-touch-rm" class="headerlink" title="3. 创建/删除文件 — touch / rm"></a>3. 创建/删除文件 — touch / rm</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rm -- remove 删除文件/文件夹</span><br><span class="line">	rm -r 递归删除</span><br><span class="line">	rm -i 交互式</span><br><span class="line">	rm -f false</span><br><span class="line">	</span><br><span class="line">touch 文件名 </span><br><span class="line">	文件不存在 --&gt; 创建空文件</span><br><span class="line">	文件存在 --&gt; 更新文件最后的访问和修改时间</span><br></pre></td></tr></table></figure>
+<h4 id="4-查看-搜索文件内容-—-cat-head-tail"><a href="#4-查看-搜索文件内容-—-cat-head-tail" class="headerlink" title="4. 查看/搜索文件内容 — cat / head / tail"></a>4. 查看/搜索文件内容 — cat / head / tail</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat -- 查看文件内容</span><br><span class="line"></span><br><span class="line">more -- 分页查看 more index.html / cat index.html | more(管道)</span><br><span class="line">		ls -l | grep hello 查看带hello的文件</span><br><span class="line">		</span><br><span class="line">head -- 查看文件开头部分 head -10 index.html(查看文件前10行)</span><br><span class="line"></span><br><span class="line">tail -- 查看文件末尾部分 tail -10 index.html(查看文件最后10行)</span><br></pre></td></tr></table></figure>
+<h4 id="5-查看文件及内容-—-find-grep"><a href="#5-查看文件及内容-—-find-grep" class="headerlink" title="5. 查看文件及内容 — find / grep"></a>5. 查看文件及内容 — find / grep</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">find -- 搜索文件 --&gt; 显示文件 目录/文件</span><br><span class="line"></span><br><span class="line">grep -- 搜索文件内容 </span><br><span class="line">		grep div index.html / cat index.html | grep div (匹配div)</span><br><span class="line">		grep '&lt;div .*&gt;' index.html -n(搜索&lt;div&gt;,并给出行号)</span><br><span class="line">         grep '&lt;div .*&gt;' index.html / -R -n &gt; result.txt 2&gt; error.txt &amp;</span><br></pre></td></tr></table></figure>
+<h4 id="6-拷贝移动文件-—-cp-mv"><a href="#6-拷贝移动文件-—-cp-mv" class="headerlink" title="6. 拷贝移动文件 — cp / mv"></a>6. 拷贝移动文件 — cp / mv</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cp -- 拷贝文件 cp file path</span><br><span class="line">scp -- 拷贝文件到服务器</span><br><span class="line">	scp hello.txt root@119.27.166.245:~/abc/</span><br><span class="line">	</span><br><span class="line">mv -- 移动文件 格式: mv file path</span><br><span class="line">	  移动文件夹 格式: mv dir path</span><br><span class="line">	  重命名 格式: mv hello.py helloworld.py</span><br></pre></td></tr></table></figure>
+<h4 id="7-符号链接-—-ln"><a href="#7-符号链接-—-ln" class="headerlink" title="7. 符号链接 — ln"></a>7. 符号链接 — ln</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -- link链接</span><br><span class="line">	ln 创建硬链接(文件引用) ln index.html ~/abc/index1.html</span><br><span class="line">	ln -s file softlink 创建软连接(快捷方式) ln -s /etc/centos-release sysver</span><br></pre></td></tr></table></figure>
+<h4 id="8-压缩-归档-—-gzip-gunzip-xz-tar"><a href="#8-压缩-归档-—-gzip-gunzip-xz-tar" class="headerlink" title="8. 压缩 / 归档 — gzip / gunzip / xz / tar"></a>8. 压缩 / 归档 — gzip / gunzip / xz / tar</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.xz .gz 压缩文件</span><br><span class="line"></span><br><span class="line">gunzip -- 解压缩 </span><br><span class="line">	gunzip redis-3.2.11.tar.gz --&gt; redis-3.2.11.tar</span><br><span class="line">gzip -- 压缩</span><br><span class="line">	gzip dog.jpg --&gt; dog.jpg.gz</span><br><span class="line">	</span><br><span class="line">xz -- 压缩/解缩压</span><br><span class="line">	xz -d 解压缩</span><br><span class="line">	xz -z -num(压缩比) 压缩 xz -z  dog.jpg --&gt; dog.jpg.xz	</span><br><span class="line">	</span><br><span class="line">tar -- 归档/解归档</span><br><span class="line">	tar -cf file 归档(静默处理)  tar -cvf redis-3.2.11.tar</span><br><span class="line">	tar -xf file 解归档(静默处理)  tar -xvf redis-3.2.11.tar </span><br><span class="line">	tar -tf file 查看归档文件内容 tar -tf redis-3.2.11.tar</span><br></pre></td></tr></table></figure>
+<h4 id="9-其他工具"><a href="#9-其他工具" class="headerlink" title="9. 其他工具"></a>9. 其他工具</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">wget -- 在网上下载文件 wget http://www.taobao.com/index.html</span><br><span class="line">	wget -O 文件重命名</span><br><span class="line"></span><br><span class="line">wc -- word count 数单词数/行数</span><br><span class="line">	wc -w 单词 wc -w index.html</span><br><span class="line">	wc -l 行数 wc -l index.html</span><br><span class="line">    </span><br><span class="line">uniq -- 去重(相邻行)</span><br><span class="line"></span><br><span class="line">sort -- 排序(不改变原文件)</span><br><span class="line"></span><br><span class="line">diff -- 版本比较(文件)</span><br><span class="line"></span><br><span class="line">file -- 分析文件性质(根据文件内容区分)</span><br><span class="line">		file hello.txt --&gt; hello.txt: UTF-8 Unicode text</span><br><span class="line">        	</span><br><span class="line">echo -- 回声命令</span><br><span class="line">	echo $PATH 查看变量的值</span><br><span class="line">	echo "print('hello')" &gt; hello.py 创建文件并向里面添加内容</span><br></pre></td></tr></table></figure>
+<h4 id="10-文件权限"><a href="#10-文件权限" class="headerlink" title="10. 文件权限"></a>10. 文件权限</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">所有者u  同组用户g  其他用户o</span><br><span class="line">rwx     r-x        r-x</span><br><span class="line">rwx     rwx        rwx</span><br><span class="line">111     111        111</span><br><span class="line">7       7          7</span><br><span class="line">111 7</span><br><span class="line">110 6</span><br><span class="line">100 4</span><br><span class="line">r read 读</span><br><span class="line">w write 写</span><br><span class="line">x excute 执行</span><br><span class="line">chmod u+x,g+x,o+x guess1.py 给所有者添加权限</span><br><span class="line">chmod 777 guess1.py 给所有者添加权限</span><br></pre></td></tr></table></figure>
+<h3 id="管道和重定向"><a href="#管道和重定向" class="headerlink" title="管道和重定向"></a>管道和重定向</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 管道 -- |</span><br><span class="line">	ls -l | grep hello 查看带hello的文件</span><br><span class="line">	</span><br><span class="line">2. 重定向 -- &gt;        </span><br><span class="line">    &gt; 输出重定向 </span><br><span class="line">    2&gt; 存放错误文件(覆盖)</span><br><span class="line">    &gt;&gt; 追加输出重定向</span><br><span class="line">    &lt; 输入重定向</span><br><span class="line">    </span><br><span class="line">&amp; 在后台执行</span><br></pre></td></tr></table></figure>
+<h3 id="其他程序"><a href="#其他程序" class="headerlink" title="其他程序"></a>其他程序</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wall -- 向所有人发消息</span><br><span class="line"></span><br><span class="line">mssg n/y -- 拒绝/同意接收消息</span><br><span class="line"></span><br><span class="line">alias -- 命令重命名 --&gt; unalias</span><br><span class="line">	alias foo='tar -xf'</span><br><span class="line">	</span><br><span class="line">history -- 查询所有执行过的命令</span><br><span class="line">	!num -- 执行命令</span><br></pre></td></tr></table></figure>
+<h3 id="liunx目录"><a href="#liunx目录" class="headerlink" title="liunx目录"></a>liunx目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/ 根目录下面文件夹</span><br><span class="line">    root -- 用户主目录(超级管理员)</span><br><span class="line">    home -- 用户主目录(其他管理员)</span><br><span class="line">    ect -- 存储linux系统配置/软件配置</span><br><span class="line">    usr -- </span><br><span class="line">B -- Byte 字节</span><br><span class="line">b -- bit 位</span><br></pre></td></tr></table></figure>
+<h3 id="包管理工具-—-安装软件"><a href="#包管理工具-—-安装软件" class="headerlink" title="包管理工具 — 安装软件"></a>包管理工具 — 安装软件</h3><h4 id="yum"><a href="#yum" class="headerlink" title="yum"></a>yum</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum - yellowdog updater modified 包管理工具</span><br><span class="line">    yun install / yum remove 安装 / 卸载</span><br><span class="line">    yun list / yum search 查看 / 搜索</span><br><span class="line">    yum list installed 显示所有已安装软件</span><br><span class="line">    yum install nginx 安装nginx</span><br><span class="line">    yum nginx search 搜索软件</span><br><span class="line">    yum install mariadb-server mariadb 安装数据库服务器 数据库客户端</span><br><span class="line">    yum update 更新</span><br></pre></td></tr></table></figure>
+<h4 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RPM - redhat package manager 红帽子的包管理工具</span><br><span class="line">    rpm -i 静默安装 / -ivh 显示安装过程</span><br><span class="line">    rpm -e 移除</span><br><span class="line">    rpm -qa 显示所有已安装的包</span><br><span class="line">    rpm -qa | grep jdk | xargs rpm -e   删除管道过滤出来的jdk (xargs 将xargs前面的结果作为后面命令的参数使用)</span><br></pre></td></tr></table></figure>
+<h4 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar.gz / tar.xz</span><br><span class="line">	ungizp / xz -d 解压缩</span><br><span class="line">	tar -xvf 解归档</span><br><span class="line">    配置PATH环境变量</span><br><span class="line">    	临时 export ...</span><br><span class="line">    	永久 vim .bash_profile --&gt; 添加环境变量</span><br></pre></td></tr></table></figure>
+<h3 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx 启动nginx</span><br><span class="line">nginx -s stop | quit | reopen | reload</span><br></pre></td></tr></table></figure>
+<h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">redis.conf</span><br><span class="line">    61 -- bind 172.27.0.11 内网地址</span><br><span class="line">    84 -- port 6379 默认端口</span><br><span class="line">    480 -- requirepass liutc1014? 删除注释,修改密码</span><br><span class="line">    </span><br><span class="line">redis-server 服务器   </span><br><span class="line">    redis-server myredis.conf 启动redis服务器</span><br><span class="line">        redis-server myredis.conf &gt; myredis.log &amp; 后台运行</span><br><span class="line">    关闭服务器</span><br><span class="line">        jobs --&gt; fg %1 --&gt; ^c 关闭redis服务器(自动保存)</span><br><span class="line">        kill 进程号 关闭redis服务器 不保存</span><br><span class="line">	</span><br><span class="line">redis-cli 客户端</span><br><span class="line">redis-cli -h 172.27.0.11(内网地址) -p 端口号(默认端口可以省略) 连接服务器</span><br><span class="line">    auth liutc1014? 验证</span><br><span class="line">    ping 查看是否连接</span><br></pre></td></tr></table></figure>
+<h3 id="查看进程-任务"><a href="#查看进程-任务" class="headerlink" title="查看进程 / 任务"></a>查看进程 / 任务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">jobs -- 查看有无后台任务在执行</span><br><span class="line">fg %1 将后台任务放到前台执行</span><br><span class="line">^z 将放到前台执行的任务放到后台并停止执行</span><br><span class="line">bg %1 将放到前台执行的任务放到后台执行</span><br><span class="line"></span><br><span class="line">ps -aux  查看已启动进程</span><br><span class="line">	ps -aux | grep ngnix </span><br><span class="line">netstat -nap 查看进程号</span><br><span class="line">	netstat -nap | grep 80(端口号)</span><br></pre></td></tr></table></figure>
+<h3 id="systemctl-—-服务管理工具"><a href="#systemctl-—-服务管理工具" class="headerlink" title="systemctl — 服务管理工具"></a>systemctl — 服务管理工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. systemctl --&gt; CentOS7</span><br><span class="line">    启动一个服务：systemctl start firewalld.service</span><br><span class="line">    关闭一个服务：systemctl stop firewalld.service</span><br><span class="line">    重启一个服务：systemctl restart firewalld.service</span><br><span class="line">    显示一个服务的状态：systemctl status firewalld.service</span><br><span class="line">    在开机时启用一个服务：systemctl enable firewalld.service</span><br><span class="line">    在开机时禁用一个服务：systemctl disable firewalld.service</span><br><span class="line">    查看服务是否开机启动：systemctl is-enabled firewalld.service</span><br><span class="line">    查看已启动的服务列表：systemctl list-unit-files|grep enabled</span><br><span class="line">    查看启动失败的服务列表：systemctl --failed</span><br><span class="line"></span><br><span class="line">1. service -- (CentOS 7 以前)     </span><br><span class="line">	service firewall start </span><br><span class="line">	service firewall status 查看状态</span><br></pre></td></tr></table></figure>
+<h3 id="CentOS-7打开关闭防火墙端口"><a href="#CentOS-7打开关闭防火墙端口" class="headerlink" title="CentOS 7打开关闭防火墙端口"></a>CentOS 7打开关闭防火墙端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1. firewalld的基本使用</span><br><span class="line">    启动： systemctl start firewalld</span><br><span class="line">    查看状态： systemctl status firewalld </span><br><span class="line">    停止： systemctl disable firewalld</span><br><span class="line">    禁用： systemctl stop firewalld</span><br><span class="line">    </span><br><span class="line">2. 配置firewalld-cmd</span><br><span class="line">    查看版本： firewall-cmd --version</span><br><span class="line">    查看帮助： firewall-cmd --help</span><br><span class="line">    显示状态： firewall-cmd --state</span><br><span class="line">    查看所有打开的端口： firewall-cmd --zone=public --list-ports</span><br><span class="line">    更新防火墙规则： firewall-cmd --reload</span><br><span class="line">    查看区域信息:  firewall-cmd --get-active-zones</span><br><span class="line">    查看指定接口所属区域： firewall-cmd --get-zone-of-interface=eth0</span><br><span class="line">    拒绝所有包：firewall-cmd --panic-on</span><br><span class="line">    取消拒绝状态： firewall-cmd --panic-off</span><br><span class="line">    </span><br><span class="line">3. 配置端口  </span><br><span class="line">    添加 firewall-cmd --zone=public --add-port=80/tcp --permanent    （--permanent永久生效，没有此参数重启后失效） </span><br><span class="line">    重新载入 firewall-cmd --reload</span><br><span class="line">    查看 firewall-cmd --zone= public --query-port=80/tcp</span><br><span class="line">    删除 firewall-cmd --zone= public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+<h3 id="mac终端与服务器下上传下载内容"><a href="#mac终端与服务器下上传下载内容" class="headerlink" title="mac终端与服务器下上传下载内容"></a>mac终端与服务器下上传下载内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sftp root@IP 链接服务器</span><br><span class="line">put 上传文件</span><br><span class="line">get 下载文件</span><br><span class="line">bye 退出</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DNS - 域名翻译成IP地址</span><br><span class="line">HTTP服务器 -</span><br><span class="line">	LAMP = Linux + Apache + MysQL + PHP</span><br><span class="line">	LNMP = Linux + Nginx +MySQL + Pythg</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月26日 16:50</p>
+        <p>原始链接： <a class="post-url" href="/2018/05/12/Linux命令操作/" title="Linux">http://yoursite.com/2018/05/12/Linux命令操作/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/05/12/Linux命令操作/&title=《Linux》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/05/12/Linux命令操作/&title=《Linux》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/12/Linux命令操作/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux》 — Hexo&url=http://yoursite.com/2018/05/12/Linux命令操作/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/12/Linux命令操作/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/05/12/Linux命令操作/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Linux/" class="color1">Linux</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Liunx"><span class="post-toc-text">Liunx</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础命令"><span class="post-toc-text">基础命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件操作"><span class="post-toc-text">文件操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-查看-切换目录-—-pwd-cd-ls"><span class="post-toc-text">1. 查看/切换目录 — pwd / cd / ls</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-创建-删除目录-—-mkdir-rmdir"><span class="post-toc-text">2. 创建/删除目录 — mkdir / rmdir</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-创建-删除文件-—-touch-rm"><span class="post-toc-text">3. 创建/删除文件 — touch / rm</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-查看-搜索文件内容-—-cat-head-tail"><span class="post-toc-text">4. 查看/搜索文件内容 — cat / head / tail</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-查看文件及内容-—-find-grep"><span class="post-toc-text">5. 查看文件及内容 — find / grep</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-拷贝移动文件-—-cp-mv"><span class="post-toc-text">6. 拷贝移动文件 — cp / mv</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-符号链接-—-ln"><span class="post-toc-text">7. 符号链接 — ln</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8-压缩-归档-—-gzip-gunzip-xz-tar"><span class="post-toc-text">8. 压缩 / 归档 — gzip / gunzip / xz / tar</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#9-其他工具"><span class="post-toc-text">9. 其他工具</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#10-文件权限"><span class="post-toc-text">10. 文件权限</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#管道和重定向"><span class="post-toc-text">管道和重定向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他程序"><span class="post-toc-text">其他程序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#liunx目录"><span class="post-toc-text">liunx目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#包管理工具-—-安装软件"><span class="post-toc-text">包管理工具 — 安装软件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#yum"><span class="post-toc-text">yum</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#rpm"><span class="post-toc-text">rpm</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#源码安装"><span class="post-toc-text">源码安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#nginx"><span class="post-toc-text">nginx</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis"><span class="post-toc-text">redis</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看进程-任务"><span class="post-toc-text">查看进程 / 任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#systemctl-—-服务管理工具"><span class="post-toc-text">systemctl — 服务管理工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CentOS-7打开关闭防火墙端口"><span class="post-toc-text">CentOS 7打开关闭防火墙端口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mac终端与服务器下上传下载内容"><span class="post-toc-text">mac终端与服务器下上传下载内容</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/05/14/数据库MySQL/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          数据库MySQL
+        
+      </span>
+    </a>
+  
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
