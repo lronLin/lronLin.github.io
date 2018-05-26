@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>标签 | Hexo</title>
+  <title>关于Django的基本操作 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="LronLin,LronLin's Blog" />
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="windows环境下使用Django $ mkdir 文件夹名   #创建项目目录 $ cd 文件夹名   #进入项目目录 在项目目录: $ python -m venv hello_django_venv   #创建虚拟环境并命名(hello为文件名) $ cd hello_django_venv    #进入虚拟环境 $ cd Script   #进入Scripts $ activate">
+<meta name="keywords" content="Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Django的基本操作">
+<meta property="og:url" content="http://yoursite.com/2018/05/26/分类/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="windows环境下使用Django $ mkdir 文件夹名   #创建项目目录 $ cd 文件夹名   #进入项目目录 在项目目录: $ python -m venv hello_django_venv   #创建虚拟环境并命名(hello为文件名) $ cd hello_django_venv    #进入虚拟环境 $ cd Script   #进入Scripts $ activate">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-26T05:25:49.927Z">
+<meta property="og:updated_time" content="2018-05-26T03:23:48.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
+<meta name="twitter:title" content="关于Django的基本操作">
+<meta name="twitter:description" content="windows环境下使用Django $ mkdir 文件夹名   #创建项目目录 $ cd 文件夹名   #进入项目目录 在项目目录: $ python -m venv hello_django_venv   #创建虚拟环境并命名(hello为文件名) $ cd hello_django_venv    #进入虚拟环境 $ cd Script   #进入Scripts $ activate">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -106,14 +110,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="pages-分类" class="article article-type-pages" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      标签
+      关于Django的基本操作
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -132,14 +136,67 @@
           
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
             
-            
+            <h2 id="windows环境下使用Django"><a href="#windows环境下使用Django" class="headerlink" title="windows环境下使用Django"></a>windows环境下使用Django</h2><ul>
+<li>$ mkdir 文件夹名   #创建项目目录</li>
+<li>$ cd 文件夹名   #进入项目目录</li>
+<li>在项目目录:<ul>
+<li>$ python -m venv hello_django_venv   #创建虚拟环境并命名(hello为文件名)</li>
+<li>$ cd hello_django_venv    #进入虚拟环境</li>
+<li>$ cd Script   #进入Scripts</li>
+<li>$ activate   #激活环境</li>
+<li>在虚拟环境的script目录下:<ul>
+<li>deactivate   #退出虚拟环境</li>
+<li>pip install django   #在虚拟环境下安装django依赖库</li>
+<li>pip install django==指定版本号   #安装指定版本的django</li>
+<li>django-admin –version   #查看安装的django版本</li>
+</ul>
+</li>
+<li>在虚拟环境的项目目录下:</li>
+<li><ul>
+<li>django-admin startproject hello_django    #创建名为hello的项目</li>
+<li>cd hello_django   #切换到项目目录</li>
+</ul>
+</li>
+<li><ul>
+<li>python manage.py runserver   #启动django服务器</li>
+</ul>
+</li>
+<li><ul>
+<li>python manage.py startapp hrs   #创建一个名为hrs的应用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="linux下使用Django"><a href="#linux下使用Django" class="headerlink" title="linux下使用Django"></a>linux下使用Django</h2><ul>
+<li>mkdir hello_django   #创建项目目录</li>
+<li>cd hello_django/   #切换到项目目录</li>
+<li>进入目录之后:<ul>
+<li>python3 -m venv hd_venv   #使用venv模块创建虚拟环境，目录名hd_venv</li>
+<li>source hd_venv/bin/activate   #激活虚拟环境</li>
+<li>在虚拟环境bin目录下:<ul>
+<li>python -m pip install –upgrade pip   #更新pip到最新版本</li>
+<li>pip install django   #使用pip安装django</li>
+<li>django-admin –version    #通过安装django时安装的脚本工具django-admin检查django版本</li>
+</ul>
+</li>
+<li>在虚拟环境的项目目录下:<ul>
+<li>django-admin startproject 项目名   #创建项目</li>
+<li>python manage.py startapp 应用名   #创建应用名</li>
+<li>python manage.py runserver (0.0.0.0:80)   #启动django服务器,可以指定端口号</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月26日 13:25</p>
-        <p>原始链接： <a class="post-url" href="/tags/index.html" title="标签">http://yoursite.com/tags/index.html</a></p>
+        <p>最后更新： 2018年05月26日 11:23</p>
+        <p>原始链接： <a class="post-url" href="/2018/05/26/分类/" title="关于Django的基本操作">http://yoursite.com/2018/05/26/分类/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/logo.png" alt="lronLin">
@@ -196,7 +253,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/tags/&title=《标签》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/05/26/分类/&title=《关于Django的基本操作》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -206,22 +263,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/tags/&title=《标签》 — Hexo&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/05/26/分类/&title=《关于Django的基本操作》 — Hexo&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/tags/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/26/分类/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《标签》 — Hexo&url=http://yoursite.com/tags/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于Django的基本操作》 — Hexo&url=http://yoursite.com/2018/05/26/分类/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/tags/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/26/分类/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -231,7 +288,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/tags/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/05/26/分类/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -240,6 +297,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Django/" class="color2">Django</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -247,6 +311,22 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#windows环境下使用Django"><span class="post-toc-text">windows环境下使用Django</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#linux下使用Django"><span class="post-toc-text">linux下使用Django</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">你好 世界 !</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
 
 
 
