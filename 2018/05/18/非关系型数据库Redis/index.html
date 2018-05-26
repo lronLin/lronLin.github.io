@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>非关系型数据库 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="非关系型数据库Redis1988 提出了NoSQL (非关系型数据库的补充) 2008/2010 —  Big Data(大数据) NoSQL = No SQL NoSQL = No Only SQL  关系型数据库(锁) - 数据价值高强一致性 NoSQL产品: 四大类非关系型数据库 :  — Redis  -  高速缓存(内存比硬盘快, 内存比硬盘小)  -  键值对数据库 — MongoDB">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="非关系型数据库">
+<meta property="og:url" content="http://yoursite.com/2018/05/18/非关系型数据库Redis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="非关系型数据库Redis1988 提出了NoSQL (非关系型数据库的补充) 2008/2010 —  Big Data(大数据) NoSQL = No SQL NoSQL = No Only SQL  关系型数据库(锁) - 数据价值高强一致性 NoSQL产品: 四大类非关系型数据库 :  — Redis  -  高速缓存(内存比硬盘快, 内存比硬盘小)  -  键值对数据库 — MongoDB">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-26T08:19:06.575Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="非关系型数据库">
+<meta name="twitter:description" content="非关系型数据库Redis1988 提出了NoSQL (非关系型数据库的补充) 2008/2010 —  Big Data(大数据) NoSQL = No SQL NoSQL = No Only SQL  关系型数据库(锁) - 数据价值高强一致性 NoSQL产品: 四大类非关系型数据库 :  — Redis  -  高速缓存(内存比硬盘快, 内存比硬盘小)  -  键值对数据库 — MongoDB">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-非关系型数据库Redis" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      非关系型数据库
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-05-18
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="非关系型数据库Redis"><a href="#非关系型数据库Redis" class="headerlink" title="非关系型数据库Redis"></a>非关系型数据库Redis</h2><p>1988 提出了NoSQL (非关系型数据库的补充)</p>
+<p>2008/2010 —  Big Data(大数据)</p>
+<p>NoSQL = No SQL</p>
+<p>NoSQL = No Only SQL</p>
+<hr>
+<p>关系型数据库(锁) - 数据价值高强一致性</p>
+<p><code>NoSQL产品:</code></p>
+<p>四大类非关系型数据库 : </p>
+<p>— Redis  -  高速缓存(内存比硬盘快, 内存比硬盘小)  -  键值对数据库</p>
+<p>— MongoDB  -  存放结构不严谨价值不高的数据  -  文档数据库</p>
+<p>— Neo4j   -  社交网站  -  图数据库</p>
+<p>— HBase  -  列族数据库  </p>
+<h3 id="查看是否安装redis"><a href="#查看是否安装redis" class="headerlink" title="查看是否安装redis"></a>查看是否安装redis</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd user/local/bin  -  ll | grep redis  - cd ~  - 配置文件  - ls - cp  - vim -61行 -  :!ifconfig - 内网地址复制 - enter - i进入编辑模式 - 粘贴到61行 - 84行改端口 改成11223(0到2的10次方-1) - 命令模式480行/requirepass 1qaz2wsx - 命令模式 database可以改库数量</span><br></pre></td></tr></table></figure>
+<h3 id="启服务器"><a href="#启服务器" class="headerlink" title="启服务器"></a>启服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">启服务: redis-server myredis.conf &amp; - 杀进程kill 5021 (会显示关机过程, 数据显示已保存) - 查看后台进程jobs - 前台运行 fg %2 - ctrl+c  - redis benchmark  -h 120.77.222.217 -p 11223 -a 1qaz2wsx查看是否成功</span><br><span class="line">ps -ef | grep redis 查进程</span><br><span class="line">redis-cli -h 120.77.222.217 -p 11223 -</span><br><span class="line">- set username admin </span><br><span class="line">- keys*(看到所有键) / keys u*(查看u打头的键) / keys [u,p]*(查看u,p打头的键) </span><br><span class="line">- set foo hello ex 300 </span><br><span class="line">- get foo - get bar  </span><br><span class="line">- ttl foo(查看存活时间) </span><br><span class="line">- expire username 15(15秒后过期) </span><br><span class="line">- ttl username </span><br><span class="line">- get username </span><br><span class="line">- ttl username </span><br><span class="line">- ttl email </span><br><span class="line">save (保存) / bgsave(后台保存)</span><br><span class="line">select 1(切换到2号库)</span><br><span class="line">set foo bar - get foo - select 0 - get foo</span><br><span class="line">select 15 - flushdb - keys* - select 0 - keys* - flushall(清理底层所有库)</span><br><span class="line">dbsize</span><br><span class="line">info - 查看服务器相关信息</span><br><span class="line">shutdown save - 关闭服务器并保存数据 / shutdown no save - 关闭服务器不保存数据</span><br><span class="line">set - 放键值对</span><br><span class="line">del username - 删除数据</span><br><span class="line">select index - 切换到指定的数据库</span><br></pre></td></tr></table></figure>
+<h3 id="开启防火墙时连接"><a href="#开启防火墙时连接" class="headerlink" title="开启防火墙时连接"></a>开启防火墙时连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">操作步骤 :1.systemctl start firewalld(开启防火墙)</span><br><span class="line">2.firewall-cmd --add-port=11223/tcp --permanent --zone=public(给防火墙开洞)</span><br><span class="line">3.firewall-cmd --reload(重新加载配置)</span><br><span class="line">4.redis-cli -h 120.79.135.242 -p 11223 (客服端连接服务器)</span><br><span class="line">5.auth 1qaz2wsx(输入密码)</span><br><span class="line">6.ping 回复PONG 就成功了(ping是否连接成功)</span><br></pre></td></tr></table></figure>
+<h3 id="关闭防火墙时连接"><a href="#关闭防火墙时连接" class="headerlink" title="关闭防火墙时连接"></a>关闭防火墙时连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">操作步骤 :1.systemctl stop firewalld</span><br><span class="line">2.redis-benchmark -h 120.79.135.242 -p 11223 -a 1qaz2wsx</span><br><span class="line">3.redis-cli -h 120.79.135.242 -p 11223 </span><br><span class="line">4.auth 1qaz2wsx</span><br><span class="line">5.ping 回复PONG 就成功了</span><br></pre></td></tr></table></figure>
+<h3 id="五种数据类型"><a href="#五种数据类型" class="headerlink" title="五种数据类型"></a>五种数据类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">key(键) - 键都是字符串 </span><br><span class="line">String(字符串)  : </span><br><span class="line">set foo 1</span><br><span class="line">set bar 1.23</span><br><span class="line">set username hello</span><br><span class="line">incr foo (网站投票, 网站页面首页缓存,SQL语句查询结果缓存)</span><br><span class="line">incr foo</span><br><span class="line">incrby foo 50 (网站投票) - redis中操作</span><br><span class="line">incrbyfloat bar 1.23 </span><br><span class="line">Strlen - 长度</span><br><span class="line">decr - 减少</span><br><span class="line">append user name - 键后面追加内容与set相似 </span><br><span class="line">JSON格式的字符串也可以</span><br><span class="line">-------------------------------------------</span><br><span class="line">Hash(哈希表) : 键值对存放数据 - 字典里面放字典</span><br><span class="line">hset student1 name &quot;Hao Luo&quot;</span><br><span class="line">hset student1 age 38</span><br><span class="line">hset student1 gender Male</span><br><span class="line">hget student1 name</span><br><span class="line">hget student1 gender</span><br><span class="line">hgetall student1 </span><br><span class="line">哈希表最适合放对象</span><br><span class="line">-------------------列子------------</span><br><span class="line">hset 10 dno 10</span><br><span class="line">hset 10 dname 财务部</span><br><span class="line">hset 10 dloc 重庆</span><br><span class="line">get 10</span><br><span class="line">hgetall 10</span><br><span class="line">三个字节utf-8</span><br><span class="line">hset 20 dno 20</span><br><span class="line">hset 20 dname 研发部</span><br><span class="line">hset 20 dloc 成都</span><br><span class="line">hgetall 20</span><br><span class="line">field - value 方式存在</span><br><span class="line">hdel 10 dloc - 删哈希表里的字段</span><br><span class="line">del key - 删键</span><br><span class="line">hexists ... - 判断是否有...</span><br><span class="line">hincrby - 增加</span><br><span class="line">------------------------</span><br><span class="line">List(列表) - push </span><br><span class="line">lpush foo 10 20 30 40</span><br><span class="line">lrange - 取指定范围元素</span><br><span class="line">-1 表示全部拿完元素</span><br><span class="line">lrange foo 0 -1 - 倒序</span><br><span class="line">rpush foo 10 20 30 40</span><br><span class="line">lrange foo 0 -1 - 顺序</span><br><span class="line">pop - 拿走元素</span><br><span class="line">nil - 空, 元素没有了</span><br><span class="line">lindex - 查看元素</span><br><span class="line">linsert - 插入元素</span><br><span class="line">lrem - 删除元素</span><br><span class="line">列表应用场景(微博,生产者-消费者模式 - 消息队列)</span><br><span class="line">------------------------------</span><br><span class="line">Set(集合) - 元素不能重复 - 去重</span><br><span class="line">sadd foo 10 10 20 10 20 30 </span><br><span class="line">sinter 求交集 foo bar</span><br><span class="line">sunion 并集 foo bar</span><br><span class="line">sddif 差集 foo bar</span><br><span class="line">sremove - 删元素</span><br><span class="line">smembers - 删元素 foo</span><br><span class="line">scard foo </span><br><span class="line">-------------------------</span><br><span class="line">SortedSet(有序集合) : </span><br><span class="line">zadd foo 100 hell 75 good 102 world 300 apple</span><br><span class="line">根据设定的值排序</span><br><span class="line">zrange foo 0 -1 </span><br><span class="line">zrevrange foo 0 -1(自动排序) - 游戏排位</span><br><span class="line">zincrby foo 400 hello (加值) - 改变排位的值</span><br><span class="line">zincrange foo 0 -1 可以看到改变后排位的值</span><br><span class="line">type - 查看键的类型</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月26日 16:19</p>
+        <p>原始链接： <a class="post-url" href="/2018/05/18/非关系型数据库Redis/" title="非关系型数据库">http://yoursite.com/2018/05/18/非关系型数据库Redis/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/05/18/非关系型数据库Redis/&title=《非关系型数据库》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/05/18/非关系型数据库Redis/&title=《非关系型数据库》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/18/非关系型数据库Redis/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《非关系型数据库》 — Hexo&url=http://yoursite.com/2018/05/18/非关系型数据库Redis/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/18/非关系型数据库Redis/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/05/18/非关系型数据库Redis/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Redis/" class="color1">Redis</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#非关系型数据库Redis"><span class="post-toc-text">非关系型数据库Redis</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看是否安装redis"><span class="post-toc-text">查看是否安装redis</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启服务器"><span class="post-toc-text">启服务器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开启防火墙时连接"><span class="post-toc-text">开启防火墙时连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭防火墙时连接"><span class="post-toc-text">关闭防火墙时连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五种数据类型"><span class="post-toc-text">五种数据类型</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/05/24/Redis主从切换/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Redis主从切换
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/05/17/Python基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Python基础</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
