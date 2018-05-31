@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Django | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="定义闭包(装饰器)  123def is_longin(func):	def check_login(request): 如果登录, 返回函数func 123ticket = request.COOKIES.get(&amp;apos;ticket&amp;apos;)		if not ticket: 如果没有登录, 跳转到登录页面 12345678910111213return HttpResponseRed">
+<meta name="keywords" content="装饰器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/Django装饰器/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="定义闭包(装饰器)  123def is_longin(func):	def check_login(request): 如果登录, 返回函数func 123ticket = request.COOKIES.get(&amp;apos;ticket&amp;apos;)		if not ticket: 如果没有登录, 跳转到登录页面 12345678910111213return HttpResponseRed">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-31T12:34:00.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django">
+<meta name="twitter:description" content="定义闭包(装饰器)  123def is_longin(func):	def check_login(request): 如果登录, 返回函数func 123ticket = request.COOKIES.get(&amp;apos;ticket&amp;apos;)		if not ticket: 如果没有登录, 跳转到登录页面 12345678910111213return HttpResponseRed">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-Django装饰器" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Django
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-05-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <ol>
+<li>定义闭包(装饰器)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def is_longin(func):</span><br><span class="line"></span><br><span class="line">	def check_login(request):</span><br></pre></td></tr></table></figure>
+<p>如果登录, 返回函数func</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ticket = request.COOKIES.get(&apos;ticket&apos;)</span><br><span class="line"></span><br><span class="line">		if not ticket:</span><br></pre></td></tr></table></figure>
+<p>如果没有登录, 跳转到登录页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">return HttpResponseRedirect(reverse(&apos;user:login&apos;))</span><br><span class="line"></span><br><span class="line">		user = Users.objects.filter(ticket=ticket)</span><br><span class="line"></span><br><span class="line">		if not user:</span><br><span class="line"></span><br><span class="line">			# 如果没有登录, 跳转到登录页面</span><br><span class="line"></span><br><span class="line">			return HttpResponseRedirect(reverse(&apos;user:login&apos;))</span><br><span class="line"></span><br><span class="line">		return func</span><br><span class="line"></span><br><span class="line">	return check_login</span><br></pre></td></tr></table></figure>
+<p>2.模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">在基础base.html中挖坑</span><br><span class="line"></span><br><span class="line">	&#123;% block xxx %&#125;   &#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">在index.html页面中, 需要先继承&#123;% extends &apos;base.html &apos;%&#125;</span><br><span class="line"></span><br><span class="line">	&#123;% block xxx %&#125;   &#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">加载上一次填坑的内容</span><br><span class="line"></span><br><span class="line">	&#123;% block.super %&#125;</span><br></pre></td></tr></table></figure>
+<p>3.F/Q</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">last(): 最后一个</span><br><span class="line"></span><br><span class="line">first() : 第一个</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">一对多:</span><br><span class="line"></span><br><span class="line">	多找一:</span><br><span class="line"></span><br><span class="line">		student.g.g_name</span><br><span class="line"></span><br><span class="line">		student.g.id</span><br><span class="line"></span><br><span class="line">	一找多:</span><br><span class="line"></span><br><span class="line">		grade.student_set.all()</span><br><span class="line"></span><br><span class="line">一对一:</span><br><span class="line"></span><br><span class="line">		student.g.g_name</span><br><span class="line"></span><br><span class="line">		grade.student.all()</span><br></pre></td></tr></table></figure>
+<p>F(): 用于做计算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">students.filters(s_yuwen__gt= F(&apos;s_shuxue&apos;) + 10)</span><br></pre></td></tr></table></figure>
+<p>Q - 用于过滤信息  |或者  &amp;并且 ~取反</p>
+<p>查询python班语文大于等于80或者数学小于等于80的学生</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">	grade = Grade.objects.filter(g_name=&apos;python&apos;).first()</span><br><span class="line"></span><br><span class="line">	students = grade.student_set.all()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	stu = students.filter(Q(s_yuwengte=80) | Q(s_shuxue__lte=80))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查询python班语文小于80并且数学小于等于80的学生</span><br><span class="line"></span><br><span class="line">	stu = students.filter(~Q(s_yuwengte=80) &amp; Q(s_shuxue__lte=80))</span><br></pre></td></tr></table></figure>
+<p>4.模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">if</span><br><span class="line"></span><br><span class="line">for</span><br><span class="line"></span><br><span class="line">ifequal : 判断是否相等</span><br><span class="line"></span><br><span class="line">forloop.counter : 循环, 从1开始</span><br><span class="line"></span><br><span class="line">forloop.revcounter : 倒循环, 倒1结束 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">forloop.counter0 : 循环, 从0开始</span><br><span class="line"></span><br><span class="line">forloop.revcounter0 : 倒循环, 倒0结束</span><br><span class="line"></span><br><span class="line">Ctrl shift + Delete  ----删除浏览器缓存</span><br></pre></td></tr></table></figure>
+<p>创建班级的模型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Grade(models.Model):</span><br><span class="line"></span><br><span class="line">    g_name = models.CharField(max_length=20)</span><br><span class="line"></span><br><span class="line">    g_create_time = models.DateTimeField(auto_now_add=True)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class Meta:</span><br><span class="line">    db_table = &apos;grade&apos;</span><br></pre></td></tr></table></figure>
+<p>创建学生的模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Student(models.Model):</span><br><span class="line"></span><br><span class="line">     stu_name = models.CharField(max_length=6, unique=True)</span><br><span class="line"></span><br><span class="line">     stu_sex = models.BooleanField(default=0)</span><br><span class="line"></span><br><span class="line">     stu_birth = models.DateField()</span><br><span class="line"></span><br><span class="line">     stu_delete = models.BooleanField(default=0)</span><br><span class="line"></span><br><span class="line">     stu_create_time = models.DateField(auto_now_add=True)</span><br><span class="line"></span><br><span class="line">     stu_operate_time = models.DateField(auto_now=True)</span><br><span class="line"></span><br><span class="line">     stu_tel = models.CharField(max_length=11)</span><br><span class="line"></span><br><span class="line">     stu_yuwen = models.DecimalField(max_digits=3, decimal_places=1, default=0)</span><br><span class="line"></span><br><span class="line">     stu_shuxue = models.DecimalField(max_digits=3, decimal_places=1, default=0)</span><br><span class="line"></span><br><span class="line">     g = models.ForeignKey(Grade)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class Meta:</span><br><span class="line">    db_table = &apos;stu&apos;</span><br></pre></td></tr></table></figure>
+<p>创建学生拓展的模型：<br>    class StuInfo(models.Model):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">stu_addr = models.CharField(max_length=30)</span><br><span class="line">stu_age = models.IntegerField()</span><br><span class="line">stu = models.OneToOneField(Student)</span><br><span class="line"></span><br><span class="line">class Meta:</span><br><span class="line">    db_table = &apos;stu_info&apos;</span><br></pre></td></tr></table></figure>
+<p>实际操作:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.通过某个学生拓展表去获取学生信息</span><br><span class="line">2. 通过学生表获取个人拓展表的信息</span><br><span class="line">3. 获取python班下的所有学生的信息和拓展表的信息</span><br><span class="line">4. 获取python班下语文成绩大于80分的女学生</span><br><span class="line">5. 获取python班下语文成绩超过数学成绩10分的男学生</span><br><span class="line">6. 获取出生在80后的男学生，查看他们的班级</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月31日 20:34</p>
+        <p>原始链接： <a class="post-url" href="/2018/05/30/Django装饰器/" title="Django">http://yoursite.com/2018/05/30/Django装饰器/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/05/30/Django装饰器/&title=《Django》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/05/30/Django装饰器/&title=《Django》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/30/Django装饰器/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Django》 — Hexo&url=http://yoursite.com/2018/05/30/Django装饰器/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/30/Django装饰器/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/05/30/Django装饰器/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/装饰器/" class="color4">装饰器</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/05/31/Django Rest 框架/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Django
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/05/26/Categories/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">关于Django的基本操作</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
