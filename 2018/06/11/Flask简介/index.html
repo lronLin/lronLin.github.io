@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Flask | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="Flask 简介1. flask介绍Flask是一个基于Python实现的web开发的’微’框架 中文文档地址 Flask和Django一样，也是一个基于MVC设计模式的Web框架 flask流行的主要原因： 12345a）有非常齐全的官方文档，上手非常方便b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动手实现拓展也很容易c) 微型框架的形式给了开发者更大的选择空">
+<meta name="keywords" content="Flask">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask">
+<meta property="og:url" content="http://yoursite.com/2018/06/11/Flask简介/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Flask 简介1. flask介绍Flask是一个基于Python实现的web开发的’微’框架 中文文档地址 Flask和Django一样，也是一个基于MVC设计模式的Web框架 flask流行的主要原因： 12345a）有非常齐全的官方文档，上手非常方便b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动手实现拓展也很容易c) 微型框架的形式给了开发者更大的选择空">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-11T11:30:31.378Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flask">
+<meta name="twitter:description" content="Flask 简介1. flask介绍Flask是一个基于Python实现的web开发的’微’框架 中文文档地址 Flask和Django一样，也是一个基于MVC设计模式的Web框架 flask流行的主要原因： 12345a）有非常齐全的官方文档，上手非常方便b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动手实现拓展也很容易c) 微型框架的形式给了开发者更大的选择空">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-Flask简介" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Flask
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-06-11
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="Flask-简介"><a href="#Flask-简介" class="headerlink" title="Flask 简介"></a>Flask 简介</h2><h3 id="1-flask介绍"><a href="#1-flask介绍" class="headerlink" title="1. flask介绍"></a>1. flask介绍</h3><p>Flask是一个基于Python实现的web开发的’微’框架</p>
+<p><a href="http://docs.jinkan.org/docs/flask/" target="_blank" rel="noopener">中文文档地址</a></p>
+<p>Flask和Django一样，也是一个基于MVC设计模式的Web框架</p>
+<p>flask流行的主要原因：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a）有非常齐全的官方文档，上手非常方便</span><br><span class="line"></span><br><span class="line">b) 有非常好的拓展机制和第三方的拓展环境，工作中常见的软件都有对应的拓展，自己动手实现拓展也很容易</span><br><span class="line"></span><br><span class="line">c) 微型框架的形式给了开发者更大的选择空间</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装flask"><a href="#2-安装flask" class="headerlink" title="2. 安装flask"></a>2. 安装flask</h3><h4 id="2-1虚拟环境搭建"><a href="#2-1虚拟环境搭建" class="headerlink" title="2.1虚拟环境搭建"></a>2.1虚拟环境搭建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">virtualenv --no-site-packages falskenv</span><br><span class="line"></span><br><span class="line">激活windows下虚拟环境</span><br><span class="line">cd Scripts</span><br><span class="line">activate</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-安装"><a href="#2-2-安装" class="headerlink" title="2.2 安装"></a>2.2 安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br></pre></td></tr></table></figure>
+<h3 id="3-基于flask的最小的应用"><a href="#3-基于flask的最小的应用" class="headerlink" title="3. 基于flask的最小的应用"></a>3. 基于flask的最小的应用</h3><p>创建hello.py文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def gello_world():</span><br><span class="line">	return &apos;Hello World&apos;</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line"></span><br><span class="line">	app.run()</span><br></pre></td></tr></table></figure>
+<p>运行：python hello.py</p>
+<h4 id="3-1-初始化"><a href="#3-1-初始化" class="headerlink" title="3.1 初始化"></a>3.1 初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br></pre></td></tr></table></figure>
+<p>Flask类构造函数唯一需要的参数就是应用程序的主模块或包。对于大多数应用程序，Python的<strong>name</strong>变量就是那个正确的、你需要传递的值。Flask使用这个参数来确定应用程序的根目录，这样以后可以相对这个路径来找到资源文件。</p>
+<h4 id="3-2-路由"><a href="#3-2-路由" class="headerlink" title="3.2 路由"></a>3.2 路由</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/&apos;)</span><br></pre></td></tr></table></figure>
+<p>客户端例如web浏览器发送 请求 给web服务，进而将它们发送给Flask应用程序实例。应用程序实例需要知道对于各个URL请求需要运行哪些代码，所以它给Python函数建立了一个URLs映射。这些在URL和函数之间建立联系的操作被称之为 路由 。</p>
+<p>在Flask应程序中定义路由的最便捷的方式是通过显示定义在应用程序实例之上的app.route装饰器，注册被装饰的函数来作为一个 <strong>路由</strong>。</p>
+<h4 id="3-3-视图函数"><a href="#3-3-视图函数" class="headerlink" title="3.3 视图函数"></a>3.3 视图函数</h4><p>在上一个示例给应用程序的根URL注册gello_world()函数作为事件的处理程序。如果这个应用程序被部署在服务器上并绑定了 <a href="http://www.example.com/" target="_blank" rel="noopener">www.example.com</a> 域名，然后在你的浏览器地址栏中输入 <a href="http://www.example.com/" target="_blank" rel="noopener">http://www.example.com</a> 将触发gello_world()来运行服务。客户端接收到的这个函数的返回值被称为 响应 。如果客户端是web浏览器，响应则是显示给用户的文档。</p>
+<p>类似于gello_world()的函数被称作 <strong>视图函数</strong> 。</p>
+<h4 id="3-4-动态名称组件路由"><a href="#3-4-动态名称组件路由" class="headerlink" title="3.4 动态名称组件路由"></a>3.4 动态名称组件路由</h4><p>你的Facebook个人信息页的URL是 <a href="http://www.facebook.com/" target="_blank" rel="noopener">http://www.facebook.com/</a> ，所以你的用户名是它的一部分。Flask在路由装饰器中使用特殊的语法支持这些类型的URLs。下面的示例定义了一个拥有动态名称组件的路由：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/hello/&lt;name&gt;&apos;)</span><br><span class="line"></span><br><span class="line">def gello_world(name):</span><br><span class="line"></span><br><span class="line">	return &apos;Hello World %s&apos; % name</span><br></pre></td></tr></table></figure>
+<p>用尖括号括起来的部分是动态的部分，所以任何URLs匹配到静态部分都将映射到这个路由。当视图函数被调用，Flask发送动态组件作为一个参数。在前面的示例的视图函数中，这个参数是用于生成一个个性的问候作为响应。</p>
+<p>在路由中动态组件默认为字符串，但是可以定义为其他类型。例如，路由/user/int:id只匹配有一个整数在id动态段的URLs。Flask路由支持int、float</p>
+<p>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/hello/&lt;int:id&gt;&apos;)</span><br><span class="line"></span><br><span class="line">def gello_stu_id(id):</span><br><span class="line"></span><br><span class="line">  return &apos;Hello World id: %s&apos; % id</span><br></pre></td></tr></table></figure>
+<h4 id="3-5-服务启动"><a href="#3-5-服务启动" class="headerlink" title="3.5 服务启动"></a>3.5 服务启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line"></span><br><span class="line">	app.run()</span><br></pre></td></tr></table></figure>
+<p>注意： <strong>name</strong> == ‘<strong>main</strong>‘在此处使用是用于确保web服务已经启动当脚本被立即执行。当脚本被另一个脚本导入，它被看做父脚本将启动不同的服务，所以app.run()调用会被跳过。</p>
+<p>一旦服务启动，它将进入循环等待请求并为之服务。这个循环持续到应用程序停止，例如通过按下Ctrl-C。</p>
+<p>有几个选项参数可以给app.run()配置web服务的操作模式。在开发期间，可以很方便的开启debug模式，将激活 debugger 和 reloader 。这样做是通过传递debug为True来实现的。</p>
+<p>run()中参数有如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">debug 是否开启调试模式，开启后修改python的代码会自动重启</span><br><span class="line"></span><br><span class="line">port 启动指定服务器的端口号</span><br><span class="line"></span><br><span class="line">host主机，默认是127.0.0.1</span><br></pre></td></tr></table></figure>
+<h3 id="4-修改启动方式，使用命令行参数启动服务"><a href="#4-修改启动方式，使用命令行参数启动服务" class="headerlink" title="4. 修改启动方式，使用命令行参数启动服务"></a>4. 修改启动方式，使用命令行参数启动服务</h3><h4 id="4-1-安装插件"><a href="#4-1-安装插件" class="headerlink" title="4.1 安装插件"></a>4.1 安装插件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-script</span><br></pre></td></tr></table></figure>
+<p>调整代码 manager = Manager(app=‘自定义的flask对象’)</p>
+<p>启动的地方 manager.run()</p>
+<h4 id="4-2-启动命令"><a href="#4-2-启动命令" class="headerlink" title="4.2 启动命令"></a>4.2 启动命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python hellow.py runserver -h 地址 -p 端口 -d -r</span><br></pre></td></tr></table></figure>
+<p>其中：-h表示地址。-p表示端口。-d表示debug模式。-r表示自动重启</p>
+<h3 id="5-route规则"><a href="#5-route规则" class="headerlink" title="5. route规则"></a>5. route规则</h3><h4 id="5-1-规则"><a href="#5-1-规则" class="headerlink" title="5.1 规则"></a>5.1 规则</h4><p>写法：converter:variable_name</p>
+<p>converter类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string 字符串</span><br><span class="line">int 整形</span><br><span class="line">float 浮点型</span><br><span class="line">path 接受路径，接收的时候是str，/也当做字符串的一个字符</span><br><span class="line">uuid 只接受uuid字符串</span><br><span class="line">any 可以同时指定多种路径，进行限定</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/helloint/&lt;int:id&gt;/&apos;)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/getfloat/&lt;float:price&gt;/&apos;)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/getstr/&lt;string:name&gt;/&apos;，methods=[&apos;GET&apos;, &apos;POST&apos;])</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/getpath/&lt;path:url_path&gt;/&apos;)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/getbyuuid/&lt;uuid:uu&gt;/&apos;，methods=[&apos;GET&apos;, &apos;POST&apos;])</span><br></pre></td></tr></table></figure>
+<p>实现对应的视图函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">@blue.route(&apos;/hello/&lt;name&gt;/&apos;)</span><br><span class="line">def hello_man(name):</span><br><span class="line">    print(type(name))</span><br><span class="line">    return &apos;hello name:%s type:%s&apos; % (name, type(name))</span><br><span class="line"></span><br><span class="line">@blue.route(&apos;/helloint/&lt;int:id&gt;/&apos;)</span><br><span class="line">def hello_int(id):</span><br><span class="line">    print(id)</span><br><span class="line">    print(type(id))</span><br><span class="line">    return &apos;hello int: %s&apos; % (id)</span><br><span class="line"></span><br><span class="line">@blue.route(&apos;/index/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return render_template(&apos;hello.html&apos;)</span><br><span class="line"></span><br><span class="line">@blue.route(&apos;/getfloat/&lt;float:price&gt;/&apos;)</span><br><span class="line">def hello_float(price):</span><br><span class="line"></span><br><span class="line">    return &apos;float: %s&apos; % price</span><br><span class="line"></span><br><span class="line">@blue.route(&apos;/getstr/&lt;string:name&gt;/&apos;)</span><br><span class="line">def hello_name(name):</span><br><span class="line"></span><br><span class="line">    return &apos;hello name: %s&apos; % name</span><br><span class="line"></span><br><span class="line">@blue.route(&apos;/getpath/&lt;path:url_path&gt;/&apos;)</span><br><span class="line">def hello_path(url_path):</span><br><span class="line"></span><br><span class="line">    return &apos;path: %s&apos; % url_path</span><br><span class="line"></span><br><span class="line">@blue.route(&apos;/getuuid/&apos;)</span><br><span class="line">def gello_get_uuid():</span><br><span class="line">    a = uuid.uuid4()</span><br><span class="line">    return str(a)</span><br><span class="line"></span><br><span class="line">@blue.route(&apos;/getbyuuid/&lt;uuid:uu&gt;/&apos;)</span><br><span class="line">def hello_uuid(uu):</span><br><span class="line"></span><br><span class="line">    return &apos;uu:%s&apos; % uu</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-methods请求方法"><a href="#5-2-methods请求方法" class="headerlink" title="5.2 methods请求方法"></a>5.2 methods请求方法</h4><p>常用的请求类型有如下几种</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET : 获取</span><br><span class="line">POST : 创建</span><br><span class="line">PUT : 修改(全部属性都修改)</span><br><span class="line">DELETE : 删除</span><br><span class="line">PATCH : 修改(修改部分属性)</span><br></pre></td></tr></table></figure>
+<p>定义url的请求类型:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@blue.route(&apos;/getrequest/&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月11日 19:30</p>
+        <p>原始链接： <a class="post-url" href="/2018/06/11/Flask简介/" title="Flask">http://yoursite.com/2018/06/11/Flask简介/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/11/Flask简介/&title=《Flask》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/11/Flask简介/&title=《Flask》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/11/Flask简介/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Flask》 — Hexo&url=http://yoursite.com/2018/06/11/Flask简介/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/11/Flask简介/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/06/11/Flask简介/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Flask/" class="color1">Flask</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Flask-简介"><span class="post-toc-text">Flask 简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-flask介绍"><span class="post-toc-text">1. flask介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-安装flask"><span class="post-toc-text">2. 安装flask</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1虚拟环境搭建"><span class="post-toc-text">2.1虚拟环境搭建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-安装"><span class="post-toc-text">2.2 安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-基于flask的最小的应用"><span class="post-toc-text">3. 基于flask的最小的应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-初始化"><span class="post-toc-text">3.1 初始化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-路由"><span class="post-toc-text">3.2 路由</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-3-视图函数"><span class="post-toc-text">3.3 视图函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-4-动态名称组件路由"><span class="post-toc-text">3.4 动态名称组件路由</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-5-服务启动"><span class="post-toc-text">3.5 服务启动</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-修改启动方式，使用命令行参数启动服务"><span class="post-toc-text">4. 修改启动方式，使用命令行参数启动服务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-1-安装插件"><span class="post-toc-text">4.1 安装插件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-2-启动命令"><span class="post-toc-text">4.2 启动命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-route规则"><span class="post-toc-text">5. route规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-1-规则"><span class="post-toc-text">5.1 规则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-2-methods请求方法"><span class="post-toc-text">5.2 methods请求方法</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/06/11/Flask蓝图/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Flask
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/06/11/Centos部署Django项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Django</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于Django的基本操作 | Hexo</title>
+  <title>Flask | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="LronLin,LronLin's Blog" />
   
-  <meta name="description" content="windows环境下使用Django $ mkdir 文件夹名   #创建项目目录 $ cd 文件夹名   #进入项目目录 在项目目录: $ python -m venv hello_django_venv   #创建虚拟环境并命名(hello为文件名) $ cd hello_django_venv    #进入虚拟环境 $ cd Script   #进入Scripts $ activate">
-<meta name="keywords" content="Django">
+  <meta name="description" content="Flask蓝图1. 什么是蓝图在Flask项目中可以用Blueprint(蓝图)实现模块化的应用，使用蓝图可以让应用层次更清晰，开发者更容易去维护和开发项目。蓝图将作用于相同的URL前缀的请求地址，将具有相同前缀的请求都放在一个模块中，这样查找问题，一看路由就很快的可以找到对应的视图，并解决问题了。 2. 使用蓝图2.1 安装1pip install flask_blueprint 2.2 实例化">
+<meta name="keywords" content="Flask">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于Django的基本操作">
-<meta property="og:url" content="http://yoursite.com/2018/05/26/Categories/index.html">
+<meta property="og:title" content="Flask">
+<meta property="og:url" content="http://yoursite.com/2018/06/11/Flask蓝图/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="windows环境下使用Django $ mkdir 文件夹名   #创建项目目录 $ cd 文件夹名   #进入项目目录 在项目目录: $ python -m venv hello_django_venv   #创建虚拟环境并命名(hello为文件名) $ cd hello_django_venv    #进入虚拟环境 $ cd Script   #进入Scripts $ activate">
+<meta property="og:description" content="Flask蓝图1. 什么是蓝图在Flask项目中可以用Blueprint(蓝图)实现模块化的应用，使用蓝图可以让应用层次更清晰，开发者更容易去维护和开发项目。蓝图将作用于相同的URL前缀的请求地址，将具有相同前缀的请求都放在一个模块中，这样查找问题，一看路由就很快的可以找到对应的视图，并解决问题了。 2. 使用蓝图2.1 安装1pip install flask_blueprint 2.2 实例化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-26T07:38:56.764Z">
+<meta property="og:updated_time" content="2018-06-11T11:32:54.148Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于Django的基本操作">
-<meta name="twitter:description" content="windows环境下使用Django $ mkdir 文件夹名   #创建项目目录 $ cd 文件夹名   #进入项目目录 在项目目录: $ python -m venv hello_django_venv   #创建虚拟环境并命名(hello为文件名) $ cd hello_django_venv    #进入虚拟环境 $ cd Script   #进入Scripts $ activate">
+<meta name="twitter:title" content="Flask">
+<meta name="twitter:description" content="Flask蓝图1. 什么是蓝图在Flask项目中可以用Blueprint(蓝图)实现模块化的应用，使用蓝图可以让应用层次更清晰，开发者更容易去维护和开发项目。蓝图将作用于相同的URL前缀的请求地址，将具有相同前缀的请求都放在一个模块中，这样查找问题，一看路由就很快的可以找到对应的视图，并解决问题了。 2. 使用蓝图2.1 安装1pip install flask_blueprint 2.2 实例化">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -110,20 +110,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="pages-Categories" class="article article-type-pages" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="pages-Flask蓝图" class="article article-type-pages" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      关于Django的基本操作
+      Flask
     </h1>
     <div class="post-title-bar">
       <ul>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-05-26
+          <i class="fa fa-calendar"></i>  2018-06-11
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -139,64 +139,23 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h2 id="windows环境下使用Django"><a href="#windows环境下使用Django" class="headerlink" title="windows环境下使用Django"></a>windows环境下使用Django</h2><ul>
-<li>$ mkdir 文件夹名   #创建项目目录</li>
-<li>$ cd 文件夹名   #进入项目目录</li>
-<li>在项目目录:<ul>
-<li>$ python -m venv hello_django_venv   #创建虚拟环境并命名(hello为文件名)</li>
-<li>$ cd hello_django_venv    #进入虚拟环境</li>
-<li>$ cd Script   #进入Scripts</li>
-<li>$ activate   #激活环境</li>
-<li>在虚拟环境的script目录下:<ul>
-<li>deactivate   #退出虚拟环境</li>
-<li>pip install django   #在虚拟环境下安装django依赖库</li>
-<li>pip install django==指定版本号   #安装指定版本的django</li>
-<li>django-admin –version   #查看安装的django版本</li>
-</ul>
-</li>
-<li>在虚拟环境的项目目录下:</li>
-<li><ul>
-<li>django-admin startproject hello_django    #创建名为hello的项目</li>
-<li>cd hello_django   #切换到项目目录</li>
-</ul>
-</li>
-<li><ul>
-<li>python manage.py runserver   #启动django服务器</li>
-</ul>
-</li>
-<li><ul>
-<li>python manage.py startapp hrs   #创建一个名为hrs的应用</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="linux下使用Django"><a href="#linux下使用Django" class="headerlink" title="linux下使用Django"></a>linux下使用Django</h2><ul>
-<li>mkdir hello_django   #创建项目目录</li>
-<li>cd hello_django/   #切换到项目目录</li>
-<li>进入目录之后:<ul>
-<li>python3 -m venv hd_venv   #使用venv模块创建虚拟环境，目录名hd_venv</li>
-<li>source hd_venv/bin/activate   #激活虚拟环境</li>
-<li>在虚拟环境bin目录下:<ul>
-<li>python -m pip install –upgrade pip   #更新pip到最新版本</li>
-<li>pip install django   #使用pip安装django</li>
-<li>django-admin –version    #通过安装django时安装的脚本工具django-admin检查django版本</li>
-</ul>
-</li>
-<li>在虚拟环境的项目目录下:<ul>
-<li>django-admin startproject 项目名   #创建项目</li>
-<li>python manage.py startapp 应用名   #创建应用名</li>
-<li>python manage.py runserver (0.0.0.0:80)   #启动django服务器,可以指定端口号</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+            <h2 id="Flask蓝图"><a href="#Flask蓝图" class="headerlink" title="Flask蓝图"></a>Flask蓝图</h2><h3 id="1-什么是蓝图"><a href="#1-什么是蓝图" class="headerlink" title="1. 什么是蓝图"></a>1. 什么是蓝图</h3><p>在Flask项目中可以用Blueprint(蓝图)实现模块化的应用，使用蓝图可以让应用层次更清晰，开发者更容易去维护和开发项目。蓝图将作用于相同的URL前缀的请求地址，将具有相同前缀的请求都放在一个模块中，这样查找问题，一看路由就很快的可以找到对应的视图，并解决问题了。</p>
+<h3 id="2-使用蓝图"><a href="#2-使用蓝图" class="headerlink" title="2. 使用蓝图"></a>2. 使用蓝图</h3><h4 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask_blueprint</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-实例化蓝图应用"><a href="#2-2-实例化蓝图应用" class="headerlink" title="2.2 实例化蓝图应用"></a>2.2 实例化蓝图应用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blue = Blueprint(‘first’，\_\_name\_\_)</span><br></pre></td></tr></table></figure>
+<p>注意：Blueprint中传入了两个参数，第一个是蓝图的名称，第二个是蓝图所在的包或模块，<strong>name</strong>代表当前模块名或者包名</p>
+<h4 id="2-3-注册"><a href="#2-3-注册" class="headerlink" title="2.3 注册"></a>2.3 注册</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app = Flask(\_\_name\_\_)</span><br><span class="line"></span><br><span class="line">app.register_blueprint(blue, url_prefix=&apos;/user&apos;)</span><br></pre></td></tr></table></figure>
+<p>注意：第一个参数即我们定义初始化定义的蓝图对象，第二个参数url_prefix表示该蓝图下，所有的url请求必须以/user开始。这样对一个模块的url可以很好的进行统一管理</p>
+<h4 id="3-使用蓝图"><a href="#3-使用蓝图" class="headerlink" title="3 使用蓝图"></a>3 使用蓝图</h4><p>修改视图上的装饰器，修改为@blue.router(‘/’)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@blue.route(&apos;/&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])</span><br><span class="line">def hello():</span><br><span class="line">    # 视图函数</span><br><span class="line">    return &apos;Hello World&apos;</span><br></pre></td></tr></table></figure>
+<p>注意：该方法对应的url为127.0.0.1:5000/user/</p>
+<h4 id="4-url-for反向解析"><a href="#4-url-for反向解析" class="headerlink" title="4 url_for反向解析"></a>4 url_for反向解析</h4><p>语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url_for(&apos;蓝图中定义的第一个参数.函数名&apos;, 参数名=value)</span><br></pre></td></tr></table></figure>
+<p>定义跳转：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from flask import url_for, redirect</span><br><span class="line"></span><br><span class="line">@blue.route(&apos;/redirect/&apos;)</span><br><span class="line">def make_redirect():</span><br><span class="line">    # 第一种方法</span><br><span class="line">    return redirect(&apos;/hello/index/&apos;)</span><br><span class="line">    # 第二种方法</span><br><span class="line">    return redirect(url_for(&apos;first.index&apos;))</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月26日 15:38</p>
-        <p>原始链接： <a class="post-url" href="/2018/05/26/Categories/" title="关于Django的基本操作">http://yoursite.com/2018/05/26/Categories/</a></p>
+        <p>最后更新： 2018年06月11日 19:32</p>
+        <p>原始链接： <a class="post-url" href="/2018/06/11/Flask蓝图/" title="Flask">http://yoursite.com/2018/06/11/Flask蓝图/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/logo.png" alt="lronLin">
@@ -253,7 +212,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/05/26/Categories/&title=《关于Django的基本操作》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/11/Flask蓝图/&title=《Flask》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -263,22 +222,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/05/26/Categories/&title=《关于Django的基本操作》 — Hexo&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/11/Flask蓝图/&title=《Flask》 — Hexo&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/26/Categories/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/11/Flask蓝图/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于Django的基本操作》 — Hexo&url=http://yoursite.com/2018/05/26/Categories/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Flask》 — Hexo&url=http://yoursite.com/2018/06/11/Flask蓝图/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/26/Categories/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/11/Flask蓝图/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -288,7 +247,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/05/26/Categories/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/06/11/Flask蓝图/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -300,7 +259,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Django/" class="color2">Django</a>
+    <a href="/tags/Flask/" class="color1">Flask</a>
       
   </li>
 
@@ -313,26 +272,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#windows环境下使用Django"><span class="post-toc-text">windows环境下使用Django</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#linux下使用Django"><span class="post-toc-text">linux下使用Django</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Flask蓝图"><span class="post-toc-text">Flask蓝图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-什么是蓝图"><span class="post-toc-text">1. 什么是蓝图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-使用蓝图"><span class="post-toc-text">2. 使用蓝图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-安装"><span class="post-toc-text">2.1 安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-实例化蓝图应用"><span class="post-toc-text">2.2 实例化蓝图应用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-注册"><span class="post-toc-text">2.3 注册</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-使用蓝图"><span class="post-toc-text">3 使用蓝图</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-url-for反向解析"><span class="post-toc-text">4 url_for反向解析</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/05/30/Django装饰器/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/11/Flask请求响应错误处理/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          Django
+          Flask
         
       </span>
     </a>
   
   
-    <a href="/2018/05/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">你好 世界 !</span>
+    <a href="/2018/06/11/Flask简介/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Flask</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
