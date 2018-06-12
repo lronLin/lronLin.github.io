@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Flask | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="cookie/session前言:访问者的标识问题服务器需要识别来自同一访问者的请求。这主要是通过浏览器的cookie实现的。 访问者在第一次访问服务器时，服务器在其cookie中设置一个唯一的ID号——会话ID(session)。 这样，访问者后续对服务器的访问头中将自动包含该信息，服务器通过这个ID号，即可区 隔不同的访问者。  1.cookie概念: 12345678a) 客户端会话技术,">
+<meta name="keywords" content="Cookie与Session">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask">
+<meta property="og:url" content="http://yoursite.com/2018/06/12/cookie与session/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="cookie/session前言:访问者的标识问题服务器需要识别来自同一访问者的请求。这主要是通过浏览器的cookie实现的。 访问者在第一次访问服务器时，服务器在其cookie中设置一个唯一的ID号——会话ID(session)。 这样，访问者后续对服务器的访问头中将自动包含该信息，服务器通过这个ID号，即可区 隔不同的访问者。  1.cookie概念: 12345678a) 客户端会话技术,">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/coco369/knowledge/raw/master/flask/images/flask_session_keys.png">
+<meta property="og:image" content="https://github.com/coco369/knowledge/raw/master/flask/images/flask_cookie_session.png">
+<meta property="og:updated_time" content="2018-06-12T12:21:59.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flask">
+<meta name="twitter:description" content="cookie/session前言:访问者的标识问题服务器需要识别来自同一访问者的请求。这主要是通过浏览器的cookie实现的。 访问者在第一次访问服务器时，服务器在其cookie中设置一个唯一的ID号——会话ID(session)。 这样，访问者后续对服务器的访问头中将自动包含该信息，服务器通过这个ID号，即可区 隔不同的访问者。  1.cookie概念: 12345678a) 客户端会话技术,">
+<meta name="twitter:image" content="https://github.com/coco369/knowledge/raw/master/flask/images/flask_session_keys.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-cookie与session" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Flask
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-06-12
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="cookie-session"><a href="#cookie-session" class="headerlink" title="cookie/session"></a>cookie/session</h2><h5 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h5><p>访问者的标识问题服务器需要识别来自同一访问者的请求。这主要是通过浏览器的cookie实现的。 访问者在第一次访问服务器时，服务器在其cookie中设置一个唯一的ID号——会话ID(session)。 这样，访问者后续对服务器的访问头中将自动包含该信息，服务器通过这个ID号，即可区 隔不同的访问者。 </p>
+<h3 id="1-cookie"><a href="#1-cookie" class="headerlink" title="1.cookie"></a>1.cookie</h3><p>概念:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a) 客户端会话技术, 浏览器的会话技术</span><br><span class="line">b) 数据全部存储在客户端中</span><br><span class="line">c) 存储使用的键值对结构进行存储</span><br><span class="line">特性:</span><br><span class="line">	支持过期时间</span><br><span class="line">	默认会自动携带本网站的cookie</span><br><span class="line">	不能跨域名</span><br><span class="line">	不能跨浏览器</span><br></pre></td></tr></table></figure>
+<p>创建:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Cookie是通过服务器创建的Response来创建的</span><br><span class="line">设置: set_cookie(&apos;key&apos;, value, max_ages=&apos;&apos;, expries=&apos;&apos;)</span><br><span class="line">删除, 有三种删除方式:</span><br><span class="line">	1. 直接清空浏览器的cookie</span><br><span class="line">	2. del_cookie(&apos;key&apos;) 直接使用del_cookie函数</span><br><span class="line">	3. set_cookie(&apos;key&apos;, &apos;&apos;, expires=0) 重新设置key的值为空, 过期时间为0</span><br></pre></td></tr></table></figure>
+<p>获取:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在每次请求中, url都会向服务器传递Response, 在request中可以获取到cookie的信息</span><br><span class="line">request.cookies.get(&apos;name&apos;)</span><br></pre></td></tr></table></figure>
+<p>例子1, 设置cookie:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import datetime</span><br><span class="line"></span><br><span class="line">@blue.route(&apos;/setcookie/&apos;)</span><br><span class="line">def set_cookie()</span><br><span class="line">	temp = render_template(&apos;index.html&apos;)</span><br><span class="line">	response = make_response(temp)</span><br><span class="line">	outdate=datetime.datetime.today() + datetime.timedelta(days=30)</span><br><span class="line">	# 设置cookie中的name的存在时长, 设置为30天才过期</span><br><span class="line">	response.set_cookie(&apos;name&apos;, &apos;小白&apos;, expires=outdate)</span><br><span class="line">	return response</span><br></pre></td></tr></table></figure>
+<p>例子2,删除cookie中的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@blue.route(&apos;/setcookie/&apos;)</span><br><span class="line">def set_cookie():</span><br><span class="line">	temp = render_template(&apos;index.html&apos;)</span><br><span class="line">	response = make_response(temp)</span><br><span class="line">		# 第一种方式, 通过set_cookie去删除</span><br><span class="line">	response.set_cookie(&apos;name&apos;, &apos;&apos;, expires=0)</span><br><span class="line">		# 第二种方式, del_cookie删除</span><br><span class="line">		response.del_cookie(&apos;name&apos;)</span><br><span class="line">	return response</span><br></pre></td></tr></table></figure>
+<p>例子3, 获取cookie中的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@blue.route(&apos;/getcookie/&apos;)</span><br><span class="line">def get_cookie():</span><br><span class="line">	name=request.cookies.get(&apos;name&apos;)</span><br><span class="line">	return name</span><br></pre></td></tr></table></figure>
+<h3 id="2-session"><a href="#2-session" class="headerlink" title="2.session"></a>2.session</h3><p>flask-session是flask框架的session组件</p>
+<p>该组件则将支持session保存到多个地方</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis: 保存数据的一种工具, 五大类型, 非关系型数据库</span><br><span class="line">mencached</span><br><span class="line">mongodb</span><br><span class="line">sqlalchmey: 拿数据存到数据库表里面</span><br></pre></td></tr></table></figure>
+<h4 id="2-1安装"><a href="#2-1安装" class="headerlink" title="2.1安装"></a>2.1安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-session</span><br></pre></td></tr></table></figure>
+<p>如果指定存在session的类型为redis的话, 需要安装redis</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install redis</span><br></pre></td></tr></table></figure>
+<h4 id="2-2语法"><a href="#2-2语法" class="headerlink" title="2.2语法"></a>2.2语法</h4><p>设置session:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session[&apos;key&apos;] = value</span><br></pre></td></tr></table></figure>
+<p>读取session:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = session[&apos;key&apos;] : 如果内容不存在, 将会报异常</span><br><span class="line">result = session.get.(&apos;key&apos;) : 如果内容不存在, 将返回None</span><br></pre></td></tr></table></figure>
+<p>删除session:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.pop(&apos;key&apos;)</span><br></pre></td></tr></table></figure>
+<p>清空session中的所有数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.clear</span><br></pre></td></tr></table></figure>
+<h4 id="2-3使用"><a href="#2-3使用" class="headerlink" title="2.3使用"></a>2.3使用</h4><p>我们在初始化文件中创建一个方法, 通过调用该方法来获取到Flask的app对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def create_app():</span><br><span class="line">	app = Flask(__name__)</span><br><span class="line">	# SECRET_KEY 秘钥</span><br><span class="line">	app.config[&apos;SECREET_KEY&apos;] = &apos;secret_key&apos;</span><br><span class="line">		# session 类型为redis</span><br><span class="line">	app.config[&apos;SESSION_TYPE&apos;] = &apos;redis&apos;</span><br><span class="line">		# 添加前缀</span><br><span class="line">		app.config[&apos;SESSION_KEY_PREFIX&apos;] = &apos;flask&apos;</span><br><span class="line">		</span><br><span class="line">	# 加载app的第一种方式</span><br><span class="line">	se = Session()</span><br><span class="line">	se.init_app(app=app)</span><br><span class="line">	# 加载app的第二种方式</span><br><span class="line">	Session(app=app)</span><br><span class="line">	app.regiter_blueprint(blueprint=blue)</span><br><span class="line">	</span><br><span class="line">	return app</span><br></pre></td></tr></table></figure>
+<h4 id="2-4案例"><a href="#2-4案例" class="headerlink" title="2.4案例"></a>2.4案例</h4><p>定义一个登陆的方法，post请求获取到username，直接写入到redis中，并且在页面中展示出redis中的username</p>
+<p>1.需要先启动redis，开启redis-server，使用redis-cli进入客户端</p>
+<p>2.定义方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@blue.route(&apos;/login/&apos;, methods=[&apos;GET&apos;, &apos;POST&apos;])</span><br><span class="line">def login():</span><br><span class="line">	if request.method == &apos;GET&apos;:</span><br><span class="line">		username = session.get(&apos;username&apos;)</span><br><span class="line">		return render_tempalte(&apos;login.html&apos;, username=username)</span><br><span class="line">	else:</span><br><span class="line">		username = request.form.get(&apos;username&apos;)</span><br><span class="line">		session[&apos;username&apos;] = username</span><br><span class="line">		</span><br><span class="line">		return redirect(url_for(&apos;first.login&apos;))</span><br></pre></td></tr></table></figure>
+<p>3.定义模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h3&gt;欢迎:&#123;&#123; username &#125;&#125;&lt;/h3&gt;</span><br><span class="line">&lt;form action=&quot;&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">	用户名:&lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;请输入你的名字&quot;&gt;</span><br><span class="line">	&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p>4.redis中数据</p>
+<p><a href="https://github.com/coco369/knowledge/blob/master/flask/images/flask_session_keys.png" target="_blank" rel="noopener"><img src="https://github.com/coco369/knowledge/raw/master/flask/images/flask_session_keys.png" alt="图"></a></p>
+<p>注意：我们在定义app.config的时候指定了SESSION_KEY_PREFIX为flask，表示存在session中的key都会加一个前缀名flask</p>
+<p>e) cookie和session的联系</p>
+<p><a href="https://github.com/coco369/knowledge/blob/master/flask/images/flask_cookie_session.png" target="_blank" rel="noopener"><img src="https://github.com/coco369/knowledge/raw/master/flask/images/flask_cookie_session.png" alt="图"></a></p>
+<p>访问者在第一次访问服务器时，服务器在其cookie中设置一个唯一的ID号——会话ID(session)。 这样，访问者后续对服务器的访问头中将自动包含该信息，服务器通过这个ID号，即可区 隔不同的访问者。然后根据不同的访问者来获取其中保存的value值信息。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月12日 20:21</p>
+        <p>原始链接： <a class="post-url" href="/2018/06/12/cookie与session/" title="Flask">http://yoursite.com/2018/06/12/cookie与session/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/12/cookie与session/&title=《Flask》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/12/cookie与session/&title=《Flask》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/12/cookie与session/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Flask》 — Hexo&url=http://yoursite.com/2018/06/12/cookie与session/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/12/cookie与session/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/06/12/cookie与session/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Cookie与Session/" class="color5">Cookie与Session</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#cookie-session"><span class="post-toc-text">cookie/session</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言:</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-cookie"><span class="post-toc-text">1.cookie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-session"><span class="post-toc-text">2.session</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1安装"><span class="post-toc-text">2.1安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2语法"><span class="post-toc-text">2.2语法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3使用"><span class="post-toc-text">2.3使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-4案例"><span class="post-toc-text">2.4案例</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/06/12/Flask模型/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Flask
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/06/11/Flask请求响应错误处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Flask</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
