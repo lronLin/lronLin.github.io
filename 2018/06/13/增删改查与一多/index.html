@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Flask | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="1.数据库增删改查定义模型, 并定义初始化的函数: 123456789101112class Student(db.Model):	s_id = db.Column(db.Integer, autoincrement=True, primary_key=True)	s_name = db.Column(db.String(16), unique=True)	s_age = db.Column(db">
+<meta name="keywords" content="数据库增删改查与一对多关系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask">
+<meta property="og:url" content="http://yoursite.com/2018/06/13/增删改查与一多/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.数据库增删改查定义模型, 并定义初始化的函数: 123456789101112class Student(db.Model):	s_id = db.Column(db.Integer, autoincrement=True, primary_key=True)	s_name = db.Column(db.String(16), unique=True)	s_age = db.Column(db">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/coco369/knowledge/raw/master/flask/images/flask_sqlalchemy_paginate.png">
+<meta property="og:updated_time" content="2018-06-13T12:08:00.733Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flask">
+<meta name="twitter:description" content="1.数据库增删改查定义模型, 并定义初始化的函数: 123456789101112class Student(db.Model):	s_id = db.Column(db.Integer, autoincrement=True, primary_key=True)	s_name = db.Column(db.String(16), unique=True)	s_age = db.Column(db">
+<meta name="twitter:image" content="https://github.com/coco369/knowledge/raw/master/flask/images/flask_sqlalchemy_paginate.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-增删改查与一多" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Flask
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-06-13
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="1-数据库增删改查"><a href="#1-数据库增删改查" class="headerlink" title="1.数据库增删改查"></a>1.数据库增删改查</h3><p>定义模型, 并定义初始化的函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Student(db.Model):</span><br><span class="line"></span><br><span class="line">	s_id = db.Column(db.Integer, autoincrement=True, primary_key=True)</span><br><span class="line">	s_name = db.Column(db.String(16), unique=True)</span><br><span class="line">	s_age = db.Column(db.Integer(17), default=False)</span><br><span class="line">	grades = db.Column(db.Integer, db.ForeignKey(&apos;grade.g_id&apos;), nullable=True)</span><br><span class="line">	</span><br><span class="line">	__tablename__ = &apos;student&apos;</span><br><span class="line">	</span><br><span class="line">	def __init__(self, name, age):</span><br><span class="line">		self.s_name = name</span><br><span class="line">		self.s_age = age</span><br></pre></td></tr></table></figure>
+<h4 id="1-1增-—-gt-批量增加"><a href="#1-1增-—-gt-批量增加" class="headerlink" title="1.1增 —&gt; 批量增加"></a>1.1增 —&gt; 批量增加</h4><p>第一种方式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@user_blueprint.route(&apos;/create_stus&apos;)</span><br><span class="line">def create_stus():</span><br><span class="line">	stus = []</span><br><span class="line">	for i in range(5):</span><br><span class="line">		# 实例化Student的对象</span><br><span class="line">		s = Student()</span><br><span class="line">		# 对象的属性赋值</span><br><span class="line">		s.s_name = &apos;南弦%s&apos; % random.randrange(1000)</span><br><span class="line">		s.s_age = &apos;%d&apos; % random.randrange(100)</span><br><span class="line">		stus.append(s)</span><br><span class="line">	# 添加需要创建的数据</span><br><span class="line">	db.session.add_all(stus)</span><br><span class="line">	# 提交事务到数据库</span><br><span class="line">	db.session.commit()</span><br><span class="line">	</span><br><span class="line">	return &apos;创建成功&apos;</span><br></pre></td></tr></table></figure>
+<p>注: 在创建单条数据的时候使用db.session.add(), 在创建多条数据的时候使用db.session.add_all()</p>
+<p>第二种方式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@user_blueprint.route(&apos;/create_stus/&apos;)</span><br><span class="line">def create_stus():</span><br><span class="line">	stus = []</span><br><span class="line">	for i in range(5):</span><br><span class="line">		# 使用类似的初始化去创建Student对象</span><br><span class="line">		s = Student(&apos;南弦%s&apos; % random.randomrange(1000),&apos;%d&apos; % randomrange(100))</span><br><span class="line">		stus.append(s)</span><br><span class="line">	db.session.add_all(stus)</span><br><span class="line">	db.session.commit()</span><br><span class="line">	</span><br><span class="line">	retrun &apos;创建成功&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="1-2查-—-gt-使用运算符"><a href="#1-2查-—-gt-使用运算符" class="headerlink" title="1.2查 —&gt; 使用运算符"></a>1.2查 —&gt; 使用运算符</h4><p>获取查询集:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">filter(类名.属性名.运算符(&apos;自写内容&apos;))</span><br><span class="line"></span><br><span class="line">filter(类名.属性名 数学运算符 值)</span><br></pre></td></tr></table></figure>
+<p>1.11运算符</p>
+<p>语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">filter(model_name.属性名.运算符())</span><br><span class="line"></span><br><span class="line">contains : 包含</span><br><span class="line"></span><br><span class="line">startswith : 以什么开始</span><br><span class="line"></span><br><span class="line">endswith : 以什么结束</span><br><span class="line"></span><br><span class="line">in_ : 在范围内</span><br><span class="line"></span><br><span class="line">like : 模糊</span><br><span class="line"></span><br><span class="line">__ge__:大于等于</span><br><span class="line"></span><br><span class="line">__gt__:大于</span><br><span class="line"></span><br><span class="line">__lt__:小于</span><br><span class="line"></span><br><span class="line">__le__:小于等于</span><br></pre></td></tr></table></figure>
+<p>例子:</p>
+<p>1.查询学生的id在3到15之间的学生信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stus = Student.query.filter(Student.s_id.in_([3, 4, 5, 6, 7, 8, 9]))</span><br></pre></td></tr></table></figure>
+<p>2.查询学生的年龄小于19岁的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stus = Student.query.filter(Student.s_age.__le__(19))</span><br></pre></td></tr></table></figure>
+<p>3.查询姓名以9结束的学生信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stus = Student.query.filter(Student.s_name.endswith(&apos;9&apos;))</span><br></pre></td></tr></table></figure>
+<p>4.查询id为5的学生信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stus = Student.query.filter(Student.s_id == 5).all()</span><br><span class="line">stus = Student.query.get(5)</span><br></pre></td></tr></table></figure>
+<p>1.12.筛选</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">limit()</span><br><span class="line"></span><br><span class="line">offset()</span><br><span class="line"></span><br><span class="line">order_by(&apos;-id&apos;)</span><br><span class="line"></span><br><span class="line">paginate() 分页</span><br><span class="line"></span><br><span class="line">get()</span><br><span class="line"></span><br><span class="line">first()</span><br></pre></td></tr></table></figure>
+<p>1.13.逻辑运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">与</span><br><span class="line">	and_</span><br><span class="line">	filter(and_(条件),条件…)</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line">	or_</span><br><span class="line">	filter(or_(条件),条件…)</span><br><span class="line"></span><br><span class="line">非</span><br><span class="line">	not_</span><br><span class="line">	filter(not_(条件),条件…)</span><br></pre></td></tr></table></figure>
+<p>例子1:</p>
+<p>1.查询学生的id为3, 4, 5, 6, 16的学生信息, 使用in_逻辑运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@user_blueprint.route(&apos;/get_stu_by_ids/&apos;)</span><br><span class="line">def get_stu_by_ids():</span><br><span class="line">	</span><br><span class="line">	stus = Student.query.filter(Student.s_id.in_([3, 4, 5, 6, 16]))</span><br><span class="line">	return render_template(&apos;students.html&apos;, stus=stus)</span><br></pre></td></tr></table></figure>
+<p>2.查询学生的年龄小于18岁的学生的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stus = Student.query.filter(Student.s_age &lt; 18)</span><br></pre></td></tr></table></figure>
+<p>3.查询学生的年龄小于18岁的学生的信息，<strong><strong>lt</strong>小于</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stus = Student.query.filter(Student.s_age.__lt__(15))</span><br></pre></td></tr></table></figure>
+<p>4.查询学生的年龄小于等于18岁的学生的信息，<strong><strong>le</strong>小于等于</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stus = Student.query.filter(Student.s_age.__le__(15))</span><br></pre></td></tr></table></figure>
+<p>5.查询学生的姓名以什么开始或者以什么结尾的学生的信息<strong>startswith和endswith</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stus = Student.query.filter(Student.s_name.startswith(&apos;张&apos;))</span><br><span class="line">stus = Student.query.filter(Student.s_name.endswith(&apos;2&apos;))</span><br></pre></td></tr></table></figure>
+<p>6.查询id=4的学生的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Student.query.get(4)</span><br><span class="line">获取的结果是学生的对象</span><br></pre></td></tr></table></figure>
+<p>7.模糊搜索like</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%：代表一个或者多个</span><br><span class="line">_：代表一个</span><br><span class="line"></span><br><span class="line">Student.query.filter(Student.s_name.like(&apos;%张%&apos;))</span><br></pre></td></tr></table></figure>
+<p>8.分页，查询第二页的数据4条</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第一个参数是那一页，第二个参数是一页的条数，第三个参数是是否输出错误信息</span><br><span class="line">students = Student.query.paginate(2, 4, False).items</span><br></pre></td></tr></table></figure>
+<p>例子2:</p>
+<p>跳过offset几个信息, 截取limit结果的几个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 按照id降序排列</span><br><span class="line">stus = Student.query.order_by(&apos;-s_id&apos;)</span><br><span class="line"></span><br><span class="line"># 按照id降序获取三个</span><br><span class="line">stus = Student.query.order_by(&apos;-s_id&apos;).limit(3)</span><br><span class="line"></span><br><span class="line"># 获取年龄最大的一个</span><br><span class="line">stus = Student.query.order_by(&apos;-s_age&apos;).first()</span><br><span class="line"></span><br><span class="line"># 跳过3个数据, 查询5个信息</span><br><span class="line">stus = Student.query.order_by(&apos;-s_age&apos;).offset(3).limit(5)</span><br><span class="line"></span><br><span class="line"># 跳过3个数据</span><br><span class="line">stus = Student.query.order_by(&apos;-s_age&apos;).offset(3)</span><br><span class="line"></span><br><span class="line"># 获取id等于24的学生</span><br><span class="line">stus = Student.query.filter(Student.s_id==24)</span><br><span class="line">stus = Student.query.get(24)</span><br></pre></td></tr></table></figure>
+<p>例子3：</p>
+<p>1.查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from sqlalchemy import and, or, not_</span><br><span class="line"></span><br><span class="line">查询多个条件</span><br><span class="line"></span><br><span class="line">stus = Student.query.filter(Student.s_age==16, Student.s_name==&apos;温暖&apos;)</span><br><span class="line"></span><br><span class="line">and_ 并且条件</span><br><span class="line"></span><br><span class="line">stus = Student.query.filter(and_(Student.s_age==16, Student.s_name==&apos;温暖&apos;))</span><br><span class="line"></span><br><span class="line">or_ 或者条件</span><br><span class="line"></span><br><span class="line">stus = Student.query.filter(or_(Student.s_age==18, Student.s_name==&apos;南弦&apos;))</span><br><span class="line"></span><br><span class="line">not_ 非</span><br><span class="line"></span><br><span class="line">stus = Student.query.filter(not_(Student.s_age==18), Student.s_name==&apos;南弦&apos;)</span><br></pre></td></tr></table></figure>
+<p>例子4：</p>
+<p><strong>分页：</strong></p>
+<p><a href="https://github.com/coco369/knowledge/blob/master/flask/images/flask_sqlalchemy_paginate.png" target="_blank" rel="noopener"><img src="https://github.com/coco369/knowledge/raw/master/flask/images/flask_sqlalchemy_paginate.png" alt="图"></a></p>
+<p>后端数据处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 查询第几页的数据</span><br><span class="line">page = int(request.args.get(&apos;page&apos;, 1))</span><br><span class="line"></span><br><span class="line"># 每一页的条数多少, 默认为10条</span><br><span class="line">per_page = int(request.args.get(&apos;per_page&apos;, 10))</span><br><span class="line"></span><br><span class="line"># 查询当前第几个的多少条数据</span><br><span class="line">paginate = Student.query.order_by(&apos;-s_id&apos;).paginate(page, per_page, error_out=False)</span><br><span class="line"></span><br><span class="line">stus = paginate.items</span><br></pre></td></tr></table></figure>
+<p>前端数据展示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;学生信息&lt;/h2&gt;</span><br><span class="line">&#123;% for stu in stus %&#125;</span><br><span class="line">	id: &#123;&#123; stu.s_id &#125;&#125;</span><br><span class="line">	姓名: &#123;&#123; stu.s_name &#125;&#125;</span><br><span class="line">	年龄: &#123;&#123; stu.s_age &#125;&#125;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">总页数: &#123;&#123; paginate.pages &#125;&#125;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">一共&#123;&#123; paginate.total &#125;&#125;条数据</span><br><span class="line">&lt;br&gt;</span><br><span class="line">当前页数: &#123;&#123; paginate.page &#125;&#125;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">&#123;% if paginate.has_prev %&#125;</span><br><span class="line">	&lt;a herf=&quot;/user/paginate/?page=&#123;&#123; paginate.prev_num &#125;&#125;&quot;&gt;上一页&lt;/a&gt;: &#123;&#123; paginate.prev_num &#125;&#125;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% if paginate.has_next %&#125;</span><br><span class="line">	&lt;a herf=&quot;/user/paginster/?page=&#123;&#123; paginate.next_num &#125;&#125;&quot;&gt;下一页&lt;/a&gt;: &#123;&#123; paginate.next_num&#125;&#125;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line">页码: &#123;% for i in paginste.iter_pages() %&#125;</span><br><span class="line">		&lt;a herf=&quot;/user/paginate/?page=&#123;&#123; i &#125;&#125;&quot;&gt;&#123;&#123; i &#125;&#125;&lt;/a&gt;</span><br><span class="line">	 &#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-关联关系"><a href="#2-关联关系" class="headerlink" title="2. 关联关系"></a>2. 关联关系</h3><h4 id="2-1-一对多建立模型"><a href="#2-1-一对多建立模型" class="headerlink" title="2.1 一对多建立模型"></a>2.1 一对多建立模型</h4><p>学生模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Student(db.Model):</span><br><span class="line"></span><br><span class="line">    s_id = db.Column(db.Integer, primary_key=True, autoincrement=True)</span><br><span class="line">    s_name = db.Column(db.String(20), unique=True)</span><br><span class="line">    s_age = db.Column(db.Integer, default=18)</span><br><span class="line">    s_g = db.Column(db.Integer, db.ForeignKey(&apos;grade.g_id&apos;), nullable=True)</span><br><span class="line"></span><br><span class="line">    __tablename__ = &apos;student&apos;</span><br></pre></td></tr></table></figure>
+<p>班级模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Grade(db.Model):</span><br><span class="line"></span><br><span class="line">    g_id = db.Column(db.Integer, primary_key=True, autoincrement=True)</span><br><span class="line">    g_name = db.Column(db.String(10), unique=True)</span><br><span class="line">    g_desc = db.Column(db.String(100), nullable=True)</span><br><span class="line">    g_time = db.Column(db.Date, default=datetime.now)</span><br><span class="line">    students = db.relationship(&apos;Student&apos;, backref=&apos;stu&apos;, lazy=True)</span><br><span class="line"></span><br><span class="line">    __tablename__ = &apos;grade&apos;</span><br></pre></td></tr></table></figure>
+<p>官网解释有如下几个lazy的参数：</p>
+<p>lazy 决定了 SQLAlchemy 什么时候从数据库中加载数据:，有如下四个值:</p>
+<p><strong>select</strong>/True: (which is the default) means that SQLAlchemy will load the data as necessary in one go using a standard select statement.</p>
+<p><strong>joined</strong>/False: tells SQLAlchemy to load the relationship in the same query as the parent using a JOIN statement.</p>
+<p><strong>subquery</strong>: works like ‘joined’ but instead SQLAlchemy will use a subquery.</p>
+<p><strong>dynamic</strong>: is special and useful if you have many items. Instead of loading the items SQLAlchemy will return another query object which you can further refine before loading the items. This is usually what you want if you expect more than a handful of items for this relationship</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select就是访问到属性的时候，就会全部加载该属性的数据。</span><br><span class="line"></span><br><span class="line">joined则是在对关联的两个表进行join操作，从而获取到所有相关的对象。</span><br><span class="line"></span><br><span class="line">dynamic则不一样，在访问属性的时候，并没有在内存中加载数据，而是返回一个query对象, 需要执行相应方法才可以获取对象，</span><br></pre></td></tr></table></figure>
+<h4 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h4><ol>
+<li><p>通过班级查询学生信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@grade.route(&apos;/selectstubygrade/&lt;int:id&gt;/&apos;)</span><br><span class="line"></span><br><span class="line">def select_stu_by_grade(id):</span><br><span class="line">    grade = Grade.query.get(id)</span><br><span class="line">	# 通过班级对象.定义的relationship变量去获取学生的信息</span><br><span class="line">    stus = grade.students</span><br><span class="line"></span><br><span class="line">    return render_template(&apos;grade_student.html&apos;,</span><br><span class="line">                           stus=stus,</span><br><span class="line">                           grade=grade</span><br><span class="line">                           )</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过学生信息查询班级信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@stu.route(&apos;/selectgradebystu/&lt;int:id&gt;/&apos;)</span><br><span class="line">   </span><br><span class="line">def select_grade_by_stu(id):</span><br><span class="line">   </span><br><span class="line">    stu = Student.query.get(id)</span><br><span class="line">	# 通过学生对象.定义的backref参数去获取班级的信息</span><br><span class="line">    grade = stu.stu</span><br><span class="line"></span><br><span class="line">    return render_template(&apos;student_grade.html&apos;,</span><br><span class="line">                           grade=grade,</span><br><span class="line">                           stu=stu)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意：表的外键由db.ForeignKey指定，传入的参数是表的字段。db.relations它声明的属性不作为表字段，第一个参数是关联类的名字，backref是一个反向身份的代理,相当于在Student类中添加了stu的属性。例如，有Grade实例dept和Student实例stu。dept.students.count()将会返回学院学生人数;stu.stu.first()将会返回学生的学院信息的Grade类实例。一般来讲db.relationship()会放在一这一边。</p>
+<h3 id="3-数据库迁移"><a href="#3-数据库迁移" class="headerlink" title="3. 数据库迁移"></a>3. 数据库迁移</h3><p>在django中继承了makemigrations，可以通过migrate操作去更新数据库，修改我们定义的models，然后在将模型映射到数据库中。</p>
+<p>在flask中也有migrate操作，它能跟踪模型的变化，并将变化映射到数据库中</p>
+<h4 id="2-1-安装migrate"><a href="#2-1-安装migrate" class="headerlink" title="2.1 安装migrate"></a>2.1 安装migrate</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-migrate</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-配置使用migrate"><a href="#2-2-配置使用migrate" class="headerlink" title="2.2 配置使用migrate"></a>2.2 配置使用migrate</h4><h5 id="2-2-1-初始化，使用app和db进行migrate对象的初始化"><a href="#2-2-1-初始化，使用app和db进行migrate对象的初始化" class="headerlink" title="2.2.1 初始化，使用app和db进行migrate对象的初始化"></a>2.2.1 初始化，使用app和db进行migrate对象的初始化</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from flask_migrate import Migrate</span><br><span class="line"></span><br><span class="line">#绑定app和数据库</span><br><span class="line">Migrate(app=app, db=db)</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-2-安装了flask-script的话，可以在Manager-对象上添加迁移指令"><a href="#2-2-2-安装了flask-script的话，可以在Manager-对象上添加迁移指令" class="headerlink" title="2.2.2 安装了flask-script的话，可以在Manager()对象上添加迁移指令"></a>2.2.2 安装了flask-script的话，可以在Manager()对象上添加迁移指令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from flask_migrate import Migrate, MigrateCommand</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">manage = Manager(app=app)</span><br><span class="line"></span><br><span class="line">manage.add_command(&apos;db&apos;, MigrateCommand)</span><br></pre></td></tr></table></figure>
+<p>操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">python manage.py db init  初始化出migrations的文件，只调用一次</span><br><span class="line"></span><br><span class="line">python manage.py db migrate  生成迁移文件</span><br><span class="line"></span><br><span class="line">python manage.py db upgrade 执行迁移文件中的升级</span><br><span class="line"></span><br><span class="line">python manage.py db downgrade 执行迁移文件中的降级</span><br><span class="line"></span><br><span class="line">python manage.py db --help 帮助文档</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月13日 20:08</p>
+        <p>原始链接： <a class="post-url" href="/2018/06/13/增删改查与一多/" title="Flask">http://yoursite.com/2018/06/13/增删改查与一多/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/13/增删改查与一多/&title=《Flask》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/13/增删改查与一多/&title=《Flask》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/13/增删改查与一多/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Flask》 — Hexo&url=http://yoursite.com/2018/06/13/增删改查与一多/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/13/增删改查与一多/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/06/13/增删改查与一多/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/数据库增删改查与一对多关系/" class="color4">数据库增删改查与一对多关系</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-数据库增删改查"><span class="post-toc-text">1.数据库增删改查</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1增-—-gt-批量增加"><span class="post-toc-text">1.1增 —&gt; 批量增加</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2查-—-gt-使用运算符"><span class="post-toc-text">1.2查 —&gt; 使用运算符</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-关联关系"><span class="post-toc-text">2. 关联关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-一对多建立模型"><span class="post-toc-text">2.1 一对多建立模型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2"><span class="post-toc-text">2.2</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-数据库迁移"><span class="post-toc-text">3. 数据库迁移</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-安装migrate"><span class="post-toc-text">2.1 安装migrate</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-配置使用migrate"><span class="post-toc-text">2.2 配置使用migrate</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-2-1-初始化，使用app和db进行migrate对象的初始化"><span class="post-toc-text">2.2.1 初始化，使用app和db进行migrate对象的初始化</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-2-2-安装了flask-script的话，可以在Manager-对象上添加迁移指令"><span class="post-toc-text">2.2.2 安装了flask-script的话，可以在Manager()对象上添加迁移指令</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/12/Flask模型/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Flask</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
