@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Flask | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="1.关联关系 —&amp;gt; 多对多定义模型: 引入SQLALchemy 123from flask_sqlalchemy import SQLALchemydb = SQLALchemy 创建中间表 123sc = db.Table(&amp;apos;sc&amp;apos;,			 db.Column(&amp;apos;s_id&amp;apos;, db.Integer, db.ForeignKey(&amp;apos;stude">
+<meta name="keywords" content="多对多关系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask">
+<meta property="og:url" content="http://yoursite.com/2018/06/15/flask多对多关系/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.关联关系 —&amp;gt; 多对多定义模型: 引入SQLALchemy 123from flask_sqlalchemy import SQLALchemydb = SQLALchemy 创建中间表 123sc = db.Table(&amp;apos;sc&amp;apos;,			 db.Column(&amp;apos;s_id&amp;apos;, db.Integer, db.ForeignKey(&amp;apos;stude">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-15T09:01:41.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flask">
+<meta name="twitter:description" content="1.关联关系 —&amp;gt; 多对多定义模型: 引入SQLALchemy 123from flask_sqlalchemy import SQLALchemydb = SQLALchemy 创建中间表 123sc = db.Table(&amp;apos;sc&amp;apos;,			 db.Column(&amp;apos;s_id&amp;apos;, db.Integer, db.ForeignKey(&amp;apos;stude">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-flask多对多关系" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Flask
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-06-15
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="1-关联关系-—-gt-多对多"><a href="#1-关联关系-—-gt-多对多" class="headerlink" title="1.关联关系 —&gt; 多对多"></a>1.关联关系 —&gt; 多对多</h3><p>定义模型:</p>
+<p>引入SQLALchemy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from flask_sqlalchemy import SQLALchemy</span><br><span class="line"></span><br><span class="line">db = SQLALchemy</span><br></pre></td></tr></table></figure>
+<p>创建中间表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sc = db.Table(&apos;sc&apos;,</span><br><span class="line">			 db.Column(&apos;s_id&apos;, db.Integer, db.ForeignKey(&apos;student.s_id&apos;), primary_key=True),</span><br><span class="line">			 db.Column(&apos;c_id&apos;), db.Integer, db.ForeignKey(&apos;course.c_id&apos;), primary_key=True)</span><br></pre></td></tr></table></figure>
+<p>创建学生类Student</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Student(db.Model):</span><br><span class="line">	</span><br><span class="line">	s_id = db.Column(db.Integer, primary_key=True, autoincrement=True)</span><br><span class="line">	s_name = db.Column(db.String(16), unique=True)</span><br><span class="line">	s_age = db.Column(db.Integer, defauult=18)</span><br><span class="line">	s_g = db.Column(db.Integer, db.Foreignkey(&apos;grade.g_id&apos;), nullable=True)</span><br><span class="line">	</span><br><span class="line">	__tablename__ = &apos;student&apos;</span><br><span class="line">	</span><br><span class="line">	def __init__(self, name, age):</span><br><span class="line"></span><br><span class="line">		self.s_name = name</span><br><span class="line">		self.s_age = age</span><br><span class="line">		self.s_g = None</span><br></pre></td></tr></table></figure>
+<p>创建课程表的模型, Course类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Course(db.Model):</span><br><span class="line">	</span><br><span class="line">	c_id = db.Column(db.Integer, primary_key=True, autoincrement=True)</span><br><span class="line">	c_name = db.Column(db.String(20), unique=True)</span><br><span class="line">	students = db.relationship(&apos;Student&apos;,</span><br><span class="line">							secondary=sc,</span><br><span class="line">							backref=&apos;cou&apos;)</span><br><span class="line">							</span><br><span class="line">	__tablename__ = &apos;courses&apos;</span><br><span class="line">	</span><br><span class="line">	def __init__(self, name):</span><br><span class="line">		</span><br><span class="line">		self.s_name = name</span><br></pre></td></tr></table></figure>
+<p>sc表由<strong>db.Table声明</strong>，我们不需要关心这张表，因为这张表将会由SQLAlchemy接管，它唯一的作用是作为students表和courses表关联表，所以必须在db.relationship()中指出<strong>sencondary关联表参数</strong>。lazy是指查询时的惰性求值的方式，这里有详细的参数说明，而db.backref是声明反向身份代理，其中的lazy参数是指明反向查询的惰性求值方式.</p>
+<h3 id="2-添加学生和课程之间的关系"><a href="#2-添加学生和课程之间的关系" class="headerlink" title="2. 添加学生和课程之间的关系"></a>2. 添加学生和课程之间的关系</h3><p>通过页面中传递学生的id和课程的id，分别获取学生的对象和课程的对象，在使用关联关系append去添加学生对象，并且add以后再commit后，就可以在中间表sc中查看到新增的关联关系了。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">userid = request.form.get(&apos;userid&apos;)</span><br><span class="line">courseid = request.form.get(&apos;courseid&apos;)</span><br><span class="line"></span><br><span class="line">stu = Student.query.get(userid)</span><br><span class="line">cou = Course.query.get(courseid)</span><br><span class="line"></span><br><span class="line">cou.students.append(stu)</span><br><span class="line">db.session.add(cou)</span><br><span class="line">db.session.commit()</span><br></pre></td></tr></table></figure>
+<h3 id="3-删除学生和课程之间的关系"><a href="#3-删除学生和课程之间的关系" class="headerlink" title="3. 删除学生和课程之间的关系"></a>3. 删除学生和课程之间的关系</h3><p>通过页面获取传递的学生的id和课程的id，分别获取学生对象和课程对象，在使用关联关系remove去删除学生对象，并commit将事务提交到数据库中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stu = Student.query.get(s_id)</span><br><span class="line">cou = Course.query.get(c_id)</span><br><span class="line"></span><br><span class="line">cou.students.remove(stu)</span><br><span class="line">db.session.commit()</span><br></pre></td></tr></table></figure>
+<h3 id="4-通过课程查询学生的信息"><a href="#4-通过课程查询学生的信息" class="headerlink" title="4. 通过课程查询学生的信息"></a>4. 通过课程查询学生的信息</h3><p>以下定义在课程course的模型中，所以通过课程查询学生的信息，语法为课程的对象.studengs。如果知道学生的信息反过来找课程的信息，则使用backref的反向关联去查询，语语法为学生的对象.cou(反向)</p>
+<p>students = db.relationship(‘Student’,secondary=sc,backref=’cou’) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cou = Course.query.get(3)</span><br><span class="line">stus = cou.students</span><br></pre></td></tr></table></figure>
+<h3 id="5-通过学生去查询课程的信息"><a href="#5-通过学生去查询课程的信息" class="headerlink" title="5. 通过学生去查询课程的信息"></a>5. 通过学生去查询课程的信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stu = Student.query.get(id)</span><br><span class="line">cous = stu.cou</span><br></pre></td></tr></table></figure>
+<h3 id="6-开发-页面调试工具debugtoolbar"><a href="#6-开发-页面调试工具debugtoolbar" class="headerlink" title="6.开发, 页面调试工具debugtoolbar"></a>6.开发, 页面调试工具debugtoolbar</h3><h5 id="1-1安装"><a href="#1-1安装" class="headerlink" title="1.1安装"></a>1.1安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-debugtoolbar</span><br></pre></td></tr></table></figure>
+<h5 id="1-2配置"><a href="#1-2配置" class="headerlink" title="1.2配置"></a>1.2配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">from flask_debugtoolbar import DebugToolbarExtension</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.debug = True</span><br><span class="line"></span><br><span class="line">app.config[&apos;SECRET_KEY&apos;] = &apos;&lt;replace with a secret key&gt;&apos;</span><br><span class="line"></span><br><span class="line">toolbar = DebugToolbarExtension(app)</span><br></pre></td></tr></table></figure>
+<h5 id="2-restful"><a href="#2-restful" class="headerlink" title="2. restful"></a>2. restful</h5><p>Flask-RESTful 提供的最主要的基础就是资源(resources)。资源(Resources)是构建在 Flask 可拔插视图 之上，只要在你的资源(resource)上定义方法就能够容易地访问多个 HTTP 方法</p>
+<p><a href="http://www.pythondoc.com/Flask-RESTful/quickstart.html" target="_blank" rel="noopener">官网</a>上描述了一个最简单的restful风格的api，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">from flask.ext import restful</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">api = restful.Api(app)</span><br><span class="line"></span><br><span class="line">class HelloWorld(restful.Resource):</span><br><span class="line">	def get(self):</span><br><span class="line">		return &#123;&apos;hello&apos;: &apos;world&apos;&#125;</span><br><span class="line">		</span><br><span class="line">api.add_resource(HelloWorld, &apos;/&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	app.run(debug=True)</span><br></pre></td></tr></table></figure>
+<h5 id="2-1安装"><a href="#2-1安装" class="headerlink" title="2.1安装"></a>2.1安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask_restful</span><br></pre></td></tr></table></figure>
+<h5 id="2-2配置"><a href="#2-2配置" class="headerlink" title="2.2配置"></a>2.2配置</h5><p>在create_app()获取Flask(<strong>name</strong>)对象中，设置如下配置 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from flask_restful import Api</span><br><span class="line"></span><br><span class="line">api = Api()</span><br><span class="line"></span><br><span class="line">api.init_app(app=app)</span><br></pre></td></tr></table></figure>
+<p>在views中需要引入配置的api还有Resource </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># 导入包和restful中的Api对象</span><br><span class="line">from flask_restful import Resource</span><br><span class="line">from tuils.functions import api</span><br><span class="line"></span><br><span class="line"># 定义类, 启动包含了对数据处理的GET, POST, PATCH, PUT, DELETE请求</span><br><span class="line">class CreateCourse(Resource):</span><br><span class="line">	</span><br><span class="line">	def get(self, id):</span><br><span class="line">		course = Course.query.get(id)</span><br><span class="line">		return course.to_dict()</span><br><span class="line">	def post(self):</span><br><span class="line">		</span><br><span class="line">		courses = [&apos;大学英语&apos;, &apos;大学物理&apos;, &apos;线性代数&apos;, &apos;高数&apos;, &apos;大学语文&apos;, &apos;马克思主义&apos;, &apos;C++&apos;, &apos;课外拓展&apos;]</span><br><span class="line">		course_list = []</span><br><span class="line">		for course in courses:</span><br><span class="line">			c = Course()</span><br><span class="line">			c.c_name = course</span><br><span class="line">			course_list.append(c)</span><br><span class="line">		db.session.add_all(course_list)</span><br><span class="line">		db.session.commit()</span><br><span class="line">		</span><br><span class="line">		courses = Course.query.all()</span><br><span class="line">		return [course.to_dict() for course in courses]</span><br><span class="line">		</span><br><span class="line">	def patch(self, id):</span><br><span class="line">		c_name = request.form.get(&apos;c_name&apos;)</span><br><span class="line">		course = Course.query.get(id)</span><br><span class="line">		course.c_name = c_name</span><br><span class="line">		db.session.commit()</span><br><span class="line">		return &#123;&apos;code&apos;:200, &apos;data&apos;: course.to_dict(), &apos;msg&apos;: &apos;请求成功&apos;&#125;</span><br><span class="line">		</span><br><span class="line">	def delete(self, id):</span><br><span class="line">		course = Course.query.get(id)</span><br><span class="line">		db.session.delete(course)</span><br><span class="line">		db.seesion.commit()</span><br><span class="line">		return &#123;&apos;code&apos;: 200, &apos;msg&apos;: &apos;删除成功&apos;&#125;</span><br><span class="line">		</span><br><span class="line">	# 绑定处理url</span><br><span class="line">	api.add_resource(CreateCourse, &apos;/api/course/&lt;int:id&gt;/&apos;, &apos;/api/course/&apos;)</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-端点-Endpoints"><a href="#2-3-端点-Endpoints" class="headerlink" title="2.3 端点(Endpoints)"></a>2.3 端点(Endpoints)</h5><p>在一个 API 中，你的资源可以通过多个 URLs 访问。你可以把多个 URLs 传给 Api 对象的 Api.add_resource() 方法。每一个 URL 都能访问到你的 Resource</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.add_resource(CreateCourse, &apos;/api/course/&lt;int:id&gt;/&apos;, &apos;/api/course/&apos;)</span><br></pre></td></tr></table></figure>
+<h5 id="2-4-返回响应"><a href="#2-4-返回响应" class="headerlink" title="2.4 返回响应"></a>2.4 返回响应</h5><p>Flask-RESTful 支持视图方法多种类型的返回值。同 Flask 一样，你可以返回任一迭代器，它将会被转换成一个包含原始 Flask 响应对象的响应。Flask-RESTful 也支持使用多个返回值来设置响应代码和响应头</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def get(self, id):</span><br><span class="line">	course = Course.query.get(id)</span><br><span class="line">	return course.to_dict(), 200</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月15日 17:01</p>
+        <p>原始链接： <a class="post-url" href="/2018/06/15/flask多对多关系/" title="Flask">http://yoursite.com/2018/06/15/flask多对多关系/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/15/flask多对多关系/&title=《Flask》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/15/flask多对多关系/&title=《Flask》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/15/flask多对多关系/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Flask》 — Hexo&url=http://yoursite.com/2018/06/15/flask多对多关系/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/15/flask多对多关系/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/06/15/flask多对多关系/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/多对多关系/" class="color1">多对多关系</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-关联关系-—-gt-多对多"><span class="post-toc-text">1.关联关系 —&gt; 多对多</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-添加学生和课程之间的关系"><span class="post-toc-text">2. 添加学生和课程之间的关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-删除学生和课程之间的关系"><span class="post-toc-text">3. 删除学生和课程之间的关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-通过课程查询学生的信息"><span class="post-toc-text">4. 通过课程查询学生的信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-通过学生去查询课程的信息"><span class="post-toc-text">5. 通过学生去查询课程的信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-开发-页面调试工具debugtoolbar"><span class="post-toc-text">6.开发, 页面调试工具debugtoolbar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1安装"><span class="post-toc-text">1.1安装</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-2配置"><span class="post-toc-text">1.2配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-restful"><span class="post-toc-text">2. restful</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1安装"><span class="post-toc-text">2.1安装</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-2配置"><span class="post-toc-text">2.2配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-3-端点-Endpoints"><span class="post-toc-text">2.3 端点(Endpoints)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-4-返回响应"><span class="post-toc-text">2.4 返回响应</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/13/增删改查与一多/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Flask</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
