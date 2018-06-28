@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Redis | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="NoSQL - 非关系型数据库(四大类) :1234561 - 键值对数据库(- K - V) : Redis - 高速缓存 - 内存中运行	键值对特点 : 存储效率高	内存读写速率 : GHZ/s (G赫兹每秒)2 - 文档数据库 Document : MongDB3 - 图数据库 Graph :  Neo4j(脉脉 - 挖掘人脉的APP 社交网站)4 - 列簇数据库 : HBase - 数据归">
+<meta name="keywords" content="redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://yoursite.com/2018/06/28/redis常用命令/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="NoSQL - 非关系型数据库(四大类) :1234561 - 键值对数据库(- K - V) : Redis - 高速缓存 - 内存中运行	键值对特点 : 存储效率高	内存读写速率 : GHZ/s (G赫兹每秒)2 - 文档数据库 Document : MongDB3 - 图数据库 Graph :  Neo4j(脉脉 - 挖掘人脉的APP 社交网站)4 - 列簇数据库 : HBase - 数据归">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-28T12:14:43.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis">
+<meta name="twitter:description" content="NoSQL - 非关系型数据库(四大类) :1234561 - 键值对数据库(- K - V) : Redis - 高速缓存 - 内存中运行	键值对特点 : 存储效率高	内存读写速率 : GHZ/s (G赫兹每秒)2 - 文档数据库 Document : MongDB3 - 图数据库 Graph :  Neo4j(脉脉 - 挖掘人脉的APP 社交网站)4 - 列簇数据库 : HBase - 数据归">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-redis常用命令" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Redis
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-06-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h5 id="NoSQL-非关系型数据库-四大类"><a href="#NoSQL-非关系型数据库-四大类" class="headerlink" title="NoSQL - 非关系型数据库(四大类) :"></a>NoSQL - 非关系型数据库(四大类) :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 - 键值对数据库(- K - V) : Redis - 高速缓存 - 内存中运行</span><br><span class="line">	键值对特点 : 存储效率高</span><br><span class="line">	内存读写速率 : GHZ/s (G赫兹每秒)</span><br><span class="line">2 - 文档数据库 Document : MongDB</span><br><span class="line">3 - 图数据库 Graph :  Neo4j(脉脉 - 挖掘人脉的APP 社交网站)</span><br><span class="line">4 - 列簇数据库 : HBase - 数据归约</span><br></pre></td></tr></table></figure>
+<h5 id="CAP定理（CAP-theorem）"><a href="#CAP定理（CAP-theorem）" class="headerlink" title="CAP定理（CAP theorem）:"></a>CAP定理（CAP theorem）:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Consistency : 一致性</span><br><span class="line">Availability : 可用性</span><br><span class="line">Partition tolerance : 分隔容忍</span><br><span class="line">CAP理论 : C.A和P三个只能占上两个</span><br><span class="line">	传统应用金融类应用基本上考虑的是CA</span><br><span class="line">	互联网和移动联网时代的应用更注重AP</span><br></pre></td></tr></table></figure>
+<h4 id="Redis"><a href="#Redis" class="headerlink" title="Redis :"></a>Redis :</h4><h6 id="确定是否安装redis"><a href="#确定是否安装redis" class="headerlink" title="确定是否安装redis"></a>确定是否安装redis</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-server --version</span><br><span class="line">redis-cli --version</span><br></pre></td></tr></table></figure>
+<h6 id="安装redis命令"><a href="#安装redis命令" class="headerlink" title="安装redis命令:"></a>安装redis命令:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">一 : yum 安装 (版本会过低)</span><br><span class="line">二 : 源代码构建安装:</span><br><span class="line">	cd redis</span><br><span class="line">	cd redis-3.2.12</span><br><span class="line">	make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>重要配置文件 : redis.conf(redis配置文件)  /  sentinel.conf(哨兵配置文件)</p>
+<h5 id="1-修改redis-conf配置文件"><a href="#1-修改redis-conf配置文件" class="headerlink" title="1.修改redis.conf配置文件"></a>1.修改redis.conf配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">回到主目录 : cd ~ </span><br><span class="line">输入pwd - 返回/root </span><br><span class="line">用户主目录下复制一份redis.conf进行修改 : </span><br><span class="line">	cp redis-3.2.12/redis.conf ./redis.conf 拷贝文件避免更改错误</span><br><span class="line">vim打开配置文件 : vim redis.conf</span><br><span class="line">命令模式Esc : 61gg - 去到当前行数 - 修改内网ip (行数 + gg --&gt; 去到指定行数)</span><br><span class="line">:!ip address - 查看内网ip地址</span><br><span class="line">61行 -- bind 172.27.0.11 绑定内网地址</span><br><span class="line">84行 -- port 6379 默认端口</span><br><span class="line">480行 -- requirepass 1qaz2wsx 删除注释,修改密码</span><br><span class="line">179行 -- databases 16 默认redis下16个数据库</span><br></pre></td></tr></table></figure>
+<h5 id="2-redis-server-服务器"><a href="#2-redis-server-服务器" class="headerlink" title="2. redis-server 服务器"></a><strong>2. redis-server 服务器</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">启动服务器</span><br><span class="line">	redis-server redis.conf 启动redis服务器</span><br><span class="line">	redis-sercer redis.conf &amp; 后台运行</span><br><span class="line">    redis-server myredis.conf &gt; myredis.log &amp; 后台运行</span><br><span class="line">关闭服务器</span><br><span class="line">    jobs --&gt; fg %1 --&gt; ^c 关闭redis服务器(自动保存)</span><br><span class="line">    ps -ef | grep redis 查看进程</span><br><span class="line">    bg %1 : 后台运行进程</span><br><span class="line">    jobs : 查看进程状态</span><br><span class="line">    netstat -nap | grep redis : 查看端口</span><br><span class="line">    redis-cli -h 172.18.61.250 : 连接服务器</span><br><span class="line">    auth + 密码 : 输入密码命令</span><br><span class="line">    ping ---&gt; PONG : 查看服务器是否连接成功 ping为命令, PONG为方法</span><br><span class="line">    kill 进程号 关闭redis服务器 不保存</span><br></pre></td></tr></table></figure>
+<p><strong>3. redis-cli 客户端</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">设置缓存时间 : set username(键) lronlin(值) ex 30</span><br><span class="line">拿到值 : get username</span><br><span class="line">存活时间(time to live) : ttl username</span><br><span class="line">空值 : nil</span><br><span class="line">超级时间 : expire username 120</span><br><span class="line">查看所有键 : keys *</span><br><span class="line">保存数据 : save</span><br><span class="line">阻塞保存数据 : bgsave</span><br><span class="line">清空数据库 : flushdb</span><br><span class="line">切换数据库 : select 3(数据库)</span><br><span class="line">清空所有 : flushall</span><br><span class="line">判断键是否存在 : exists</span><br><span class="line">关掉服务器默认保存数据 : shutdown (nosave 不保存数据)</span><br></pre></td></tr></table></figure>
+<h5 id="了解"><a href="#了解" class="headerlink" title="了解 :"></a>了解 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1998 - 提出NOSQL概念 </span><br><span class="line">2008 - Big Data 大数据时代</span><br><span class="line">No SQL</span><br><span class="line">No, SQL!</span><br><span class="line">Not Only SQL!</span><br></pre></td></tr></table></figure>
+<h5 id="用命令kill多个进程-运维"><a href="#用命令kill多个进程-运维" class="headerlink" title="用命令kill多个进程(运维):"></a>用命令kill多个进程(运维):</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">awk - 工具</span><br><span class="line">ps -ef | grep redis</span><br><span class="line">redis 10223 jdkf asjdkfjdkf ajsdfkdsaf asjdfkjd</span><br><span class="line">ps -ef | grep redis | awk &apos;&#123;print $2&#125;&apos;</span><br><span class="line">10223 </span><br><span class="line">ps -ef | grep redis | awk &apos;&#123;print $2&#125;&apos; | xargs kill</span><br><span class="line">命令别名 : alias shit=&apos;ps -ef | grep redis | awk &apos;&#123;print $2&#125;&apos; | xargs kill&apos;  </span><br><span class="line">shit</span><br></pre></td></tr></table></figure>
+<p>##### </p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月28日 20:14</p>
+        <p>原始链接： <a class="post-url" href="/2018/06/28/redis常用命令/" title="Redis">http://yoursite.com/2018/06/28/redis常用命令/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/28/redis常用命令/&title=《Redis》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/28/redis常用命令/&title=《Redis》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/28/redis常用命令/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Redis》 — Hexo&url=http://yoursite.com/2018/06/28/redis常用命令/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/28/redis常用命令/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/06/28/redis常用命令/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/redis/" class="color1">redis</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#NoSQL-非关系型数据库-四大类"><span class="post-toc-text">NoSQL - 非关系型数据库(四大类) :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#CAP定理（CAP-theorem）"><span class="post-toc-text">CAP定理（CAP theorem）:</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Redis"><span class="post-toc-text">Redis :</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#确定是否安装redis"><span class="post-toc-text">确定是否安装redis</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#安装redis命令"><span class="post-toc-text">安装redis命令:</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-修改redis-conf配置文件"><span class="post-toc-text">1.修改redis.conf配置文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-redis-server-服务器"><span class="post-toc-text">2. redis-server 服务器</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#了解"><span class="post-toc-text">了解 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#用命令kill多个进程-运维"><span class="post-toc-text">用命令kill多个进程(运维):</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/25/爬虫与User-Agent/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Spider</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
