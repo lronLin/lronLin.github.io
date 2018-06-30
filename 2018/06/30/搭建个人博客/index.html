@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>hexo | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="使用hexo和github搭建个人博客声明: 以下所有操作都是在windows操作系统下进行 什么是Hexo ?Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 1. 安装在安装Hexo前我们需要电脑已经安装以下程序 :  Node.js Git  这两个程序的安装很简单, windows用户可以使用">
+<meta name="keywords" content="搭建个人博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo">
+<meta property="og:url" content="http://yoursite.com/2018/06/30/搭建个人博客/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用hexo和github搭建个人博客声明: 以下所有操作都是在windows操作系统下进行 什么是Hexo ?Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 1. 安装在安装Hexo前我们需要电脑已经安装以下程序 :  Node.js Git  这两个程序的安装很简单, windows用户可以使用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/hexo1.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/hexo2.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/hexo3.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/hexo4.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/hexo5.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/hexo6.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/hexo7.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/hexo8.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/hexo9.png">
+<meta property="og:updated_time" content="2018-06-30T02:14:59.384Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo">
+<meta name="twitter:description" content="使用hexo和github搭建个人博客声明: 以下所有操作都是在windows操作系统下进行 什么是Hexo ?Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 1. 安装在安装Hexo前我们需要电脑已经安装以下程序 :  Node.js Git  这两个程序的安装很简单, windows用户可以使用">
+<meta name="twitter:image" content="c:/Users/95358/Desktop/桌面/img/hexo1.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-搭建个人博客" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      hexo
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-06-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="使用hexo和github搭建个人博客"><a href="#使用hexo和github搭建个人博客" class="headerlink" title="使用hexo和github搭建个人博客"></a>使用hexo和github搭建个人博客</h2><p>声明: 以下所有操作都是在windows操作系统下进行</p>
+<h3 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo ?"></a>什么是Hexo ?</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><p>在安装Hexo前我们需要电脑已经安装以下程序 :</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+</ul>
+<p>这两个程序的安装很简单, windows用户可以使用安装程序进行安装, 简单高效.</p>
+<p>请务必将这两个程序安装好, 否则我们不能进行以下操作.</p>
+<h4 id="1-1-1安装Git"><a href="#1-1-1安装Git" class="headerlink" title="1-1-1安装Git"></a>1-1-1安装Git</h4><p>Windows用户建议使用这个<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">下载地址</a>下载, 找到合适的版本进行下载安装即可, 安装时的操作请自行参考百度</p>
+<h4 id="1-1-2安装Node-js"><a href="#1-1-2安装Node-js" class="headerlink" title="1-1-2安装Node.js"></a>1-1-2安装Node.js</h4><p>Windows用户安装这个最好也是下载对应的<a href="https://nodejs.org/en/" target="_blank" rel="noopener">安装程序</a>进行安装, 这里也请参考百度 值得一提的是建议不要下载最新的版本, 尽量下载大多数人用的版本.</p>
+<h4 id="1-1-3安装Hexo"><a href="#1-1-3安装Hexo" class="headerlink" title="1-1-3安装Hexo"></a>1-1-3安装Hexo</h4><p>检查是否安装好以上两个程序, 在桌面点击鼠标右键, 选择</p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\hexo1.png" alt="hexo1"></p>
+<p>在打开的类似Linux的命令行中输入命令;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --version</span><br></pre></td></tr></table></figure>
+<p>在以上的两个必备的应用程序安装完成之后我们可以安装Hexo了.</p>
+<p>使用如下命令安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="2-建站"><a href="#2-建站" class="headerlink" title="2. 建站"></a>2. 建站</h2><h4 id="2-1-初始化"><a href="#2-1-初始化" class="headerlink" title="2-1 初始化"></a>2-1 初始化</h4><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;  # folder 是文件夹 即 hexo init 文件夹</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>命令执行成功没有 error 错误的时候，我们就建站成功了；</p>
+<h4 id="2-2-安装server并启动"><a href="#2-2-安装server并启动" class="headerlink" title="2-2 安装server并启动"></a>2-2 安装server并启动</h4><p>接着执行以下命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-进入默认主题博客"><a href="#2-3-进入默认主题博客" class="headerlink" title="2-3 进入默认主题博客"></a>2-3 进入默认主题博客</h4><p>这两条命令执行完成后会生成一个如下的地址：<img src="C:\Users\95358\Desktop\桌面\img\hexo2.png" alt="hexo2"></p>
+<p>我们把这个网址复制下来并粘贴到浏览器中打开即可看到 Hexo 默认的主题博客了，如果没有成功的话建议查看自己是否有操作不当的地方或者命令错误。</p>
+<h2 id="3-部署"><a href="#3-部署" class="headerlink" title="3. 部署"></a>3. 部署</h2><h4 id="3-1-建立Git仓库"><a href="#3-1-建立Git仓库" class="headerlink" title="3-1 建立Git仓库"></a>3-1 建立Git仓库</h4><p>因为要使用到 Git ， 所以我们需要先建立一个新的仓库，建立仓库这个就不再赘述，这里只做简要的描述，不会的同学还请自行百度=。=</p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\hexo3.png" alt="hexo3"></p>
+<blockquote>
+<p>注意: 这里在建仓库的时候, 仓库的名字一定要按照 &lt;用户名&gt;.github.io 这样的格式来写</p>
+</blockquote>
+<p><img src="C:\Users\95358\Desktop\桌面\img\hexo4.png" alt="hexo4"></p>
+<h4 id="3-2-生成SSH-keys"><a href="#3-2-生成SSH-keys" class="headerlink" title="3-2 生成SSH keys"></a>3-2 生成SSH keys</h4><p>这个很重要！ 这个如果没有添加 ssh keys 那么等会必定会报错。</p>
+<p>使用如下操作生成SSH key</p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\hexo5.png" alt="hexo5"></p>
+<p>生成密钥完成后， 我们将 id_rsa.pub 中的所有内容拷贝到github中相应的位置中去。</p>
+<p>找到 github 中的设置 :</p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\hexo6.png" alt="hexo6"></p>
+<p>生成一个新的SSH key 并将我们生成的在 id_rsa.pub 中的内容 拷贝到其中</p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\hexo7.png" alt="hexo7"></p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\hexo8.png" alt="hexo8"></p>
+<p>添加到其中即可</p>
+<h4 id="3-3-更该配置"><a href="#3-3-更该配置" class="headerlink" title="3-3 更该配置"></a>3-3 更该配置</h4><p>在你的初始化文件夹下找到 _config.yml 这个文件并打开</p>
+<p>这里最好使用 <strong>Sublime</strong>或者 <strong>Hbuilder</strong> 打开.</p>
+<p>打开后做如下修改，这里注意空格 repository 就是 github 为我们生成的一个地址。</p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\hexo9.png" alt="hexo9"></p>
+<h4 id="3-4-生成静态网页并部署"><a href="#3-4-生成静态网页并部署" class="headerlink" title="3-4 生成静态网页并部署"></a>3-4 生成静态网页并部署</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean  # 清理缓存</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>最后在浏览器中输入我们的地址即可 即 username.github.io 其中username为你自己创建仓库的名字</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月30日 10:14</p>
+        <p>原始链接： <a class="post-url" href="/2018/06/30/搭建个人博客/" title="hexo">http://yoursite.com/2018/06/30/搭建个人博客/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/06/30/搭建个人博客/&title=《hexo》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/06/30/搭建个人博客/&title=《hexo》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/30/搭建个人博客/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hexo》 — Hexo&url=http://yoursite.com/2018/06/30/搭建个人博客/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/30/搭建个人博客/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/06/30/搭建个人博客/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/搭建个人博客/" class="color2">搭建个人博客</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用hexo和github搭建个人博客"><span class="post-toc-text">使用hexo和github搭建个人博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是Hexo"><span class="post-toc-text">什么是Hexo ?</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-安装"><span class="post-toc-text">1. 安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-1安装Git"><span class="post-toc-text">1-1-1安装Git</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-2安装Node-js"><span class="post-toc-text">1-1-2安装Node.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-3安装Hexo"><span class="post-toc-text">1-1-3安装Hexo</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-建站"><span class="post-toc-text">2. 建站</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-初始化"><span class="post-toc-text">2-1 初始化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-安装server并启动"><span class="post-toc-text">2-2 安装server并启动</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-进入默认主题博客"><span class="post-toc-text">2-3 进入默认主题博客</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-部署"><span class="post-toc-text">3. 部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-建立Git仓库"><span class="post-toc-text">3-1 建立Git仓库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-生成SSH-keys"><span class="post-toc-text">3-2 生成SSH keys</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-3-更该配置"><span class="post-toc-text">3-3 更该配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-4-生成静态网页并部署"><span class="post-toc-text">3-4 生成静态网页并部署</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最后"><span class="post-toc-text">最后</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/30/Flask部署项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Flask</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
