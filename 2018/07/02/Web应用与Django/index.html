@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Web应用与Django | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="LronLin,LronLin's Blog" />
+  
+  <meta name="description" content="静态页面 — 动态页面 :页面中的内容是动态生成的页面中的内容是用程序自动生成的Python(的程序) —&amp;gt; HTML(页面)Web应用:(可以做服务器端的应用程序) - 知识点一//123456789知识点一 : Web应用 - 基于浏览器来使用的应用程序	只要有网络和浏览器就能使用它如果应用程序升级那么用户不用做任何特殊处理	计算机网络诞生:(发展史)	分组交换网 - ARPANET	国">
+<meta name="keywords" content="Web与Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web应用与Django">
+<meta property="og:url" content="http://yoursite.com/2018/07/02/Web应用与Django/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="静态页面 — 动态页面 :页面中的内容是动态生成的页面中的内容是用程序自动生成的Python(的程序) —&amp;gt; HTML(页面)Web应用:(可以做服务器端的应用程序) - 知识点一//123456789知识点一 : Web应用 - 基于浏览器来使用的应用程序	只要有网络和浏览器就能使用它如果应用程序升级那么用户不用做任何特殊处理	计算机网络诞生:(发展史)	分组交换网 - ARPANET	国">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/web应用.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/TCP-IP模型.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/web应用术语.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/http请求.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/http响应.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/版本关系.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/MVC.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/Django.png">
+<meta property="og:updated_time" content="2018-07-02T12:42:34.958Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web应用与Django">
+<meta name="twitter:description" content="静态页面 — 动态页面 :页面中的内容是动态生成的页面中的内容是用程序自动生成的Python(的程序) —&amp;gt; HTML(页面)Web应用:(可以做服务器端的应用程序) - 知识点一//123456789知识点一 : Web应用 - 基于浏览器来使用的应用程序	只要有网络和浏览器就能使用它如果应用程序升级那么用户不用做任何特殊处理	计算机网络诞生:(发展史)	分组交换网 - ARPANET	国">
+<meta name="twitter:image" content="c:/Users/95358/Desktop/桌面/img/web应用.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">LronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        LronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        用代码摇滚这个世界  专注 Python 开发
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="LronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-Web应用与Django" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Web应用与Django
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-07-02
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h5 id="静态页面-—-动态页面"><a href="#静态页面-—-动态页面" class="headerlink" title="静态页面 — 动态页面 :"></a>静态页面 — 动态页面 :</h5><h5 id="页面中的内容是动态生成的"><a href="#页面中的内容是动态生成的" class="headerlink" title="页面中的内容是动态生成的"></a>页面中的内容是动态生成的</h5><h5 id="页面中的内容是用程序自动生成的"><a href="#页面中的内容是用程序自动生成的" class="headerlink" title="页面中的内容是用程序自动生成的"></a>页面中的内容是用程序自动生成的</h5><h5 id="Python-的程序-—-gt-HTML-页面"><a href="#Python-的程序-—-gt-HTML-页面" class="headerlink" title="Python(的程序) —&gt; HTML(页面)"></a>Python(的程序) —&gt; HTML(页面)</h5><h5 id="Web应用-可以做服务器端的应用程序-知识点一"><a href="#Web应用-可以做服务器端的应用程序-知识点一" class="headerlink" title="Web应用:(可以做服务器端的应用程序) - 知识点一//"></a>Web应用:(可以做服务器端的应用程序) - 知识点一//</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">知识点一 : Web应用 - 基于浏览器来使用的应用程序</span><br><span class="line">	只要有网络和浏览器就能使用它</span><br><span class="line">如果应用程序升级那么用户不用做任何特殊处理</span><br><span class="line">	</span><br><span class="line">计算机网络诞生:(发展史)</span><br><span class="line">	分组交换网 - ARPANET</span><br><span class="line">	国际标准化组织 ISO 开放系统互联参考模型 - OIS / RM</span><br><span class="line">	TCP / IP模型</span><br><span class="line">	1991年 - 浏览器出现了</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\95358\Desktop\桌面\img\web应用.png" alt="web应用"></p>
+<p>PHP / ASP / JSP - P值得是page</p>
+<h5 id="应用级协议-知识点二"><a href="#应用级协议-知识点二" class="headerlink" title="应用级协议: 知识点二 //"></a>应用级协议: 知识点二 //</h5><p>HTTP(s) - 应用级协议 - 使用了TCP协议的传输服务</p>
+<p>HTTP / HTTPS : 应用级协议 - 底层传输协议 - TCP - 保证可靠通信 / 数据不流失</p>
+<h5 id="TCP-IP模型-四层-面试"><a href="#TCP-IP模型-四层-面试" class="headerlink" title="TCP / IP模型 : 四层(面试)"></a>TCP / IP模型 : 四层(面试)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">物理链路层(解决分帧 + 校验) -&gt; 两台计算机就可以通信了 - 网络层(IP协议 / TCMP协议-协议族)(解决寻址与路由)-&gt; 端到端的数据传输 - 传输层(TCP(承诺三件事) / UDP) -&gt; 解决端到端的可靠通信 - 应用层(定义应用级协议)(QQ - ICQ协议 / QQ协议(现用) / HTTP / HTTPS / SMTP / FTP / Telnet / SSH)</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\95358\Desktop\桌面\img\TCP-IP模型.png" alt="TCP-IP模型"></p>
+<p>冗余校验码(科普): </p>
+<p>浏览器中 : 有渲染引擎与JS引擎</p>
+<h5 id="术语-面试"><a href="#术语-面试" class="headerlink" title="术语: (面试)"></a>术语: (面试)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">URL/URI : 统一资源定位符/统一资源标识符，网络资源的唯一标识</span><br><span class="line">域名 : 与Web服务器地址对应的一个易于记忆的字符串名字</span><br><span class="line">DNS : 域名解析服务，可以将域名转换成对应的IP地址(翻译成ip地址就可以访问服务器)</span><br><span class="line">IP地址 : 网络上的主机的身份标识，通过IP地址可以区分不同的主机(路由器通过ip地址找到你)</span><br><span class="line">HTTP : 超文本传输协议，基于TCP建立可靠传输的应用层协议，万维网数据通信的基础(浏览器与服务器之间传输的载体)</span><br><span class="line">反向代理 : 代理客户端向服务器发出请求，然后将服务器返回的资源返回给客户端(存在web浏览器 与 web服务器之间)(请求发送给反向代理 - 反向代理帮你找到离你最近的服务器)</span><br><span class="line">Web服务器 : 接受HTTP请求，然后返回HTML文件、纯文本文件、图像等资源给请求者(支撑HTTP请求 - 部署在上面)</span><br><span class="line">Nginx : 高性能的Web服务器，也可以用作反向代理，负载均衡 和 HTTP缓存(体积小, 性能好) - 俄罗斯人出品的 - 最好的服务器</span><br><span class="line">另外还有一个阿帕奇服务器 - 美国人出品的</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\95358\Desktop\桌面\img\web应用术语.png" alt="web应用术语"></p>
+<p>页面 / js / 静态资源 - 返回给用户界面 </p>
+<h5 id="URL"><a href="#URL" class="headerlink" title="URL :"></a>URL :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">协议://IP地址或域名:端口号/路径1/路径2/资源</span><br></pre></td></tr></table></figure>
+<h5 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP :"></a>HTTP :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">HTTP请求（请求行+请求头+空行+[消息体]）：(所用工具 - Ethereal --&gt;现在的名字 Wireshark)</span><br><span class="line">例子:</span><br><span class="line">	网卡设置成混杂模式 - 可以看到用户名与密码(如果没有走TCP-HTTPS协议)</span><br><span class="line">	抓取HTTP协议下的数据:</span><br><span class="line">		HTTP(s) ---&gt; Charles(花瓶) - 抓包工具</span><br><span class="line">		Chrome ---&gt; 开发人员工具</span><br><span class="line">HTTP响应（响应行+响应头+空行+消息体）：</span><br><span class="line">常用请求 :</span><br><span class="line"> get请求 / post请求</span><br><span class="line"> index/ : 代表首页</span><br><span class="line"> \r\n : 代表换行</span><br><span class="line"> 冒号 : 键值对存在 冒号前是键 , 冒号后是值</span><br><span class="line"> 如果是post请求 : 空行后面有消息体</span><br><span class="line"> 如果是get请求 : 空行后面没有消息体</span><br><span class="line"> 405 : 请求方法不正确</span><br><span class="line"> 403 : 禁止访问</span><br><span class="line"> 401 : 授权访问</span><br><span class="line"> 500: 服务器错误(500开头都是)</span><br><span class="line"> 404 : 请求资源不存在</span><br></pre></td></tr></table></figure>
+<p>HTTP请求（请求行+请求头+空行+[消息体]）<img src="C:\Users\95358\Desktop\桌面\img\http请求.png" alt="http请求"></p>
+<p>HTTP响应（响应行+响应头+空行+消息体）</p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\http响应.png" alt="http响应"></p>
+<h5 id="Django概念"><a href="#Django概念" class="headerlink" title="Django概念:"></a>Django概念:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Python的Web框架中比较有名的有：Flask、Django、Tornado、Pyramid、Bottle、Web2py、web.py等</span><br><span class="line">企业开发 - 最好是Java</span><br><span class="line">产品快速占领市场 : Python / PHP</span><br><span class="line">Python中有35个关键字</span><br><span class="line">做web应用需要MVC架构</span><br></pre></td></tr></table></figure>
+<h5 id="版本关系"><a href="#版本关系" class="headerlink" title="版本关系:"></a>版本关系:</h5><p><img src="C:\Users\95358\Desktop\桌面\img\版本关系.png" alt="版本关系"></p>
+<h5 id="MVC架构模式"><a href="#MVC架构模式" class="headerlink" title="MVC架构模式:"></a>MVC架构模式:</h5><p><img src="C:\Users\95358\Desktop\桌面\img\MVC.png" alt="MVC"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">model : 程序中的数据</span><br><span class="line">view : 展现给用户看的页面(同样的数据可以展现出不同的视图/ 同一个视图可以加载不同的模型)</span><br><span class="line">controller : 控制器, 负责把分离的视图与模型结合起来(连接视图与模型的桥梁)</span><br><span class="line">架构理念 : 模型与理念分开 : 数据与数据的解耦合</span><br><span class="line">解耦合 : 高内聚, 低耦合</span><br><span class="line">高内聚 : </span><br><span class="line">低耦合 : 模块与模块之间</span><br><span class="line">标签装数据 / 样式表渲染页面</span><br></pre></td></tr></table></figure>
+<h5 id="MTV"><a href="#MTV" class="headerlink" title="MTV:"></a>MTV:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model : 模型</span><br><span class="line">Template : 模板</span><br><span class="line">view : 控制</span><br></pre></td></tr></table></figure>
+<h5 id="内容管理系统-—-gt-Django-Web框架-知识点三"><a href="#内容管理系统-—-gt-Django-Web框架-知识点三" class="headerlink" title="内容管理系统 —&gt; Django - Web框架:  知识点三 //"></a>内容管理系统 —&gt; Django - Web框架:  知识点三 //</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">检查版本 : python --version</span><br><span class="line">先建项目文件夹 : mkdir hellodjango</span><br><span class="line">再建虚拟环境目录 : 方法一 :python3 -m venv venv(虚拟环境目录文件夹)</span><br><span class="line">				方法二 : virtualenv --no-site-packages helloenv</span><br><span class="line">进入虚拟环境文件夹 : cd helloenv / cd venv</span><br><span class="line">				cd Scripts / cd bin</span><br><span class="line">激活虚拟环境 : source venv/bin/activate(阿里云)/activate(Windows) / source activate</span><br><span class="line">更新pip环境 : python -m pip install -U pip</span><br><span class="line">安装django : pip install django(如果没有指定版本, 就装的是最新的稳定版本)</span><br><span class="line">查看django版本 : django-admin --version</span><br><span class="line">创建项目 : django-admin startproject hellodjango .</span><br><span class="line">运行服务器 : python manage.py runsever 172.18.206.219:80</span><br><span class="line">终止服务器 : Ctrl + c</span><br><span class="line">创建应用 : python manage.py startapp demo(应用名称)</span><br><span class="line">包 : __init__.py</span><br><span class="line">视图 : views.py - (控制器)</span><br><span class="line">模型 : models.py</span><br><span class="line">应用 : app.py</span><br><span class="line">迁移 : migrations - 数据迁移</span><br><span class="line">DIRS: 目录</span><br><span class="line">绝对路径 : abspath</span><br><span class="line">路径连接 : &apos;DIRS&apos;: [os.path.join(BASE_DIR, &apos;templates&apos;)],</span><br><span class="line">渲染 : render</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\95358\Desktop\桌面\img\Django.png" alt="Django"></p>
+<p>总结 : </p>
+<p>​    1.Web应用及其特点 , 流程</p>
+<p>​    2.HTTP(s) - 应用级协议 - 使用了TCP协议的传输服务</p>
+<p>​    3.Django - Web框架 - MVC架构模式(MV*) - [放之四海而皆知] - MTV</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年07月02日 20:42</p>
+        <p>原始链接： <a class="post-url" href="/2018/07/02/Web应用与Django/" title="Web应用与Django">http://yoursite.com/2018/07/02/Web应用与Django/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/02/Web应用与Django/&title=《Web应用与Django》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/02/Web应用与Django/&title=《Web应用与Django》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/02/Web应用与Django/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Web应用与Django》 — Hexo&url=http://yoursite.com/2018/07/02/Web应用与Django/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/02/Web应用与Django/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/07/02/Web应用与Django/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Web与Django/" class="color1">Web与Django</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#静态页面-—-动态页面"><span class="post-toc-text">静态页面 — 动态页面 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#页面中的内容是动态生成的"><span class="post-toc-text">页面中的内容是动态生成的</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#页面中的内容是用程序自动生成的"><span class="post-toc-text">页面中的内容是用程序自动生成的</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Python-的程序-—-gt-HTML-页面"><span class="post-toc-text">Python(的程序) —&gt; HTML(页面)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Web应用-可以做服务器端的应用程序-知识点一"><span class="post-toc-text">Web应用:(可以做服务器端的应用程序) - 知识点一//</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#应用级协议-知识点二"><span class="post-toc-text">应用级协议: 知识点二 //</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#TCP-IP模型-四层-面试"><span class="post-toc-text">TCP / IP模型 : 四层(面试)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#术语-面试"><span class="post-toc-text">术语: (面试)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#URL"><span class="post-toc-text">URL :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP"><span class="post-toc-text">HTTP :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Django概念"><span class="post-toc-text">Django概念:</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#版本关系"><span class="post-toc-text">版本关系:</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#MVC架构模式"><span class="post-toc-text">MVC架构模式:</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#MTV"><span class="post-toc-text">MTV:</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#内容管理系统-—-gt-Django-Web框架-知识点三"><span class="post-toc-text">内容管理系统 —&gt; Django - Web框架:  知识点三 //</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/30/搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">hexo</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
