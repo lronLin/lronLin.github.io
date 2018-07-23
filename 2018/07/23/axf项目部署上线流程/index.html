@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Django | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="lronLin,lronLin's Blog" />
+  
+  <meta name="description" content="初始化服务器 :云服务器ESC - 进入实例化 - 选择实例ID/名称 -&amp;gt; 实例状态停止 - 重新初始化磁盘 - 输入root密码 -  初始化成功后自动启动成功后就可以在控制台直接进行测试环境部署了(CentOS7部署). 安装python3.6 :在centos中，系统默认只提供python2.7的版本，但是项目我们使用的python3.6的版本。所有我们自己安装python3 安装P">
+<meta name="keywords" content="axf项目部署">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django">
+<meta property="og:url" content="http://yoursite.com/2018/07/23/axf项目部署上线流程/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="初始化服务器 :云服务器ESC - 进入实例化 - 选择实例ID/名称 -&amp;gt; 实例状态停止 - 重新初始化磁盘 - 输入root密码 -  初始化成功后自动启动成功后就可以在控制台直接进行测试环境部署了(CentOS7部署). 安装python3.6 :在centos中，系统默认只提供python2.7的版本，但是项目我们使用的python3.6的版本。所有我们自己安装python3 安装P">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/添加static.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/urls.py.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/首页配置.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/nginx运行成功.png">
+<meta property="og:image" content="c:/Users/95358/AppData/Local/Temp/1532269791795.png">
+<meta property="og:image" content="https://github.com/coco369/knowledge/raw/master/django/images/django_centos_project_mulu.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/uwsgi配置.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/uwsgi1.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/nginx总.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/nginx运行成功.png">
+<meta property="og:updated_time" content="2018-07-23T03:03:13.263Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django">
+<meta name="twitter:description" content="初始化服务器 :云服务器ESC - 进入实例化 - 选择实例ID/名称 -&amp;gt; 实例状态停止 - 重新初始化磁盘 - 输入root密码 -  初始化成功后自动启动成功后就可以在控制台直接进行测试环境部署了(CentOS7部署). 安装python3.6 :在centos中，系统默认只提供python2.7的版本，但是项目我们使用的python3.6的版本。所有我们自己安装python3 安装P">
+<meta name="twitter:image" content="c:/Users/95358/Desktop/桌面/img/添加static.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">lronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        lronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        简洁是智慧的灵魂, 冗长是肤浅的藻饰!
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="lronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-axf项目部署上线流程" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Django
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-07-23
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h5 id="初始化服务器"><a href="#初始化服务器" class="headerlink" title="初始化服务器 :"></a>初始化服务器 :</h5><p>云服务器ESC - 进入实例化 - 选择实例ID/名称 -&gt; 实例状态停止 - 重新初始化磁盘 - 输入root密码 -  初始化成功后自动启动成功后就可以在控制台直接进行测试环境部署了(CentOS7部署).</p>
+<h5 id="安装python3-6"><a href="#安装python3-6" class="headerlink" title="安装python3.6 :"></a>安装python3.6 :</h5><p>在centos中，系统默认只提供python2.7的版本，但是项目我们使用的python3.6的版本。所有我们自己安装python3</p>
+<h5 id="安装Python3的方法"><a href="#安装Python3的方法" class="headerlink" title="安装Python3的方法"></a>安装Python3的方法</h5><p>首先安装依赖包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y groupinstall &quot;Development tools&quot;</span><br><span class="line"></span><br><span class="line">yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</span><br></pre></td></tr></table></figure>
+<p>然后根据自己需求下载不同版本的Python3，我下载的是Python3.6.2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tar.xz</span><br><span class="line"></span><br><span class="line">然后解压压缩包，进入该目录，安装Python3</span><br><span class="line"></span><br><span class="line">tar -xvJf  Python-3.6.2.tar.xz</span><br><span class="line">cd Python-3.6.2</span><br><span class="line">./configure --prefix=/usr/local/python3</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>最后创建软链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/python3/bin/python3 /usr/bin/python3</span><br><span class="line"></span><br><span class="line">ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3</span><br></pre></td></tr></table></figure>
+<h5 id="安装MariaDB-–-数据库"><a href="#安装MariaDB-–-数据库" class="headerlink" title="安装MariaDB : – 数据库"></a>安装MariaDB : – 数据库</h5><p>安装命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mariadb mariadb-server</span><br></pre></td></tr></table></figure>
+<p>安装完成MariaDB，首先启动MariaDB</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mariadb</span><br></pre></td></tr></table></figure>
+<p>设置开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mariadb</span><br></pre></td></tr></table></figure>
+<h5 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h5><p>命令: mysql_secure_installation</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Enter current password for root:&lt;–初次运行直接回车</span><br><span class="line"></span><br><span class="line">设置密码</span><br><span class="line"></span><br><span class="line">Set root password? [Y/n] &lt;– 是否设置root用户密码，输入y并回车或直接回车(一般输入y)</span><br><span class="line"></span><br><span class="line">New password: &lt;– 设置root用户的密码(输入个人数据库密码123456)</span><br><span class="line">Re-enter new password: &lt;– 再输入一次你设置的密码(再一次输入个人数据库密码123456)</span><br><span class="line"></span><br><span class="line">其他配置</span><br><span class="line"></span><br><span class="line">Remove anonymous users? [Y/n] &lt;– 是否删除匿名用户，j回车(一般选择Y)</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? [Y/n] &lt;–是否禁止root远程登录,回车(一般选择n)</span><br><span class="line"></span><br><span class="line">Remove test database and access to it? [Y/n] &lt;– 是否删除test数据库，回车(一般选n不删除)</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? [Y/n] &lt;– 是否重新加载权限表，回车(一般选y重写加载)</span><br><span class="line"></span><br><span class="line">初始化MariaDB完成，接下来测试登录</span><br><span class="line"></span><br><span class="line">mysql -u root -p(进入数据库)</span><br></pre></td></tr></table></figure>
+<h5 id="连接本地数据库"><a href="#连接本地数据库" class="headerlink" title="连接本地数据库 :"></a>连接本地数据库 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在Navicat工具中新建连接 - 选择MariaDB</span><br><span class="line">连接名 : 个人ip(120.79.135.242) 或者自定义名称</span><br><span class="line">主机名或IP地址 : 个人ip(120.79.135.242)</span><br><span class="line">端口 : 默认3306</span><br><span class="line">用户名 : root</span><br><span class="line">密码 : 输入刚刚新设置的个人数据库新密码(123456)</span><br><span class="line">测试连接成功即可</span><br></pre></td></tr></table></figure>
+<h5 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h5><p>在mysql数据库中的user表中可以看到默认是只能本地连接的，所有可以添加一个新的用户，该用户可以远程访问</p>
+<h5 id="1-创建用户"><a href="#1-创建用户" class="headerlink" title="1. 创建用户"></a>1. 创建用户</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 先使用数据库</span><br><span class="line">use mysql;(请先输入这个命令)</span><br><span class="line"></span><br><span class="line"># 针对ip</span><br><span class="line"># create user &apos;root&apos;@&apos;192.168.10.10&apos; identified by &apos;password&apos;;</span><br><span class="line"></span><br><span class="line"># 全部</span><br><span class="line"> create user &apos;root&apos;@&apos;%&apos; identified by &apos;password&apos;;(一般使用数据库后创建全部password改为个人密码123456)</span><br></pre></td></tr></table></figure>
+<h5 id="2-授权"><a href="#2-授权" class="headerlink" title="2. 授权"></a>2. 授权</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 给用户最大权限</span><br><span class="line">grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;password&apos;;(一般使用最大权限 - 个人数据库密码password改为个人密码123456)</span><br><span class="line"></span><br><span class="line"># 给部分权限(test 数据库)</span><br><span class="line"></span><br><span class="line"># grant all privileges on test.* to &apos;root&apos;@&apos;%&apos; identified by &apos;password&apos; with grant option;</span><br><span class="line"></span><br><span class="line"># 刷新权限表</span><br><span class="line">flush privileges;(接着使用这个)</span><br><span class="line"></span><br><span class="line"># 查看</span><br><span class="line"># show grants for &apos;root&apos;@&apos;localhost&apos;;</span><br><span class="line"></span><br><span class="line">接下来就可以在远程的数据库可视化工具中直接访问该服务器中的mysql了。</span><br><span class="line"></span><br><span class="line"># 访问数据库</span><br><span class="line">mysql -u root -p(接着)</span><br></pre></td></tr></table></figure>
+<h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件 :"></a>配置文件 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">此路径切换到home : root/python-3.6.2 # cd /home/</span><br><span class="line">此路径下创建四个文件 root/home : mkdir env logs src conf</span><br><span class="line">env : 放虚拟环境</span><br><span class="line">logs : 放日志</span><br><span class="line">src : 放项目(代码)</span><br><span class="line">conf : 放配置文件</span><br></pre></td></tr></table></figure>
+<h5 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境 :"></a>安装环境 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 安装virtualenv</span><br><span class="line">	此路径下root/home : yum install python-virtualenv</span><br><span class="line">	is this ok[y/d/N] : y</span><br><span class="line">2. 创建虚拟环境</span><br><span class="line">	此路径root/home/env : virtualenv --no-site-packages axfenv</span><br><span class="line">	# 激活虚拟环境</span><br><span class="line">	进入此路径root/home/env/axfenv/bin : source activate</span><br><span class="line">	</span><br><span class="line">	# 退出虚拟环境</span><br><span class="line">	此路径root/home/env/axfenv/bin : deactivate</span><br></pre></td></tr></table></figure>
+<h5 id="将代码传输到服务器"><a href="#将代码传输到服务器" class="headerlink" title="将代码传输到服务器 :"></a>将代码传输到服务器 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">此路径root/home/src : </span><br><span class="line">	连接Xftp 6 : </span><br><span class="line">	服务器此路径/home/src : 找到自己项目代码本地所在路径(C:workspace/projects/axf) 点击右键传输</span><br></pre></td></tr></table></figure>
+<h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><p>该部署采用的是cenots7系统来部署</p>
+<p>Django的项目中，在工程目录下settings.py文件中有一个DEBUG=True参数，如果DEBUG=False则会出现js,css，img无法加载的情况出现。</p>
+<p>原因如下：</p>
+<p>Django框架仅在开发模式下提供静态文件服务。当我开启DEBUG模式时，Django内置的服务器是提供静态文件的服务的，所以css等文件访问都没有问题，但是关闭DEBUG模式后，Django便不提供静态文件服务了。想一想这是符合Django的哲学的：这部分事情标准服务器都很擅长，就让服务器去做吧！</p>
+<h5 id="1-测试环境中部署方式"><a href="#1-测试环境中部署方式" class="headerlink" title="1. 测试环境中部署方式"></a>1. 测试环境中部署方式</h5><h5 id="urls-py中的修改"><a href="#urls-py中的修改" class="headerlink" title="urls.py中的修改"></a>urls.py中的修改</h5><p>在测试环境中一般都直接使用python manage.py runserver的方式去运行项目。其中就涉及到DEBUG=False的修改，静态目录的修改等，具体修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1.此路径root/home/src/axf : vim axf/settings.py</span><br><span class="line"></span><br><span class="line"> 修改settings.py配置文件中的DEBUG=False模式</span><br><span class="line"> 修改ALLOEWD_HOST=[&apos;*&apos;] (允许访问的ip)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.修改工程目录下的urls.py</span><br><span class="line"></span><br><span class="line">此路径root/home/src/axf : vim axf/urls.py</span><br><span class="line"></span><br><span class="line">from django.views.static import serve(需导包)</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^admin/&apos;, admin.site.urls),</span><br><span class="line">    url(r&apos;^axf/&apos;, include(&apos;axf.urls&apos;, namespace=&apos;axf&apos;)),</span><br><span class="line"></span><br><span class="line">	# 增加以下的url路由</span><br><span class="line">    url(r&apos;^static/(?P&lt;path&gt;.*)$&apos;, serve, &#123;&quot;document_root&quot;: settings.STATICFILES_DIRS[0]&#125;),</span><br><span class="line">	</span><br><span class="line">    url(r&apos;^media/(?P&lt;path&gt;.*)$&apos;, serve, &#123;&quot;document_root&quot;: settings.MEDIA_ROOT&#125;),</span><br><span class="line"></span><br><span class="line">    url(r&apos;^$&apos;, views.home)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="安装环境需要的包"><a href="#安装环境需要的包" class="headerlink" title="安装环境需要的包:"></a>安装环境需要的包:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">此路径创建文件root/home/src/axf : touch re_install.txt</span><br><span class="line">此路径创建文件root/home/src/axf : vim re_install.txt</span><br><span class="line">     django==1.11</span><br><span class="line">     pymysql</span><br><span class="line">     pillow</span><br><span class="line"># 进入虚拟环境</span><br><span class="line">此路径root/home/env : source axfenv/bin/activate</span><br><span class="line"># 找到代码 并指定文件 安装环境</span><br><span class="line">此路径root/home/src/axf : pip3 install -r re_install.txt</span><br></pre></td></tr></table></figure>
+<h5 id="创建数据库-本地数据库迁移-表-字段-数据同步到远程服务器"><a href="#创建数据库-本地数据库迁移-表-字段-数据同步到远程服务器" class="headerlink" title="创建数据库 : 本地数据库迁移 : 表/字段/数据同步到远程服务器"></a>创建数据库 : 本地数据库迁移 : 表/字段/数据同步到远程服务器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">进入Navicat 在连接的Maria DB120.79.135.242中 : </span><br><span class="line"># 创建数据库</span><br><span class="line">	数据库名 : axf3</span><br><span class="line">	字符集 : utf8</span><br><span class="line">	排序规则 : utf8_general_ci</span><br><span class="line">	</span><br><span class="line"># 数据传输</span><br><span class="line">        源              目标</span><br><span class="line">	本地服务器 同步到 远端服务器(120.79.135.242)</span><br><span class="line">数据库 axf3            axf3	</span><br><span class="line">同步对象 表</span><br></pre></td></tr></table></figure>
+<h5 id="启服务"><a href="#启服务" class="headerlink" title="启服务:"></a>启服务:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(axfenv)root/home/src/axf : python3 manage.py runserver 0.0.0.0:80</span><br><span class="line">网页中访问 : 120.79.135.242即可</span><br><span class="line">服务器执行中会报302 : 权限问题 中间件 - 重定向问题</span><br><span class="line">	复制SSH渠道 : 查看中间件</span><br><span class="line">	# 添加static</span><br><span class="line">	此路径root/home/src/axf : vim utils/UserAuthMiddleware.py</span><br><span class="line">	# 添加media</span><br><span class="line">	此路径root/home/src/axf : vim axf/urls.py</span><br></pre></td></tr></table></figure>
+<h5 id="中间件的修改-添加static-media路径-正则匹配-如图"><a href="#中间件的修改-添加static-media路径-正则匹配-如图" class="headerlink" title="中间件的修改 : 添加static/media路径(正则匹配)如图 :"></a>中间件的修改 : 添加static/media路径(正则匹配)如图 :</h5><p>如果中间件是过滤哪些地址不需要登录验证的话, 就可以设置如下的static和media过滤地址的参数:</p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\添加static.png" alt="添加static"></p>
+<h5 id="urls-py配置文件修改如图"><a href="#urls-py配置文件修改如图" class="headerlink" title="urls.py配置文件修改如图 :"></a>urls.py配置文件修改如图 :</h5><p><img src="C:\Users\95358\Desktop\桌面\img\urls.py.png" alt="urls.py"></p>
+<p>以上启动服务是在虚拟环境中的启动的 : python3 manage.py runserver  0.0.0.0:80</p>
+<h5 id="将启动服务的命令写入一个文件在后端启动"><a href="#将启动服务的命令写入一个文件在后端启动" class="headerlink" title="将启动服务的命令写入一个文件在后端启动 :"></a>将启动服务的命令写入一个文件在后端启动 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">此路径root/home/env/axfenv : netstat -lntp # 查看启动的端口</span><br><span class="line"></span><br><span class="line">此路径启服务(axfenv)root/env/axf : /home/env/axfenv/python3 manage.py runserver 0.0.0.0:80</span><br><span class="line"></span><br><span class="line">此路径后台启服务(axfenv)root/env/axf : python3 manage.py runserver 0.0.0.0:80 &amp;</span><br><span class="line"></span><br><span class="line">杀进程 : kill -9 80端口进程号28491</span><br><span class="line"></span><br><span class="line"># 创建一个start.sh文件</span><br><span class="line">此路径root/home/src/axf : vim start.sh</span><br><span class="line">此文件中输入执行的命令 : python3 manage.py runserver 0.0.0.0:80 保存</span><br><span class="line"></span><br><span class="line">此路径root/home/env : rm -rf axfenv/ 删除虚拟环境</span><br><span class="line"></span><br><span class="line">重新创建虚拟环境 : 此路径root/home/env : virtualenv --no-site-packages -p /usr/local/python3/bin/python3 axfenv</span><br><span class="line"></span><br><span class="line">激活虚拟环境 : root/home/env : source axfenv/bin/activate</span><br><span class="line">查看python3的路径 : pwd</span><br><span class="line"></span><br><span class="line">启动服务 : 直接启动文件root/home/src/axf: ./start.sh # 权限限制</span><br><span class="line"></span><br><span class="line">授权 : root/home/src/axf : chmod -R 777 start.sh</span><br><span class="line"></span><br><span class="line">查看长格式 : ls -l</span><br><span class="line"></span><br><span class="line">虚拟环境中创建包(axfenv)root/home/src/axf : pip3 install -r re_install.txt</span><br><span class="line"></span><br><span class="line">安装包成功后可直接启动文件root/home/src/axf : ./start.sh</span><br><span class="line"></span><br><span class="line">挂载起来可直接访问页面启动命令(关闭服务器窗口后也可访问页面) root/home/src/axf : nohup ./start/sh</span><br><span class="line"></span><br><span class="line">查看控制台打印的内容(会输出到nuhup.out的文件中 - 此文件自动生成) : root/home/src/axf : tail -f nohup.out (f表示展示的行数)</span><br></pre></td></tr></table></figure>
+<h5 id="中间件配置-加入首页"><a href="#中间件配置-加入首页" class="headerlink" title="中间件配置 加入首页:"></a>中间件配置 加入首页:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root/home/src/axf : vim utils/UserAuthMiddleware.py</span><br><span class="line">加入首页后重启服务 : root/home/src/axf : tail -f nohup.out</span><br><span class="line">302 : 重定向</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\95358\Desktop\桌面\img\首页配置.png" alt="首页配置"></p>
+<h3 id="安装虚拟环境后-创建文件-自动启服务-三点左右"><a href="#安装虚拟环境后-创建文件-自动启服务-三点左右" class="headerlink" title="安装虚拟环境后 - 创建文件 - 自动启服务 - 三点左右"></a>安装虚拟环境后 - 创建文件 - 自动启服务 - 三点左右</h3><h5 id="正式环境中部署"><a href="#正式环境中部署" class="headerlink" title="正式环境中部署 :"></a>正式环境中部署 :</h5><p>正式环境中部署由nginx + uwsgi来部署django项目</p>
+<h6 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h6><p>添加nginx存储库 - root/home/src/axf : </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure>
+<p>Is this ok [y/d/N] : y</p>
+<p>安装nginx - root/home/src/axf : </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx</span><br></pre></td></tr></table></figure>
+<p>Is this ok [y/d/N] : y</p>
+<p>运行nginx</p>
+<p>nginx不会自行启动, 要运行Nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\95358\Desktop\桌面\img\nginx运行成功.png" alt="nginx运行成功"></p>
+<p>django常见的部署方式 : nginx + uwsgi / Apache(阿帕奇)等不是固定的组合</p>
+<p>root/home/src/axf查看进程 : netstat -lntp</p>
+<p>杀掉80端口进程关掉测试环境项目</p>
+<p>nginx的运行命令 :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl status nginx 查看nginx的状态</span><br><span class="line">systemctl start/stop/enable/disable nginx 启动/关闭/设置开机启动/禁止开机启动</span><br></pre></td></tr></table></figure>
+<p>浏览器端直接访问IP : 120.79.135.242 显示如图页面nginx方可安装成功 :<img src="C:\Users\95358\AppData\Local\Temp\1532269791795.png" alt="1532269791795"></p>
+<h5 id="配置uwsgi"><a href="#配置uwsgi" class="headerlink" title="配置uwsgi :"></a>配置uwsgi :</h5><h5 id="安装uwsgi-axfenv-root-home-src-bin"><a href="#安装uwsgi-axfenv-root-home-src-bin" class="headerlink" title="安装uwsgi: - (axfenv) root/home/src/bin  :"></a>安装uwsgi: - (axfenv) root/home/src/bin  :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uwsgi</span><br></pre></td></tr></table></figure>
+<h5 id="配置项目代码，配置项目nginx，配置uwsgi-ini等"><a href="#配置项目代码，配置项目nginx，配置uwsgi-ini等" class="headerlink" title="配置项目代码，配置项目nginx，配置uwsgi.ini等"></a>配置项目代码，配置项目nginx，配置uwsgi.ini等</h5><p>本案例的配置文件，都习惯将每一个项目的配置文件，日志文件，虚拟环境放在一起，这样开发方便，运维也方便维护</p>
+<p>项目的目录结构如下：</p>
+<p><a href="https://github.com/coco369/knowledge/blob/master/django/images/django_centos_project_mulu.png" target="_blank" rel="noopener"><img src="https://github.com/coco369/knowledge/raw/master/django/images/django_centos_project_mulu.png" alt="图"></a></p>
+<p>其中：</p>
+<p>conf是配置文件，用于存放项目的nginx.conf文件，uwsgi.ini文件</p>
+<p>logs是日志文件，用于存放nginx的启动成功和失败文件，以及uwsgi的运行日志文件</p>
+<p>env是用于存放虚拟环境</p>
+<p>src是项目文件，该目录下上传的是目录代码</p>
+<h5 id="4-1-配置nginx-conf文件"><a href="#4-1-配置nginx-conf文件" class="headerlink" title="4.1 配置nginx.conf文件"></a>4.1 配置nginx.conf文件</h5><p><strong>首先</strong>：编写自己项目的nginx.conf文件如下：</p>
+<p>每一个项目对应有一个自己定义的nginx的配置文件，比如爱鲜蜂项目，我定义为axfnginx.conf文件 :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(axfenv)root/home/conf : vim axfnginx.conf</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\95358\Desktop\桌面\img\uwsgi配置.png" alt="uwsgi配置"></p>
+<h5 id="配置uwsgi文件"><a href="#配置uwsgi文件" class="headerlink" title="配置uwsgi文件 :"></a>配置uwsgi文件 :</h5><p>在conf文件夹下除了包含自定义的axfnginx.conf文件，还有我们定义的uwsgi.ini文件 : </p>
+<p><img src="C:\Users\95358\Desktop\桌面\img\uwsgi1.png" alt="uwsgi1"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(axfenv)root/home/conf : vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+<p>第二个include处添加 : <img src="C:\Users\95358\Desktop\桌面\img\nginx总.png" alt="nginx总"></p>
+<p>此操作完成后查看nginx状态 :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(axfenv)root/home/conf :  systemctl status nginx</span><br></pre></td></tr></table></figure>
+<p>接着重新启动nginx :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(axfenv)root/home/conf :  systemctl restart nginx</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\95358\Desktop\桌面\img\nginx运行成功.png" alt="nginx运行成功"></p>
+<p>启动uwsgi :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(axfenv)root/home/conf : uwsgi --ini uwsgi.ini</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年07月23日 11:03</p>
+        <p>原始链接： <a class="post-url" href="/2018/07/23/axf项目部署上线流程/" title="Django">http://yoursite.com/2018/07/23/axf项目部署上线流程/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/07/23/axf项目部署上线流程/&title=《Django》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/07/23/axf项目部署上线流程/&title=《Django》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/23/axf项目部署上线流程/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Django》 — Hexo&url=http://yoursite.com/2018/07/23/axf项目部署上线流程/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/23/axf项目部署上线流程/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/07/23/axf项目部署上线流程/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/axf项目部署/" class="color3">axf项目部署</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#初始化服务器"><span class="post-toc-text">初始化服务器 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装python3-6"><span class="post-toc-text">安装python3.6 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装Python3的方法"><span class="post-toc-text">安装Python3的方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装MariaDB-–-数据库"><span class="post-toc-text">安装MariaDB : – 数据库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#设置密码"><span class="post-toc-text">设置密码</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#连接本地数据库"><span class="post-toc-text">连接本地数据库 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#开启远程连接"><span class="post-toc-text">开启远程连接</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-创建用户"><span class="post-toc-text">1. 创建用户</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-授权"><span class="post-toc-text">2. 授权</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#配置文件"><span class="post-toc-text">配置文件 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装环境"><span class="post-toc-text">安装环境 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#将代码传输到服务器"><span class="post-toc-text">将代码传输到服务器 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#部署"><span class="post-toc-text">部署</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-测试环境中部署方式"><span class="post-toc-text">1. 测试环境中部署方式</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#urls-py中的修改"><span class="post-toc-text">urls.py中的修改</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装环境需要的包"><span class="post-toc-text">安装环境需要的包:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建数据库-本地数据库迁移-表-字段-数据同步到远程服务器"><span class="post-toc-text">创建数据库 : 本地数据库迁移 : 表/字段/数据同步到远程服务器</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#启服务"><span class="post-toc-text">启服务:</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#中间件的修改-添加static-media路径-正则匹配-如图"><span class="post-toc-text">中间件的修改 : 添加static/media路径(正则匹配)如图 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#urls-py配置文件修改如图"><span class="post-toc-text">urls.py配置文件修改如图 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#将启动服务的命令写入一个文件在后端启动"><span class="post-toc-text">将启动服务的命令写入一个文件在后端启动 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#中间件配置-加入首页"><span class="post-toc-text">中间件配置 加入首页:</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装虚拟环境后-创建文件-自动启服务-三点左右"><span class="post-toc-text">安装虚拟环境后 - 创建文件 - 自动启服务 - 三点左右</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#正式环境中部署"><span class="post-toc-text">正式环境中部署 :</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#安装nginx"><span class="post-toc-text">安装nginx</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#配置uwsgi"><span class="post-toc-text">配置uwsgi :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装uwsgi-axfenv-root-home-src-bin"><span class="post-toc-text">安装uwsgi: - (axfenv) root/home/src/bin  :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#配置项目代码，配置项目nginx，配置uwsgi-ini等"><span class="post-toc-text">配置项目代码，配置项目nginx，配置uwsgi.ini等</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1-配置nginx-conf文件"><span class="post-toc-text">4.1 配置nginx.conf文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#配置uwsgi文件"><span class="post-toc-text">配置uwsgi文件 :</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/07/表单与Cookie与Settings/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Django</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
