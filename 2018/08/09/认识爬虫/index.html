@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Spider | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="lronLin,lronLin's Blog" />
+  
+  <meta name="description" content="1.爬虫概念 ：123456爬虫是什么?生活角度理解, 蜘蛛(spider)互联网: 节点就是a链接(url)统一资源定位符 - 通过a链接一步一步跳转 - 就可以访问所有资源互联网爬虫 : 写一个程序, 根据url去抓取指定的内容 都有哪些语言可以实现爬虫 :1234(1) php : 号称世界上最好的语言, (后端语言 : php, java, python), 可以实现爬虫, 缺点 : 天生">
+<meta name="keywords" content="关于爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spider">
+<meta property="og:url" content="http://yoursite.com/2018/08/09/认识爬虫/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.爬虫概念 ：123456爬虫是什么?生活角度理解, 蜘蛛(spider)互联网: 节点就是a链接(url)统一资源定位符 - 通过a链接一步一步跳转 - 就可以访问所有资源互联网爬虫 : 写一个程序, 根据url去抓取指定的内容 都有哪些语言可以实现爬虫 :1234(1) php : 号称世界上最好的语言, (后端语言 : php, java, python), 可以实现爬虫, 缺点 : 天生">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-09T09:44:23.554Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spider">
+<meta name="twitter:description" content="1.爬虫概念 ：123456爬虫是什么?生活角度理解, 蜘蛛(spider)互联网: 节点就是a链接(url)统一资源定位符 - 通过a链接一步一步跳转 - 就可以访问所有资源互联网爬虫 : 写一个程序, 根据url去抓取指定的内容 都有哪些语言可以实现爬虫 :1234(1) php : 号称世界上最好的语言, (后端语言 : php, java, python), 可以实现爬虫, 缺点 : 天生">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">lronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        lronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        简洁是智慧的灵魂, 冗长是肤浅的藻饰!
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="lronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-认识爬虫" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Spider
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-08-09
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h5 id="1-爬虫概念-："><a href="#1-爬虫概念-：" class="headerlink" title="1.爬虫概念 ："></a>1.爬虫概念 ：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">爬虫是什么?</span><br><span class="line">生活角度理解, 蜘蛛(spider)</span><br><span class="line"></span><br><span class="line">互联网: 节点就是a链接(url)统一资源定位符 - 通过a链接一步一步跳转 - 就可以访问所有资源</span><br><span class="line"></span><br><span class="line">互联网爬虫 : 写一个程序, 根据url去抓取指定的内容</span><br></pre></td></tr></table></figure>
+<h5 id="都有哪些语言可以实现爬虫"><a href="#都有哪些语言可以实现爬虫" class="headerlink" title="都有哪些语言可以实现爬虫 :"></a>都有哪些语言可以实现爬虫 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1) php : 号称世界上最好的语言, (后端语言 : php, java, python), 可以实现爬虫, 缺点 : 天生对多进程和多线程支持的不好</span><br><span class="line">(2) java : 可以实现爬虫功能, 而且做的非常好, 是Python爬虫最主要的竞争对手 , 缺点 : 语言不简洁, 代码臃肿, 重构成本高</span><br><span class="line">(3) C, C++ : 也可以实现爬虫, 非常强大, 编程语言排行榜, 如果实现爬虫功能, 只能说你牛, 但不是一个好的选择</span><br><span class="line">(4) Python : 可以实现, 号称世界上最优雅的语言, 代码简洁, 学习成本低, 执行效率也好, 而且还有一个非常强大的爬虫框架 (scrapy)</span><br></pre></td></tr></table></figure>
+<h5 id="通用爬虫"><a href="#通用爬虫" class="headerlink" title="通用爬虫 :"></a>通用爬虫 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例子 : 百度, 谷歌, 360, 搜狗, 必应等等, 搜索引擎就是一种爬虫</span><br><span class="line">	搜索引擎做的工作 :</span><br><span class="line">		(1) 爬取互联网所有的数据</span><br><span class="line">		(2) 对数据存储并且处理</span><br><span class="line">		(3) 给用户提供检索服务</span><br></pre></td></tr></table></figure>
+<h5 id="如何让百度抓取你的网站"><a href="#如何让百度抓取你的网站" class="headerlink" title="如何让百度抓取你的网站?"></a>如何让百度抓取你的网站?</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1) 静静地等待, 百度会和DSN服务商合作</span><br><span class="line">(2) 主动提交自己的url</span><br><span class="line">(3) 在其他网站设置友情链接 - bootstrap的图标使用</span><br></pre></td></tr></table></figure>
+<h5 id="我的网站不想让百度抓取"><a href="#我的网站不想让百度抓取" class="headerlink" title="我的网站不想让百度抓取?"></a>我的网站不想让百度抓取?</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(1) 与百度商量好的, 君子协议, 口头协议, robots协议(爬虫协议, 机器协议)</span><br><span class="line">(2) 存放到网站的根目录下, 限制搜索引擎可以爬取哪些, 不可以爬取哪些, 所以自己写得程序就不遵从了robots协议</span><br></pre></td></tr></table></figure>
+<h5 id="网站排名-SEO-通过SEO优化网站"><a href="#网站排名-SEO-通过SEO优化网站" class="headerlink" title="网站排名 (SEO): 通过SEO优化网站"></a>网站排名 (SEO): 通过SEO优化网站</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(1) pagerank值排名, 根据点击量, 浏览量等, 相当靠谱 - 口碑</span><br><span class="line">(2) 竞价排名, 魏泽西事件</span><br></pre></td></tr></table></figure>
+<h5 id="通用爬虫缺点"><a href="#通用爬虫缺点" class="headerlink" title="通用爬虫缺点 :"></a>通用爬虫缺点 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(1) 抓取很多数据都是无效的</span><br><span class="line">(2) 不能根据自己的需求抓取数据</span><br></pre></td></tr></table></figure>
+<h5 id="聚焦爬虫"><a href="#聚焦爬虫" class="headerlink" title="聚焦爬虫 :"></a>聚焦爬虫 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">根据自己特定的需求, 来抓取指定的数据</span><br><span class="line">	如何实现聚焦爬虫 ?</span><br><span class="line">	网页的特点 :</span><br><span class="line">		(1) 网页都有自己唯一的url</span><br><span class="line">		(2) 网页都是由html组成</span><br><span class="line">		(3) 网页传输都是使用http, https组成</span><br></pre></td></tr></table></figure>
+<h5 id="思路"><a href="#思路" class="headerlink" title="思路 :"></a>思路 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1) 提供一个url</span><br><span class="line">(2) 模拟浏览器发送http请求</span><br><span class="line">(3) 从http结构中提取指定的数据, 从字符串中根据规则提取指定数据</span><br></pre></td></tr></table></figure>
+<h5 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境 :"></a>开发环境 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(1) Windows系统 , Python 3.x(64位) , sublime编辑器, pycharm编辑器, vscode</span><br></pre></td></tr></table></figure>
+<h5 id="整体内容"><a href="#整体内容" class="headerlink" title="整体内容 :"></a>整体内容 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(1) 涉及到的Python的库 :</span><br><span class="line">			urllib , requests, selenium, jsonxpath, lxml等一些库</span><br><span class="line">		(2) 解析内容</span><br><span class="line">			正则表达式解析, bs4解析, xpath解析, jsonpath解析</span><br><span class="line">		(3) 采集动态html</span><br><span class="line">			DOM操作, 动态的添加或者删除节点, selenium+phantomjs</span><br><span class="line">		(4) scrapy框架</span><br><span class="line">			异步高性能网络爬虫框架的学习</span><br><span class="line">		(5) scrapy-redis分布式部署</span><br><span class="line">			在scrapy的基础上, 多了一套分布式部署的组件</span><br><span class="line">		(6) 涉及到的爬虫-反爬虫-反反爬虫之间的斗争</span><br><span class="line">			反爬会伤害真实的用户, 一般情况下, 反爬也就这么两点 : 第一个UA, 第二个封IP, 第三个验证码, 光学识别(软件), 打码平台</span><br><span class="line">	</span><br><span class="line">	换思路解决问题 : 其他网站, 手机端等</span><br></pre></td></tr></table></figure>
+<h5 id="2-http协议"><a href="#2-http协议" class="headerlink" title="2.http协议 :"></a>2.http协议 :</h5><p>书 : &lt;&lt;图解http协议&gt;&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">协议是什么? : </span><br><span class="line">	协议就是规定好的传输方式</span><br><span class="line"></span><br><span class="line">上网原理 :</span><br><span class="line">	看图行</span><br><span class="line">	锚点 : 跳转可以实现本页面的跳转</span><br><span class="line"></span><br><span class="line">http与https的区别 : </span><br><span class="line">    http://www.cnblogs.com/wqhwe/p/5407468.html</span><br><span class="line">    http://www.cnblog.com/10158wsj/p/6762848.html</span><br></pre></td></tr></table></figure>
+<h5 id="HTTPS和HTTP的区别主要如下"><a href="#HTTPS和HTTP的区别主要如下" class="headerlink" title="HTTPS和HTTP的区别主要如下 :"></a>HTTPS和HTTP的区别主要如下 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1. https协议需要到ca申请证书, 一般免费证书较少, 因而需要一定费用</span><br><span class="line"></span><br><span class="line">2. http是超文本传输协议, 信息是明文传输, https则是具有安全性的ssl加密传输协议</span><br><span class="line"></span><br><span class="line">3.http和https使用的是完全不同的连接方式, 用的端口也不一样, 前者是80, 后者是443</span><br><span class="line"></span><br><span class="line">4.http的连接很简单, 是无状态的, HTTPS协议是由SLS+HTTP协议构建的可进行加密传输, 身份认证的网络协议, 比http协议安全</span><br><span class="line">	加密 : 公钥私钥</span><br><span class="line">	客户端 : 123456用秘钥加密======&gt;&gt;服务端 : 用秘钥解密得到123456</span><br><span class="line">        秘钥相同称之为对称加解密</span><br><span class="line">        秘钥不相同称之为非对称加解密</span><br><span class="line">	客户端 : 123456用公钥加密======&gt;&gt;服务端 : 用私钥解密得到123456</span><br></pre></td></tr></table></figure>
+<h5 id="http协议学习"><a href="#http协议学习" class="headerlink" title="http协议学习 :"></a>http协议学习 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">图解http协议</span><br><span class="line"> http://www.cnblog.com/10158wsj/p/6762848.html</span><br><span class="line"> http协议是基于tcp的, 交互之前建立连接, 三次握手</span><br><span class="line"> udp传输协议, 只需要知道ip和端口即可发送消息</span><br></pre></td></tr></table></figure>
+<h5 id="请求"><a href="#请求" class="headerlink" title="请求 :"></a>请求 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">包含请求行, 请求头, 请求内容</span><br><span class="line">请求行 : 请求方式, 请求资源, 协议版本号</span><br><span class="line">请求头 :</span><br><span class="line">	accept : 浏览器通过这个头告诉服务器, 它所支持的数据类型</span><br><span class="line">	Accept-Charset : 浏览器通过这个头告诉服务器, 它支持哪种字符集</span><br><span class="line">	Accept-Encoding : 浏览器通过这个头告诉服务器, 支持的压缩格式</span><br><span class="line">	Accept-Language : 浏览器通过这个头告诉服务器, 它的语言环境</span><br><span class="line">	Host : 浏览器通过这个头告诉服务器, 想访问哪台主机</span><br><span class="line">	If-Modified-Since : 浏览器通过这个头告诉服务器, 缓存数据的时间</span><br><span class="line">	Referer : 浏览器通过这个头告诉服务器, 客户机是哪个页面来的, 防盗链</span><br><span class="line">	Connection : 浏览器通过这个头告诉服务器, 请求完后是断开链接还是继续链接</span><br><span class="line">	X-Requested-With : XMLHttpRequest</span><br><span class="line">	代表ajax的请求</span><br></pre></td></tr></table></figure>
+<h5 id="响应"><a href="#响应" class="headerlink" title="响应 :"></a>响应 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">响应行, 响应头, 响应内容</span><br><span class="line">响应行里面, 常见的状态码</span><br><span class="line">响应头 : 对我们来说不重要</span><br><span class="line">	Location : 服务器通过这个头, 来告诉浏览器跳到哪里</span><br><span class="line">	Server : 服务器通过这个头, 告诉浏览器服务器的型号</span><br><span class="line">	Content-Encoding : 服务器通过这个请求头, 告诉浏览器, 数据的压缩格式</span><br><span class="line">	Content-Length : 服务器通过这个头, 告诉浏览器回送数据的长度</span><br><span class="line">	Content-Language: 服务器通过这个头，告诉浏览器语言环境</span><br><span class="line">	Content-Type ：服务器通过这个头，告诉浏览器回送数据的类型</span><br><span class="line">	Refresh ：服务器通过这个头，告诉浏览器定时刷新</span><br><span class="line">	Content-Disposition : 服务器通过这个头，告诉浏览器以下载方式打数据</span><br><span class="line">	Transfer-Encoding ：服务器通过这个头，告诉浏览器数据是以分块方式回送的</span><br><span class="line">	Expires: -1  控制浏览器不要缓存</span><br><span class="line">    Cache-Control: no-cache  </span><br><span class="line">    Pragma: no-cache</span><br><span class="line">    响应内容：html、css、js、图片</span><br></pre></td></tr></table></figure>
+<h5 id="3-抓包工具"><a href="#3-抓包工具" class="headerlink" title="3.抓包工具 :"></a>3.抓包工具 :</h5><h5 id="1-谷歌浏览器自带抓包工具"><a href="#1-谷歌浏览器自带抓包工具" class="headerlink" title="(1) 谷歌浏览器自带抓包工具"></a>(1) 谷歌浏览器自带抓包工具</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">右键开发者工具 ==&gt; network</span><br><span class="line">	XHR : XMLHttpRequest 前端要想发送ajax请求, 通过它创建对象，发送请求</span><br><span class="line">	query_string_parameters : 请求字符串, get参数</span><br><span class="line">	formdata : 如果是post参数</span><br></pre></td></tr></table></figure>
+<h5 id="2-专业工具-fiddler"><a href="#2-专业工具-fiddler" class="headerlink" title="(2) 专业工具 fiddler"></a>(2) 专业工具 fiddler</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">专业抓包工具, 比谷歌强在了跳转的时候很多请求都能抓取到</span><br><span class="line">		见文档</span><br><span class="line">	1.配置抓取</span><br><span class="line">	2.清楚所有请求</span><br><span class="line">	3.暂停和启动抓包</span><br><span class="line">	4.fiddler介绍</span><br><span class="line">	左边栏 :</span><br><span class="line">		显示所有的请求</span><br><span class="line">		&lt;&gt; : 代表的是html请求</span><br><span class="line">	右边栏 :</span><br><span class="line">		点击某个请求, 查看这个请求的详细信息</span><br><span class="line">		选中Inspectors</span><br><span class="line">	右上 : 请求信息</span><br><span class="line">		raw : 有关所有请求的纯文本内容</span><br><span class="line">		WebForms : 请求的参数</span><br><span class="line">		上面 : query_string get参数</span><br><span class="line">		下面 : body post参数</span><br><span class="line">	右下 : 响应信息</span><br><span class="line">		 raw : 以纯文本的形式响应所有的内容</span><br><span class="line">		 json : 如果响应为json格式数据, 在这里查看</span><br><span class="line">	左下角黑色窗口输入指令 :</span><br><span class="line">		cls : 清除掉所有请求</span><br><span class="line">		select html : 选择html请求</span><br><span class="line">		select js : </span><br><span class="line">		?baidu :</span><br></pre></td></tr></table></figure>
+<h5 id="4-urllib库"><a href="#4-urllib库" class="headerlink" title="4.urllib库 :"></a>4.urllib库 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">urllib 库是什么 ? 自带的Python库, 模拟浏览器发送http请求</span><br><span class="line">Python 2系列 : urllib urllib2</span><br><span class="line">Python 3系列 : urllib </span><br><span class="line">	三个模块 :</span><br><span class="line">        1. urllib.request  模拟发送请求</span><br><span class="line">    	 函数 :</span><br><span class="line">            urlopen()</span><br><span class="line">            urlretrieve()</span><br><span class="line">        2. urllib.parse  处理参数或者url</span><br><span class="line">        3. urllib.error  如何处理异常</span><br><span class="line">     urllib.request  模拟发送请求</span><br><span class="line">			urlopen(url) : 向url发送请求，得到响应对象</span><br><span class="line">			urlretrieve(url, filepath) ： 向url发送请求，直接将响应写入到filepath中</span><br><span class="line">		response属性和方法</span><br><span class="line">			字符串格式==》字节格式</span><br><span class="line">				encode(&apos;utf8&apos;)</span><br><span class="line">			字节格式==》字符串格式</span><br><span class="line">				decode(&apos;gbk&apos;)</span><br><span class="line">			response.read()  : 读取字节格式内容</span><br><span class="line">			response.url : 获取请求url</span><br><span class="line">			response.headers: 响应头部</span><br><span class="line">			response.status: 状态码</span><br><span class="line">		https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1533639915215&amp;di=1bbd3901c9991b363ac0211dc861a909&amp;imgtype=0&amp;src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F225a5f3f75d1d4c59532704782eebd25d323fd801e57a-VlY5c4_fw658</span><br><span class="line"></span><br><span class="line">		下载图片：得到图片的src属性，就可以将图片下载到本地</span><br><span class="line">		urllib.parse    处理参数或者url</span><br><span class="line">		urllib.error    如何处理异常</span><br><span class="line">sublime使用方法 :</span><br><span class="line">	插件安装 : 首先安装插件管理器(package control)见文档</span><br><span class="line">	安装插件 : Ctrl+shift+p</span><br><span class="line">		imesupport 解决光标跟随问题</span><br><span class="line">		anaconda python只能提示工具</span><br><span class="line">		emmet html快速插件</span><br><span class="line">	[注] sublime 安装完毕之后, 默认会自动关联Python的可执行程序, 如果没有自动关联, 点击tools里面的build system，手动选择python，如果还不行，自己按照固定的格式新建一个build system即可，如果还不行，算了，别用了</span><br></pre></td></tr></table></figure>
+<h5 id="fiddler的使用方法"><a href="#fiddler的使用方法" class="headerlink" title="fiddler的使用方法 :"></a>fiddler的使用方法 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">1、配置抓取https包</span><br><span class="line">	tools==》teletick options==》https</span><br><span class="line">	选中capture https connects\decrypt https traffic\ingnore xxxx</span><br><span class="line">	点击actions==》trust root certificate</span><br><span class="line">	配置完毕，重启fiddler让其生效</span><br><span class="line"></span><br><span class="line">	如果有问题，参考这个博客</span><br><span class="line">	https://blog.csdn.net/d1240673769/article/details/74298429</span><br><span class="line">2、清楚所有请求</span><br><span class="line">	叉号==》remove all</span><br><span class="line">3、暂停和启动抓包</span><br><span class="line">	file==&gt;capture traffic</span><br><span class="line">4、fiddler介绍</span><br><span class="line">	左边栏</span><br><span class="line">		显示所有的请求</span><br><span class="line">		&lt;&gt; : 代表的是html请求</span><br><span class="line">	右边栏</span><br><span class="line">		点击某个请求，查看这个请求的详细信息</span><br><span class="line">		选中inspectors</span><br><span class="line">		右上：请求信息</span><br><span class="line">			raw：有关所有请求的纯文本内容</span><br><span class="line">			webforms：请求参数</span><br><span class="line">				上面：query_string   get参数</span><br><span class="line">				下面：body   post参数</span><br><span class="line">		右下：响应信息</span><br><span class="line">			raw：所有响应的纯文本内容</span><br><span class="line">			json：如果响应为json格式数据，在这里查看</span><br><span class="line">	左下角黑色窗口输入指令</span><br><span class="line">		cls：清除掉所有请求</span><br><span class="line">		select html: 选择html请求</span><br><span class="line">		select js: 选择js请求</span><br><span class="line">		?baidu: 选择带baidu的请求</span><br></pre></td></tr></table></figure>
+<h5 id="常见的http状态码"><a href="#常见的http状态码" class="headerlink" title="常见的http状态码 :"></a>常见的http状态码 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">100：继续 客户端应当继续发送请求。客户端应当继续发送请求的剩余部分，或者如果请求已经完成，忽略这个响应。</span><br><span class="line"></span><br><span class="line">101： 转换协议 在发送完这个响应最后的空行后，服务器将会切换到在Upgrade 消息头中定义的那些协议。只有在切换新的协议更有好处的时候才应该采取类似措施。</span><br><span class="line"></span><br><span class="line">102：继续处理 由WebDAV（RFC 2518）扩展的状态码，代表处理将被继续执行。</span><br><span class="line"></span><br><span class="line">200：请求成功 处理方式：获得响应的内容，进行处理（重要）</span><br><span class="line"></span><br><span class="line">201：请求完成，结果是创建了新资源。新创建资源的URI可在响应的实体中得到 处理方式：爬虫中不会遇到</span><br><span class="line"></span><br><span class="line">202：请求被接受，但处理尚未完成 处理方式：阻塞等待</span><br><span class="line"></span><br><span class="line">204：服务器端已经实现了请求，但是没有返回新的信 息。如果客户是用户代理，则无须为此更新自身的文档视图。 处理方式：丢弃</span><br><span class="line"></span><br><span class="line">300：该状态码不被HTTP/1.0的应用程序直接使用， 只是作为3XX类型回应的默认解释。存在多个可用的被请求资源。 处理方式：若程序中能够处理，则进行进一步处理，如果程序中不能处理，则丢弃</span><br><span class="line">301：请求到的资源都会分配一个永久的URL，这样就可以在将来通过该URL来访问此资源 处理方式：重定向到分配的URL（永久重定向，重要）</span><br><span class="line"></span><br><span class="line">302：请求到的资源在一个不同的URL处临时保存 处理方式：重定向到临时的URL（临时重定向，重要）</span><br><span class="line"></span><br><span class="line">304：请求的资源未更新 处理方式：丢弃，使用本地缓存文件（没有发送请求，用的是本地缓存文件，重要）</span><br><span class="line"></span><br><span class="line">400：非法请求 处理方式：丢弃</span><br><span class="line"></span><br><span class="line">401：未授权 处理方式：丢弃</span><br><span class="line"></span><br><span class="line">403：禁止 处理方式：丢弃（重要）</span><br><span class="line"></span><br><span class="line">404：没有找到 处理方式：丢弃（重要）</span><br><span class="line"></span><br><span class="line">405：请求方式不对（了解）</span><br><span class="line"></span><br><span class="line">500：服务器内部错误 服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现。（服务器问题，代码有问题，重要）</span><br><span class="line"></span><br><span class="line">501：服务器无法识别 服务器不支持当前请求所需要的某个功能。当服务器无法识别请求的方法，并且无法支持其对任何资源的请求。</span><br><span class="line"></span><br><span class="line">502：错误网关 作为网关或者代理工作的服务器尝试执行请求时，从上游服务器接收到无效的响应。</span><br><span class="line"></span><br><span class="line">503：服务出错 由于临时的服务器维护或者过载，服务器当前无法处理请求。这个状况是临时的，并且将在一段时间以后恢复。</span><br></pre></td></tr></table></figure>
+<h5 id="sublime安装流程"><a href="#sublime安装流程" class="headerlink" title="sublime安装流程 :"></a>sublime安装流程 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">安装 package control , 按view下面的 show console, 输入如下指令敲enter即可</span><br><span class="line">import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &apos;wb&apos;).write(urllib.request.urlopen( &apos;http://sublime.wbond.net/&apos; + pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</span><br><span class="line"></span><br><span class="line">解决输入pci，找不到包库的问题</span><br><span class="line">在view-show console里面输入如下指令，敲enter</span><br><span class="line">import urllib.request,os,hashlib; h = &apos;eb2297e1a458f27d836c04bb0cbaf282&apos; + &apos;d0e7a3098092775ccb37ca9d6b2e4b7d&apos;; pf = &apos;Package Control.sublime-、package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br><span class="line"></span><br><span class="line">解决鼠标跟随问题</span><br><span class="line">	安装IMESupport插件</span><br><span class="line">代码提示插件</span><br><span class="line">	Anaconda</span><br><span class="line">终止程序运行</span><br><span class="line">	Tools==&gt;Cancel Build</span><br><span class="line">	设置快捷键</span><br><span class="line">	&#123; </span><br><span class="line">		&quot;keys&quot;: [&quot;ctrl+shift+p&quot;], </span><br><span class="line">		&quot;command&quot;: &quot;cancel_build&quot; </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月09日 17:44</p>
+        <p>原始链接： <a class="post-url" href="/2018/08/09/认识爬虫/" title="Spider">http://yoursite.com/2018/08/09/认识爬虫/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/08/09/认识爬虫/&title=《Spider》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/08/09/认识爬虫/&title=《Spider》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/09/认识爬虫/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spider》 — Hexo&url=http://yoursite.com/2018/08/09/认识爬虫/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/08/09/认识爬虫/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/08/09/认识爬虫/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/关于爬虫/" class="color5">关于爬虫</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-爬虫概念-："><span class="post-toc-text">1.爬虫概念 ：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#都有哪些语言可以实现爬虫"><span class="post-toc-text">都有哪些语言可以实现爬虫 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#通用爬虫"><span class="post-toc-text">通用爬虫 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#如何让百度抓取你的网站"><span class="post-toc-text">如何让百度抓取你的网站?</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#我的网站不想让百度抓取"><span class="post-toc-text">我的网站不想让百度抓取?</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#网站排名-SEO-通过SEO优化网站"><span class="post-toc-text">网站排名 (SEO): 通过SEO优化网站</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#通用爬虫缺点"><span class="post-toc-text">通用爬虫缺点 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#聚焦爬虫"><span class="post-toc-text">聚焦爬虫 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#思路"><span class="post-toc-text">思路 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#开发环境"><span class="post-toc-text">开发环境 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#整体内容"><span class="post-toc-text">整体内容 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-http协议"><span class="post-toc-text">2.http协议 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTPS和HTTP的区别主要如下"><span class="post-toc-text">HTTPS和HTTP的区别主要如下 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#http协议学习"><span class="post-toc-text">http协议学习 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#请求"><span class="post-toc-text">请求 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#响应"><span class="post-toc-text">响应 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-抓包工具"><span class="post-toc-text">3.抓包工具 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-谷歌浏览器自带抓包工具"><span class="post-toc-text">(1) 谷歌浏览器自带抓包工具</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-专业工具-fiddler"><span class="post-toc-text">(2) 专业工具 fiddler</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-urllib库"><span class="post-toc-text">4.urllib库 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#fiddler的使用方法"><span class="post-toc-text">fiddler的使用方法 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#常见的http状态码"><span class="post-toc-text">常见的http状态码 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#sublime安装流程"><span class="post-toc-text">sublime安装流程 :</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/25/img/djangoz/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title"></span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Django/">Django</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/关于爬虫/" style="font-size: 10px;">关于爬虫</a> <a href="/tags/创建项目/" style="font-size: 10px;">创建项目</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/关于爬虫/" style="font-size: 10px;">关于爬虫</a> <a href="/tags/创建项目/" style="font-size: 10px;">创建项目</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
