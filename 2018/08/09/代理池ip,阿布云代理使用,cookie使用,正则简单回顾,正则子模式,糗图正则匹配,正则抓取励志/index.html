@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Spider | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="lronLin,lronLin's Blog" />
+  
+  <meta name="description" content="1. 代理ip池, 阿布云使用 :12见代码	https://www.abuyun.com/http-proxy/dyn-manual.html pool.txt :123456789218.60.8.98:3129122.72.18.34:80124.235.208.252:443182.88.178.229:8123121.43.170.207:31281.71.188.37:3128124.">
+<meta name="keywords" content="代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spider">
+<meta property="og:url" content="http://yoursite.com/2018/08/09/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 代理ip池, 阿布云使用 :12见代码	https://www.abuyun.com/http-proxy/dyn-manual.html pool.txt :123456789218.60.8.98:3129122.72.18.34:80124.235.208.252:443182.88.178.229:8123121.43.170.207:31281.71.188.37:3128124.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-09T11:23:19.656Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spider">
+<meta name="twitter:description" content="1. 代理ip池, 阿布云使用 :12见代码	https://www.abuyun.com/http-proxy/dyn-manual.html pool.txt :123456789218.60.8.98:3129122.72.18.34:80124.235.208.252:443182.88.178.229:8123121.43.170.207:31281.71.188.37:3128124.">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">lronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        lronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        简洁是智慧的灵魂, 冗长是肤浅的藻饰!
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="lronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Spider
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-08-09
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h5 id="1-代理ip池-阿布云使用"><a href="#1-代理ip池-阿布云使用" class="headerlink" title="1. 代理ip池, 阿布云使用 :"></a>1. 代理ip池, 阿布云使用 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">见代码</span><br><span class="line">	https://www.abuyun.com/http-proxy/dyn-manual.html</span><br></pre></td></tr></table></figure>
+<h5 id="pool-txt"><a href="#pool-txt" class="headerlink" title="pool.txt :"></a>pool.txt :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">218.60.8.98:3129</span><br><span class="line">122.72.18.34:80</span><br><span class="line">124.235.208.252:443</span><br><span class="line">182.88.178.229:8123</span><br><span class="line">121.43.170.207:3128</span><br><span class="line">1.71.188.37:3128</span><br><span class="line">124.235.208.252:443</span><br><span class="line">113.200.56.13:8010</span><br><span class="line">114.215.95.188:3128</span><br></pre></td></tr></table></figure>
+<h5 id="pool-py"><a href="#pool-py" class="headerlink" title="pool.py :"></a>pool.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">import random</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">url = &apos;http://www.baidu.com/#ie=UTF-8&amp;wd=ip&apos;</span><br><span class="line">headers = &#123;</span><br><span class="line">	&apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;</span><br><span class="line">&#125;</span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line"># 读取文件</span><br><span class="line">fp = open(&apos;pool.txt&apos;, &apos;r&apos;)</span><br><span class="line">string = fp.read()</span><br><span class="line">fp.close()</span><br><span class="line"></span><br><span class="line"># print(string)</span><br><span class="line"># 将字符串按照换行符切割，得到一个列表，列表里面就是一个一个的代理服务器</span><br><span class="line">lt = string.splitlines()</span><br><span class="line"></span><br><span class="line"># print(lt)</span><br><span class="line">while 1:</span><br><span class="line">	# 从列表中随机抽取一个代理</span><br><span class="line">	daili = random.choice(lt)</span><br><span class="line">	# 发送请求</span><br><span class="line">	proxy = &#123;&apos;http&apos;: daili&#125;</span><br><span class="line">	# 创建handler</span><br><span class="line">	handler = urllib.request.ProxyHandler(proxies=proxy)</span><br><span class="line">	# 创建opener</span><br><span class="line">	opener = urllib.request.build_opener(handler)</span><br><span class="line"></span><br><span class="line">	try:</span><br><span class="line">		response = opener.open(request)</span><br><span class="line">		print(&apos;使用代理%s成功&apos; % daili)</span><br><span class="line"></span><br><span class="line">		with open(&apos;ip.html&apos;, &apos;wb&apos;) as fp:</span><br><span class="line">			fp.write(response.read())</span><br><span class="line">		break</span><br><span class="line">	except Exception as e:</span><br><span class="line">		# 将这个代理从你的列表移除</span><br><span class="line">		lt.remove(daili)</span><br><span class="line">		print(&apos;使用代理%s失败&apos; % daili)</span><br><span class="line">	time.sleep(2)</span><br></pre></td></tr></table></figure>
+<h5 id="abuyun-py"><a href="#abuyun-py" class="headerlink" title="abuyun.py :"></a>abuyun.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">user = &apos;HCQ4X00T441PYI5D&apos;</span><br><span class="line">pwd = &apos;E8C159C7668242ED&apos;</span><br><span class="line"></span><br><span class="line"># 将用户名和密码拼接后再转化</span><br><span class="line">string = user + &apos;:&apos; + pwd</span><br><span class="line"># 进行base64编码</span><br><span class="line">ret = &apos;Basic &apos; + base64.b64encode(string.encode(&apos;utf8&apos;)).decode(&apos;utf8&apos;)</span><br><span class="line"># print(ret)</span><br><span class="line"></span><br><span class="line">url = &apos;http://www.baidu.com/s?ie=UTF-8&amp;wd=ip&apos;</span><br><span class="line">headers = &#123;</span><br><span class="line">	&apos;Proxy-Authorization&apos;: ret</span><br><span class="line">&#125;</span><br><span class="line"># 构建请求对象</span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line"># </span><br><span class="line">handler = urllib.request.ProxyHandler(proxies=&#123;&apos;http&apos;: &apos;http-dyn.abuyun.com:9020&apos;&#125;)</span><br><span class="line">opener = urllib.request.build_opener(handler)</span><br><span class="line"></span><br><span class="line">r = opener.open(request)</span><br><span class="line"></span><br><span class="line">with open(&apos;ip.html&apos;, &apos;wb&apos;) as fp:</span><br><span class="line">	fp.write(r.read())</span><br></pre></td></tr></table></figure>
+<h5 id="2-cookie使用"><a href="#2-cookie使用" class="headerlink" title="2. cookie使用 :"></a>2. cookie使用 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cookie是什么?</span><br><span class="line">http的特点 : 无状态</span><br><span class="line">	客户端		服务器</span><br><span class="line">	每一次请求都是单独的请求, 请求之间没有任何关系</span><br><span class="line">登录时候是一个请求</span><br><span class="line">访问登录后的页面又是一个请求, 这两个请求必须有关系,所以引入了cookie</span><br><span class="line"></span><br><span class="line">登录的时候, 服务端给你响应, 在响应里面就有cookie, 浏览器就会将cookie保存起来, 下次再请求的时候, 就会带着cookie来访问</span><br><span class="line"></span><br><span class="line">需求 : 通过代码访问登录后的页面 --- 人人网</span><br><span class="line">	http://www.renren.com/960481378/profile</span><br><span class="line"></span><br><span class="line">(1) 通过抓包</span><br><span class="line">	首先让浏览器登录成功, 然后让浏览器再访问登录后页面的时候, 你来抓包, 抓取到请求头里面的cookie信息, 然后写到代码中即可</span><br><span class="line">	</span><br><span class="line">(2) 模拟登录</span><br><span class="line">	思路 :首先抓包抓取post请求, 通过代码模拟发送post请求, 然后创建ck对象, 用来保存和携带cookie即可</span><br></pre></td></tr></table></figure>
+<h5 id="cookie-py"><a href="#cookie-py" class="headerlink" title="cookie.py :"></a>cookie.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">url = &apos;http://www.renren.com/960481378/profile&apos;</span><br><span class="line">headers = &#123;</span><br><span class="line">	&apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;,</span><br><span class="line">	&apos;Cookie&apos;: &apos;anonymid=jkl96t9i-7jfkjc; depovince=SC; _r01_=1; _de=F872F5698F7602B30ADE65415FC01940; ln_uact=17701256561; ln_hurl=http://head.xiaonei.com/photos/0/0/men_main.gif; jebe_key=89a1a125-709a-4912-aa70-cbaf2eddd932%7C86ba94a3b75a9848502e25ac92562959%7C1533740001336%7C1%7C1533740008302; jebecookies=f91c2331-f0e2-4c9a-a936-3299112bbed6|||||; JSESSIONID=abcEmpXxJ_WYs8adJICuw; ick_login=a3456fda-f4c3-4dde-98b7-7994763bb807; p=e456fef62e5fb2a7971b6bb34af6b17d8; first_login_flag=1; t=01e2ec7768631eae78816a83379f3f508; societyguester=01e2ec7768631eae78816a83379f3f508; id=960481378; xnsid=e374bf01; ver=7.0; loginfrom=null; wp_fold=0&apos;,</span><br><span class="line">&#125;</span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line">r = urllib.request.urlopen(request)</span><br><span class="line"></span><br><span class="line">with open(&apos;renren.html&apos;, &apos;wb&apos;) as fp:</span><br><span class="line">	fp.write(r.read())</span><br></pre></td></tr></table></figure>
+<h5 id="moni-py"><a href="#moni-py" class="headerlink" title="moni.py :"></a>moni.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">import urllib.parse</span><br><span class="line">import http.cookiejar</span><br><span class="line"></span><br><span class="line"># 在代码中有没有一个东西和浏览器是一样的，能够保存cookie呢？下次发送的时候自动携带cookie</span><br><span class="line"></span><br><span class="line"># 首先创建一个cookiejar对象，用来保存cookie</span><br><span class="line">ck = http.cookiejar.CookieJar()</span><br><span class="line"># 根据ck创建一个handler</span><br><span class="line">handler = urllib.request.HTTPCookieProcessor(ck)</span><br><span class="line">opener = urllib.request.build_opener(handler)</span><br><span class="line"></span><br><span class="line"># 往下所有的请求，都是opener.open()方法发送，那么就会自动保存cookie和携带cookie</span><br><span class="line"></span><br><span class="line">post_url = &apos;http://www.renren.com/ajaxLogin/login?1=1&amp;uniqueTimestamp=2018741029602&apos;</span><br><span class="line">headers = &#123;</span><br><span class="line">	&apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;,</span><br><span class="line">&#125;</span><br><span class="line">request = urllib.request.Request(url=post_url, headers=headers)</span><br><span class="line">formdata = &#123;</span><br><span class="line">	&apos;email&apos;: &apos;17701256561&apos;,</span><br><span class="line">	&apos;password&apos;: &apos;lizhibin666&apos;,</span><br><span class="line">	&apos;icode&apos;: &apos;&apos;,</span><br><span class="line">	&apos;origURL&apos;: &apos;http://www.renren.com/home&apos;,</span><br><span class="line">	&apos;domain&apos;: &apos;renren.com&apos;,</span><br><span class="line">	&apos;key_id&apos;: &apos;1&apos;,</span><br><span class="line">	&apos;captcha_type&apos;: &apos;web_login&apos;,</span><br><span class="line">	&apos;f&apos;: &apos;https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DVwDXbx3oN5RBHzVxzj2jwbsO3z8VmHcZ1HZQTdC3enq%26wd%3D%26eqid%3D834642bf0000b410000000055b6bac87&apos;,</span><br><span class="line">&#125;</span><br><span class="line">formdata = urllib.parse.urlencode(formdata).encode(&apos;utf8&apos;)</span><br><span class="line"></span><br><span class="line">r = opener.open(request, data=formdata)</span><br><span class="line"></span><br><span class="line"># print(r.read().decode(&apos;utf8&apos;))</span><br><span class="line"># 假如登录成功</span><br><span class="line"></span><br><span class="line">get_url = &apos;http://www.renren.com/960481378/profile&apos;</span><br><span class="line"></span><br><span class="line">request = urllib.request.Request(url=get_url, headers=headers)</span><br><span class="line"></span><br><span class="line">r = opener.open(request)</span><br><span class="line"></span><br><span class="line">with open(&apos;renren.html&apos;, &apos;wb&apos;) as fp:</span><br><span class="line">	fp.write(r.read())</span><br></pre></td></tr></table></figure>
+<h5 id="3-正则表达式"><a href="#3-正则表达式" class="headerlink" title="3. 正则表达式 :"></a>3. 正则表达式 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">abc123@qq.com</span><br><span class="line">text@163.com</span><br><span class="line">为什么引入正则表达式? 字符串的函数</span><br><span class="line">string.find(&apos;abc123@qq.com&apos;), 可以查找所有的邮箱, 可以验证邮箱格式是否正确, 可以匹配一类东西, 因为有规则, 学习正则就是学习规则</span><br><span class="line">女人的心, 医生的处方, 道士的符, 程序媛的正则</span><br><span class="line">1234567</span><br><span class="line">\d&#123;5,7&#125;</span><br><span class="line">单字符规则 :</span><br><span class="line">	\d : 所有的数字字符</span><br><span class="line">	\D : 非\d</span><br><span class="line">	\w : 数字, 字母, 下划线, 中文</span><br><span class="line">	\W : 非\w</span><br><span class="line">	\s : 匹配所有的空白字符 \n \t 空格</span><br><span class="line">	\S : 非\s</span><br><span class="line">	[] : [aeiou] 只能匹配其中任意一个字母</span><br><span class="line">	. : 除了\n以外任意字符</span><br><span class="line">	[^aeiou] : 除了里面写的都能匹配</span><br><span class="line">数量修饰 :</span><br><span class="line">	&#123;m&#125; : 修饰前面的字符出现m次</span><br><span class="line">	&#123;m,&#125; : 修饰前面的字符最少m次  贪婪地 能多匹配就多匹配</span><br><span class="line">	&#123;m,n&#125; : 最少m次, 最多n次</span><br><span class="line">	&#123;0, &#125; : 任意多次 *</span><br><span class="line">	&#123;1, &#125; : 最少1次 +</span><br><span class="line">	&#123;0, 1&#125; : 可有可无 ?</span><br><span class="line">在Python里面如何使用?</span><br><span class="line">	模块 :</span><br><span class="line">		import re </span><br><span class="line">	pattern = re.compile(r&apos;xxx&apos;)</span><br><span class="line">	函数 :</span><br><span class="line">		pattern.match() 从字符串开头查找, 找到一个结束</span><br><span class="line">		pattern.search() 从字符串任意位置开始查找, 找到一个立马结束</span><br><span class="line">			ret.group() 得到匹配内容</span><br><span class="line">			ret.span() 得到匹配位置</span><br><span class="line">		pattern.findall() 返回列表, 得到所有匹配的内容</span><br><span class="line">边界修饰 :</span><br><span class="line">	^ : 以某某开头</span><br><span class="line">	$ : 以某某结尾</span><br><span class="line">分组 : (正则的高级功能)</span><br><span class="line">	()</span><br><span class="line">	1. 视为一个整体	(a\d)&#123;5&#125;</span><br><span class="line">	2. 子模式, 分组</span><br><span class="line">sublime中Ctrl+H --&gt; 正则匹配</span><br><span class="line">	(?P&lt;goudan&gt;)	(?P=goudan)</span><br><span class="line">	\1	\2 第一, 二个小括号配的内容</span><br><span class="line">	$1	$2 第一, 二个小括号匹配的内容</span><br><span class="line">	如果有子模式 ret.group(1)就是第一个子模式匹配的内容</span><br><span class="line">贪婪 :</span><br><span class="line">	.*</span><br><span class="line">	.+</span><br><span class="line">	.*? 取消贪婪</span><br><span class="line">模式修正 :</span><br><span class="line">	re.I : 忽略大小写</span><br><span class="line">	re.M : 视为多行模式</span><br><span class="line">	re.S : 视为单行模式(忽略换行符)</span><br></pre></td></tr></table></figure>
+<h5 id="re-py"><a href="#re-py" class="headerlink" title="re.py :"></a>re.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"></span><br><span class="line"># string = &apos;i love you very love much&apos;</span><br><span class="line"># pattern = re.compile(r&apos;love&apos;)</span><br><span class="line"># 匹配失败返回None</span><br><span class="line"># ret = pattern.match(string)</span><br><span class="line"></span><br><span class="line"># ret = pattern.search(string)</span><br><span class="line"># ret = pattern.findall(string)</span><br><span class="line"></span><br><span class="line"># print(ret)</span><br><span class="line"># 得到匹配的内容, 只匹配一个，成功立马结束</span><br><span class="line"># print(ret.group())</span><br><span class="line"># print(ret.span())</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"># 子模式</span><br><span class="line">string = &apos;哈哈&lt;div&gt;&lt;span&gt;天青色等烟雨,而我在等你&lt;/span&gt;&lt;/div&gt;嘻嘻&apos;</span><br><span class="line">pattern = re.compile(r&apos;&lt;(\w+)&gt;&lt;(\w+)&gt;.*&lt;/\2&gt;&lt;/\1&gt;&apos;)</span><br><span class="line"># pattern = re.compile(r&apos;&lt;(?P&lt;goudan&gt;\w+)&gt;&lt;(?P&lt;maodan&gt;\w+)&gt;.*&lt;/(?P=maodan)&gt;&lt;/(?P=goudan)&gt;&apos;)</span><br><span class="line"></span><br><span class="line">ret = pattern.search(string)</span><br><span class="line">print(ret.group())</span><br><span class="line">print(ret.group(1))</span><br><span class="line">print(ret.group(2))</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"># 贪婪模式</span><br><span class="line">string = &apos;&lt;div&gt;啦啦啦啦啦啦，我是卖报的小行家&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&apos;</span><br><span class="line">pattern = re.compile(r&apos;&lt;div&gt;(.*?)&lt;/div&gt;&apos;)</span><br><span class="line">ret = pattern.search(string)</span><br><span class="line"></span><br><span class="line">print(ret.group(1))</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"># 忽略大小写</span><br><span class="line">string = &apos;love is a forever topic&apos;</span><br><span class="line">pattern = re.compile(r&apos;LOVE&apos;, re.I)</span><br><span class="line"></span><br><span class="line">ret = pattern.search(string)</span><br><span class="line"></span><br><span class="line">print(ret.group())</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"># 多行模式</span><br><span class="line">string = &apos;&apos;&apos;细思极恐</span><br><span class="line">你的对手在看书</span><br><span class="line">你的敌人在磨刀</span><br><span class="line">你的闺蜜在减肥</span><br><span class="line">隔壁老王在炼腰</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">pattern = re.compile(r&apos;^你的&apos;, re.M)</span><br><span class="line">ret = pattern.search(string)</span><br><span class="line"></span><br><span class="line">print(ret.group())</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 单行模式</span><br><span class="line">string = &apos;&apos;&apos;&lt;div&gt;沁园春-雪</span><br><span class="line">北国风光，千里冰封，万里雪飘</span><br><span class="line">望长城内外，惟余莽莽</span><br><span class="line">大河上下，顿失滔滔</span><br><span class="line">&lt;/div&gt;&apos;&apos;&apos;</span><br><span class="line">pattern = re.compile(r&apos;&lt;div&gt;(.*?)&lt;/div&gt;&apos;, re.S)</span><br><span class="line">ret = pattern.search(string)</span><br><span class="line">print(ret.group(1))</span><br></pre></td></tr></table></figure>
+<h5 id="4-正则案例"><a href="#4-正则案例" class="headerlink" title="4. 正则案例 :"></a>4. 正则案例 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">糗事百科糗图</span><br><span class="line">	</span><br><span class="line">图片下载 :</span><br><span class="line">	防盗链, 直接通过urllib.request.urlretrieve()下载不了</span><br><span class="line">	在请求头部有一个referer, 判断头部是不是从这个网站过来的, 如果是, 可以看图片, 如果不是, 图片不让看</span><br><span class="line">	通过程序看这个图片的时候, 需要手动定制Referer: ,定制为网站的首页即可, 需要通过构建请求对象, 发送请求,</span><br></pre></td></tr></table></figure>
+<h5 id="qiutu-py"><a href="#qiutu-py" class="headerlink" title="qiutu.py :"></a>qiutu.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">import urllib.parse</span><br><span class="line">import re</span><br><span class="line">import time</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">	start_page = int(input(&apos;请输入起始页码:&apos;))</span><br><span class="line">	end_page = int(input(&apos;请输入结束页码:&apos;))</span><br><span class="line">	url = &apos;https://www.qiushibaike.com/pic/page/&#123;&#125;/&apos;</span><br><span class="line">	for page in range(start_page, end_page + 1):</span><br><span class="line">		print(&apos;正在下载第%s页......&apos; % page)</span><br><span class="line">		# 拼接url，构建请求对象</span><br><span class="line">		request = handle_request(url, page)</span><br><span class="line">		# 发送请求，获取响应</span><br><span class="line">		content = urllib.request.urlopen(request).read().decode(&apos;utf8&apos;)</span><br><span class="line">		# 正则解析内容</span><br><span class="line">		parse_content(content)</span><br><span class="line">		print(&apos;结束下载第%s页&apos; % page)</span><br><span class="line">		time.sleep(2)</span><br><span class="line"></span><br><span class="line">def parse_content(content):</span><br><span class="line">	pattern = re.compile(r&apos;&lt;div class=&quot;thumb&quot;&gt;.*?&lt;img src=&quot;(.*?)&quot; alt=&quot;(.*?)&quot; /&gt;.*?&lt;/div&gt;&apos;, re.S)</span><br><span class="line">	ret = pattern.findall(content)</span><br><span class="line">	# print(ret)</span><br><span class="line">	# print(len(ret))</span><br><span class="line">	# 遍历这个列表，依次下载每一个图片</span><br><span class="line">	for tp in ret:</span><br><span class="line">		# 取出图片的链接</span><br><span class="line">		image_src = &apos;https:&apos; + tp[0]</span><br><span class="line">		# 取出图片的名字</span><br><span class="line">		name = tp[1]</span><br><span class="line">		# 保存图片</span><br><span class="line">		dirname = &apos;qiutu&apos;</span><br><span class="line">		filename = name + &apos;.&apos; + image_src.split(&apos;.&apos;)[-1]</span><br><span class="line">		filepath = os.path.join(dirname, filename)</span><br><span class="line">		print(&apos;正在下载%s..&apos; % filename)</span><br><span class="line">		urllib.request.urlretrieve(image_src, filepath)</span><br><span class="line">		print(&apos;结束下载%s&apos; % filename)</span><br><span class="line">		time.sleep(2)</span><br><span class="line"></span><br><span class="line">def handle_request(url, page):</span><br><span class="line">	# 拼接url</span><br><span class="line">	url = url.format(page)</span><br><span class="line">	# print(url)</span><br><span class="line">	headers = &#123;</span><br><span class="line">		&apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;,</span><br><span class="line">	&#125;</span><br><span class="line">	request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">	return request</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	main()</span><br></pre></td></tr></table></figure>
+<h5 id="lizhi-py"><a href="#lizhi-py" class="headerlink" title="lizhi.py :"></a>lizhi.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">import urllib.parse</span><br><span class="line">import time</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">	start_page = int(input(&apos;请输入起始页码:&apos;))</span><br><span class="line">	end_page = int(input(&apos;请输入结束页码:&apos;))</span><br><span class="line">	url = &apos;http://www.yikexun.cn/lizhi/qianming/list_50_&#123;&#125;.html&apos;</span><br><span class="line">	# 打开文件</span><br><span class="line">	fp = open(&apos;lizhi.html&apos;, &apos;w&apos;, encoding=&apos;utf8&apos;)</span><br><span class="line">	for page in range(start_page, end_page + 1):</span><br><span class="line">		# 构建请求对象</span><br><span class="line">		request = handle_request(url, page)</span><br><span class="line">		# 发送请求，得到响应</span><br><span class="line">		content = urllib.request.urlopen(request).read().decode(&apos;utf8&apos;)</span><br><span class="line">		# 解析内容</span><br><span class="line">		parse_content(content, fp)</span><br><span class="line">		time.sleep(2)</span><br><span class="line">	fp.close()</span><br><span class="line"></span><br><span class="line">def parse_content(content, fp):</span><br><span class="line">	pattern = re.compile(r&apos;&lt;div class=&quot;art-t&quot;&gt;.*?&lt;a href=&quot;(.*?)&quot;&gt;(&lt;b&gt;)?(.*?)(&lt;/b&gt;)?&lt;/a&gt;.*?&lt;/div&gt;&apos;, re.S)</span><br><span class="line">	ret = pattern.findall(content)</span><br><span class="line"></span><br><span class="line">	# 遍历列表，取出标题和链接</span><br><span class="line">	for tp in ret:</span><br><span class="line">		href = &apos;http://www.yikexun.cn&apos; + tp[0]</span><br><span class="line">		title = tp[2]</span><br><span class="line">		# 取出b标签</span><br><span class="line">		# title = title.strip(&apos;&lt;/b&gt;&apos;)</span><br><span class="line">		text = get_text(href)</span><br><span class="line">		# 打开文件，写入文件中</span><br><span class="line">		string = &apos;&lt;h1&gt;%s&lt;/h1&gt;%s&apos; % (title, text)</span><br><span class="line">		fp.write(string)</span><br><span class="line">		time.sleep(2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_text(href):</span><br><span class="line">	# 构建请求对象</span><br><span class="line">	request = handle_request(href)</span><br><span class="line">	content = urllib.request.urlopen(request).read().decode(&apos;utf8&apos;)</span><br><span class="line">	pattern = re.compile(r&apos;&lt;div class=&quot;neirong&quot;&gt;(.*?)&lt;/div&gt;&apos;, re.S)</span><br><span class="line">	ret = pattern.search(content)</span><br><span class="line">	# print(ret.group(1))</span><br><span class="line">	# exit()</span><br><span class="line">	return ret.group(1)</span><br><span class="line"></span><br><span class="line">def handle_request(url, page=None):</span><br><span class="line">	if page:</span><br><span class="line">		url = url.format(page)</span><br><span class="line">	headers = &#123;</span><br><span class="line">		&apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">	return request</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	main()</span><br></pre></td></tr></table></figure>
+<h5 id="test-py"><a href="#test-py" class="headerlink" title="test.py :"></a>test.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># &apos;Accept&apos;: &apos;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&apos;,</span><br><span class="line"># &apos;Accept-Encoding&apos;: &apos;gzip, deflate, br&apos;,</span><br><span class="line"># &apos;Accept-Language&apos;: &apos;zh-CN,zh;q=0.9&apos;,</span><br><span class="line"># &apos;Cache-Control&apos;: &apos;max-age=0&apos;,</span><br><span class="line"># &apos;Connection&apos;: &apos;keep-alive&apos;,</span><br><span class="line"># &apos;Cookie&apos;: &apos;BIDUPSID=6F6C332F8A0E3C9949BD5D9F884F1FFB; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; BAIDUID=EFDAC6F7D747687E9C719E50A41D707F:FG=1; PSTM=1533783169; BD_UPN=12314353; delPer=0; BD_HOME=0; BD_CK_SAM=1; PSINO=3; H_PS_PSSID=1435_21117_20927; H_PS_645EC=3a04mDqnf2AOXeU2n6NNCFlEHTqg2o6UIX4PAa801GwAZ5PgQkN95DF2qY8; BDSVRTM=0&apos;,</span><br><span class="line"># &apos;Host&apos;: &apos;www.baidu.com&apos;,</span><br><span class="line"># &apos;Upgrade-Insecure-Requests&apos;: &apos;1&apos;,</span><br><span class="line"># &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&apos;,</span><br><span class="line"></span><br><span class="line"># string = &apos;我叫&#123;&#125;, 我喜欢&#123;&#125;, 我最&#123;&#125;&apos;</span><br><span class="line"># string = &apos;我叫&#123;2&#125;, 我喜欢&#123;1&#125;, 我最&#123;0&#125;&apos;</span><br><span class="line"># string = &apos;我叫&#123;name&#125;, 我喜欢&#123;like&#125;, 我最&#123;lala&#125;&apos;</span><br><span class="line"># print(string.format(like=&apos;周星驰&apos;, lala=&apos;朱茵&apos;, name=&apos;疯狂&apos;))</span><br><span class="line"></span><br><span class="line"># string = &apos;&lt;b&gt;b有b没有那么一首b歌，可以让我跟着和&lt;/b&gt;&apos;</span><br><span class="line"># string = string.strip(&apos;&lt;/b&gt;&apos;)</span><br><span class="line"># print(string)</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月09日 19:23</p>
+        <p>原始链接： <a class="post-url" href="/2018/08/09/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/" title="Spider">http://yoursite.com/2018/08/09/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/08/09/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/&title=《Spider》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/08/09/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/&title=《Spider》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/09/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spider》 — Hexo&url=http://yoursite.com/2018/08/09/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/08/09/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/08/09/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志/" class="color5">代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-代理ip池-阿布云使用"><span class="post-toc-text">1. 代理ip池, 阿布云使用 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#pool-txt"><span class="post-toc-text">pool.txt :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#pool-py"><span class="post-toc-text">pool.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#abuyun-py"><span class="post-toc-text">abuyun.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-cookie使用"><span class="post-toc-text">2. cookie使用 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#cookie-py"><span class="post-toc-text">cookie.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#moni-py"><span class="post-toc-text">moni.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-正则表达式"><span class="post-toc-text">3. 正则表达式 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#re-py"><span class="post-toc-text">re.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-正则案例"><span class="post-toc-text">4. 正则案例 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#qiutu-py"><span class="post-toc-text">qiutu.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#lizhi-py"><span class="post-toc-text">lizhi.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#test-py"><span class="post-toc-text">test.py :</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/09/parse,构建请求,模拟请求Handler/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Spider</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Django/">Django</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/urllib-parse-构建请求-模拟请求-Handler-代理/" style="font-size: 10px;">urllib.parse,构建请求,模拟请求,Handler,代理</a> <a href="/tags/代理池ip-阿布云代理使用-cookie使用-正则简单回顾-正则子模式-糗图正则匹配-正则抓取励志/" style="font-size: 10px;">代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志</a> <a href="/tags/关于爬虫/" style="font-size: 10px;">关于爬虫</a> <a href="/tags/创建项目/" style="font-size: 10px;">创建项目</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/urllib-parse-构建请求-模拟请求-Handler-代理/" style="font-size: 10px;">urllib.parse,构建请求,模拟请求,Handler,代理</a> <a href="/tags/代理池ip-阿布云代理使用-cookie使用-正则简单回顾-正则子模式-糗图正则匹配-正则抓取励志/" style="font-size: 10px;">代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志</a> <a href="/tags/关于爬虫/" style="font-size: 10px;">关于爬虫</a> <a href="/tags/创建项目/" style="font-size: 10px;">创建项目</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
