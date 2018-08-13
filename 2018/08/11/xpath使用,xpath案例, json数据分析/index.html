@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Spider | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="lronLin,lronLin's Blog" />
+  
+  <meta name="description" content="1. xpath使用 :12345678910111213141516171819202122(1) 属性筛选	//input[@id=&amp;quot;kw&amp;quot;]	//span[@class=&amp;quot;bg s_ipt_wr quickdelete-wrap&amp;quot;]	通过class进行选择的时候，需要将所有的class全部写进来才可以(2) 索引和层级	//div[@id=&amp;quot;">
+<meta name="keywords" content="xpath使用,xpath案例, json数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spider">
+<meta property="og:url" content="http://yoursite.com/2018/08/11/xpath使用,xpath案例, json数据分析/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. xpath使用 :12345678910111213141516171819202122(1) 属性筛选	//input[@id=&amp;quot;kw&amp;quot;]	//span[@class=&amp;quot;bg s_ipt_wr quickdelete-wrap&amp;quot;]	通过class进行选择的时候，需要将所有的class全部写进来才可以(2) 索引和层级	//div[@id=&amp;quot;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-13T11:39:20.954Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spider">
+<meta name="twitter:description" content="1. xpath使用 :12345678910111213141516171819202122(1) 属性筛选	//input[@id=&amp;quot;kw&amp;quot;]	//span[@class=&amp;quot;bg s_ipt_wr quickdelete-wrap&amp;quot;]	通过class进行选择的时候，需要将所有的class全部写进来才可以(2) 索引和层级	//div[@id=&amp;quot;">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">lronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        lronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        简洁是智慧的灵魂, 冗长是肤浅的藻饰!
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="lronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-xpath使用,xpath案例, json数据分析" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Spider
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-08-11
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h5 id="1-xpath使用"><a href="#1-xpath使用" class="headerlink" title="1. xpath使用 :"></a>1. xpath使用 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(1) 属性筛选</span><br><span class="line">	//input[@id=&quot;kw&quot;]</span><br><span class="line">	//span[@class=&quot;bg s_ipt_wr quickdelete-wrap&quot;]</span><br><span class="line">	通过class进行选择的时候，需要将所有的class全部写进来才可以</span><br><span class="line">(2) 索引和层级</span><br><span class="line">	//div[@id=&quot;head&quot;]/div/div[@id=&quot;u1&quot;]/a[2]</span><br><span class="line">(3) 获取内容和属性</span><br><span class="line">	//div[@id=&quot;ul&quot;]/a[2]/text()  获取内容</span><br><span class="line">	//div[@id=&quot;ul&quot;]/a[2]/@href  获取属性</span><br><span class="line">(4) xpath函数</span><br><span class="line">	选出class属性以mn开头的a</span><br><span class="line">		//div[@id=&quot;ul&quot;]/a[starts-with(@class, &quot;mn&quot;)]</span><br><span class="line">	选出内容以地开头的a</span><br><span class="line">		//div[@id=&quot;ul&quot;]/a[start-with(text(), &quot;地&quot;)]</span><br><span class="line">	选出class属性包含av的a</span><br><span class="line">		//div[@id=&quot;ul&quot;]/a[contains(@class, &quot;av&quot;)]</span><br><span class="line">	选出内容包含多产的a</span><br><span class="line">		//div[@id=&quot;ul&quot;]/a[contains(text(), &quot;多产&quot;)]</span><br><span class="line">代码中使用xpath. 首先将文档生成对象, 然后根据对象的方法找到想要的节点,可以是本地文件, 也可以是网络文件</span><br><span class="line">xpath方法返回的是一个列表, 通过下标进行取内容</span><br><span class="line">//*[@id=&quot;ul&quot;]/a[2]</span><br><span class="line">//*[@id=&quot;su&quot;]   #su  #form &gt; input[type=&quot;hidden&quot;]:nth-child(14)</span><br></pre></td></tr></table></figure>
+<h5 id="xpath-py"><a href="#xpath-py" class="headerlink" title="xpath.py :"></a>xpath.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">from lxml import etree</span><br><span class="line"></span><br><span class="line"># 生成对象</span><br><span class="line">tree = etree.parse(&apos;test.html&apos;)</span><br><span class="line"># print(tree)</span><br><span class="line"></span><br><span class="line"># ret = tree.xpath(&apos;//a[@class=&quot;lala&quot;]&apos;)</span><br><span class="line"># ret = tree.xpath(&apos;//div[@class=&quot;tang&quot;]/ul/li/b[2]&apos;)</span><br><span class="line"># ret = tree.xpath(&apos;//a[@id=&quot;dudu&quot;]/text()&apos;)</span><br><span class="line"># ret = tree.xpath(&apos;//a[@id=&quot;dudu&quot;]/@href&apos;)</span><br><span class="line"># print(ret)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 获取标签里面还有标签的内容可以使用如下两种方式</span><br><span class="line"># ret = tree.xpath(&apos;//div[@class=&quot;hero&quot;]//text()&apos;)</span><br><span class="line"># string = &apos;&apos;.join(ret).replace(&apos;\n&apos;, &apos;&apos;).replace(&apos; &apos;, &apos;&apos;)</span><br><span class="line"># print(string)</span><br><span class="line"></span><br><span class="line"># 先找到div这个对象</span><br><span class="line"># odiv = tree.xpath(&apos;//div[@class=&quot;hero&quot;]&apos;)[0]</span><br><span class="line"># string = odiv.xpath(&apos;string(.)&apos;).replace(&apos;\n&apos;, &apos;&apos;).replace(&apos; &apos;, &apos;&apos;)</span><br><span class="line"># print(string)</span><br><span class="line"></span><br><span class="line"># ret = tree.xpath(&apos;//b[starts-with(@class,&quot;mei&quot;)]/text()&apos;)</span><br><span class="line"># ret = tree.xpath(&apos;//b[contains(text(), &quot;一&quot;)]/text()&apos;)</span><br><span class="line"># print(ret)</span><br></pre></td></tr></table></figure>
+<h5 id="2-xpath案例"><a href="#2-xpath案例" class="headerlink" title="2. xpath案例 :"></a>2. xpath案例 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">http://sc.chinaz.com  美女图片</span><br><span class="line">懒加载 : 一个网页中有100张图片, 需要101次请求才能加载完毕, 首先加载出现在可视区内的图片, 在可视区外的图片多没有加载, 在用户滚动滚动条的时候, 通过js动态的去监听当前这个图片有没有出现在可视区, 如果出现在可视区, 再去加载这个图片</span><br><span class="line">前端如何实现? &lt;img src=&apos;xxx&apos;&gt;  &lt;img src2=&apos;图片地址&apos;&gt;  当图片出现在可视区的时候, js动态的将src2修改为src, 就会加载这个图片</span><br><span class="line">出现的形式 :</span><br><span class="line">	src2 data-src data-original class=&quot;lazy&quot;</span><br><span class="line">糗事百科</span><br><span class="line">	谷歌中的xpath只能作为参考，实际都要以代码为准</span><br></pre></td></tr></table></figure>
+<h5 id="meinv-py"><a href="#meinv-py" class="headerlink" title="meinv.py :"></a>meinv.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from lxml import etree</span><br><span class="line">import time</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">class TuPianSpider(object):</span><br><span class="line">    def __init__(self, start_page, end_page):</span><br><span class="line">        self.start_page = start_page</span><br><span class="line">        self.end_page = end_page</span><br><span class="line">        self.url = &apos;http://sc.chinaz.com/tupian/meinvtupian_&#123;&#125;.html&apos;</span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;,</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    def run(self):</span><br><span class="line">        for page in range(self.start_page, self.end_page + 1):</span><br><span class="line">            print(&apos;正在下载第%s页......&apos; % page)</span><br><span class="line">            request = self.handle_request(page)</span><br><span class="line">            content = urllib.request.urlopen(request).read().decode(&apos;utf8&apos;)</span><br><span class="line">            self.parse_content(content)</span><br><span class="line">            print(&apos;结束下载第%s页&apos; % page)</span><br><span class="line">            time.sleep(2)</span><br><span class="line">    </span><br><span class="line">    def parse_content(self, content):</span><br><span class="line">        # 解析内容</span><br><span class="line">        tree = etree.HTML(content)</span><br><span class="line">        # 提取这个页码所有图片的src属性</span><br><span class="line">        image_srcs = tree.xpath(&apos;//div[@id=&quot;container&quot;]/div/div/a/img/@src2&apos;)</span><br><span class="line">        # 找到图片的标题</span><br><span class="line">        image_titles = tree.xpath(&apos;//div[@id=&quot;container&quot;]/div/div/a/img/@alt&apos;)</span><br><span class="line">        # print(image_srcs)</span><br><span class="line">        # print(len(image_srcs))</span><br><span class="line">        # 遍历列表下载图片</span><br><span class="line">        for image_src in image_srcs:</span><br><span class="line">            # 生成图片的名字</span><br><span class="line">            filename = image_titles[image_srcs.index(image_src)] + &apos;.&apos; + image_src.split(&apos;.&apos;)[-1]</span><br><span class="line">            print(&apos;正在下载--%s...&apos; % filename)</span><br><span class="line">            dirname = &apos;meinv&apos;</span><br><span class="line">            filepath = os.path.join(dirname, filename)</span><br><span class="line">            urllib.request.urlretrieve(image_src, filepath)</span><br><span class="line">            print(&apos;结束下载--%s&apos; % filename)</span><br><span class="line">            time.sleep(2)</span><br><span class="line">    </span><br><span class="line">    def handle_request(self, page):</span><br><span class="line">        if page == 1:</span><br><span class="line">            url = &apos;http://sc.chinaz.com/tupian/meinvtupian.html&apos;</span><br><span class="line">        else:</span><br><span class="line">            url = self.url.format(page)</span><br><span class="line">        # print(url)</span><br><span class="line">        request = urllib.request.Request(url=url, headers=self.headers)</span><br><span class="line">        return request</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    start_page = int(input(&apos;请输入起始页码:&apos;))</span><br><span class="line">    end_page = int(input(&apos;请输入结束页码:&apos;))</span><br><span class="line">    tupian = TuPianSpider(start_page, end_page)</span><br><span class="line">    tupian.run()</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="qiubai-py"><a href="#qiubai-py" class="headerlink" title="qiubai.py :"></a>qiubai.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from lxml import etree</span><br><span class="line"></span><br><span class="line">def handle_request(url):</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">    return urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line">def parse_content(content, fp):</span><br><span class="line">    tree = etree.HTML(content)</span><br><span class="line">    # 获取每一个段子的所有信息</span><br><span class="line">    odiv_list = tree.xpath(&apos;//div[@id=&quot;content-left&quot;]/div&apos;)</span><br><span class="line">    # print(len(odiv_list))</span><br><span class="line">    for odiv in odiv_list:</span><br><span class="line">        # 获取头像</span><br><span class="line">        try:</span><br><span class="line">            image_src = odiv.xpath(&apos;./div[@class=&quot;author clearfix&quot;]/a/img/@src&apos;)[0]</span><br><span class="line">        except Exception as e:</span><br><span class="line">            image_src = &apos;&apos;</span><br><span class="line">        </span><br><span class="line">        # 获取用户名</span><br><span class="line">        name = odiv.xpath(&apos;./div[@class=&quot;author clearfix&quot;]//h2/text()&apos;)[0]</span><br><span class="line">        # 获取年龄</span><br><span class="line">        try:</span><br><span class="line">            age = odiv.xpath(&apos;./div[@class=&quot;author clearfix&quot;]/div/text()&apos;)[0]</span><br><span class="line">        except Exception as e:</span><br><span class="line">            age = &apos;&apos;</span><br><span class="line">        </span><br><span class="line">        # 获取内容  自己获取</span><br><span class="line">        item = &#123;</span><br><span class="line">            &apos;头像&apos;: image_src,</span><br><span class="line">            &apos;用户名&apos;: name,</span><br><span class="line">            &apos;年龄&apos;: age</span><br><span class="line">        &#125;</span><br><span class="line">        fp.write(str(item) + &apos;\n&apos;)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    fp = open(&apos;qiu.txt&apos;, &apos;w&apos;, encoding=&apos;utf8&apos;)</span><br><span class="line">    url = &apos;https://www.qiushibaike.com/&apos;</span><br><span class="line">    request = handle_request(url)</span><br><span class="line">    response = urllib.request.urlopen(request)</span><br><span class="line">    content = response.read().decode(&apos;utf8&apos;)</span><br><span class="line">    parse_content(content, fp)</span><br><span class="line">    fp.close()</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="3-json数据分析"><a href="#3-json数据分析" class="headerlink" title="3. json数据分析 :"></a>3. json数据分析 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">认识json?</span><br><span class="line">前台 : 由用户看到的界面称之为前台</span><br><span class="line">后台 : 管理员负责的查看的, 后台管理系统</span><br><span class="line">前端 : html, css, js, 在浏览器那一块工作的</span><br><span class="line">后端 : 服务器端的, php, java, python</span><br><span class="line">短信发送平台, 会提供单独的接口.</span><br><span class="line">天气接口, </span><br><span class="line">前端后端交互一般都是json格式</span><br><span class="line">后端服务器和特定功能服务器之间的交互, 后端服务器称之为前端, 提供服务的称之为后端, 之间交互的格式也是json格式.</span><br><span class="line">http://blog.csdn.net/luxideyao/article/details/77802389</span><br><span class="line"></span><br><span class="line">&lt;note&gt;你长得真漂亮&lt;/note&gt;</span><br><span class="line">&apos;note&apos;: &apos;你长得真漂亮&apos;</span><br><span class="line">json语法 :</span><br><span class="line">	(1) 数据都在键值对中</span><br><span class="line">	(2) 数据以逗号隔开</span><br><span class="line">	(3) &#123;&#125; 大括号保存对象  对应的是咱的字典</span><br><span class="line">	(4) [] 中括号保存数组</span><br><span class="line">	字符串都是以双引号括起来</span><br><span class="line">	json的值可以是 : 数字, 字符串, 逻辑值, 数组, 字典, null</span><br><span class="line"></span><br><span class="line">Python如何解析json?</span><br><span class="line">	(1) 原生解析, 通过字典, 列表解析</span><br><span class="line">		import json : json模块</span><br><span class="line">		json.dumps() : 将Python的字典或者列表转换为json格式字符串</span><br><span class="line">			ensure_ascii = False 可以看懂中文</span><br><span class="line">		json.loads() : 将json格式的字符串转化为Python的对象</span><br><span class="line">	了解下面的 :</span><br><span class="line">		json.dump() : 将Python对象转化为json字符串之后直接写入到文件中</span><br><span class="line">		json.load() : 将文件中的json字符串直接读取到Python对象中</span><br><span class="line">	(2) jsonpath(了解)</span><br><span class="line">	jsonpath用来干什么? 用来解析json数据,当解析复杂一点的json数据就要用到这个.</span><br><span class="line">obj[0][&apos;lala&apos;][&apos;goudan&apos;][2][&apos;dudu&apos;][&apos;xixi&apos;]		</span><br><span class="line">		http://blog.csdn.net/luxideyao/article/details/77802389</span><br><span class="line">安装: pip install lxml  pip install jsonpath</span><br><span class="line">和xpath对比 :</span><br><span class="line">	/  $  根元素</span><br><span class="line">	/  .  路径分隔符, 直接子元素</span><br><span class="line">	.  @  当前元素</span><br><span class="line">	//  ..  任意位置开始查找</span><br><span class="line">	下标xpath从1开始, jsonpath从0开始</span><br><span class="line">	</span><br><span class="line">	https://rate.tmall.com/list_detail_rate.htm?itemId=562099309982&amp;spuId=893336129&amp;sellerId=2616970884&amp;order=3&amp;currentPage=2</span><br></pre></td></tr></table></figure>
+<h5 id="json-py"><a href="#json-py" class="headerlink" title="json.py :"></a>json.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">lt = [</span><br><span class="line">    &#123;&apos;name&apos;: &apos;王静&apos;, &apos;age&apos;: &apos;7&apos;, &apos;height&apos;: 130&#125;,</span><br><span class="line">    &#123;&apos;name&apos;: &apos;闫晓红&apos;, &apos;age&apos;: 13, &apos;height&apos;: 160&#125;,</span><br><span class="line">    &#123;&apos;name&apos;: &apos;刘惠芬&apos;, &apos;age&apos;: 16, &apos;height&apos;: 158&#125;,</span><br><span class="line">    &#123;&apos;name&apos;: &apos;赵铁柱&apos;, &apos;age&apos;: 20, &apos;height&apos;: 170&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">string = json.dumps(lt, ensure_ascii=False)</span><br><span class="line"></span><br><span class="line"># print(string)</span><br><span class="line">obj = json.loads(string)</span><br><span class="line"></span><br><span class="line">print(type(obj))</span><br></pre></td></tr></table></figure>
+<h5 id="douban-py"><a href="#douban-py" class="headerlink" title="douban.py :"></a>douban.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import urllib.request</span><br><span class="line">from lxml import etree</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">def main():</span><br><span class="line">    url = &apos;https://movie.douban.com/typerank?type_name=%E7%88%B1%E6%83%85&amp;type=13&amp;interval_id=100:90&amp;action=&apos;</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">    request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">    content = urllib.request.urlopen(request).read().decode(&apos;utf8&apos;)</span><br><span class="line">    tree = etree.HTML(content)</span><br><span class="line">    odiv_list = tree.xpath(&apos;//div[starts-with(@class,&quot;movie-list-item&quot;)]&apos;)</span><br><span class="line">    print(odiv_list)</span><br><span class="line">    print(len(odiv_list))</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    fp = open(&apos;movie.json&apos;, &apos;w&apos;, encoding=&apos;utf8&apos;)</span><br><span class="line">    url = &apos;https://movie.douban.com/j/chart/top_list?type=13&amp;interval_id=100%3A90&amp;action=&amp;start=0&amp;limit=20&apos;</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">    request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">    content = urllib.request.urlopen(request).read().decode(&apos;utf8&apos;)</span><br><span class="line"></span><br><span class="line">    # print(content)</span><br><span class="line">    # 将json格式字符串转化为python对象</span><br><span class="line">    lt = json.loads(content)</span><br><span class="line">    # 遍历这个列表，依次获取每一个电影的详细信息</span><br><span class="line">    lala = []</span><br><span class="line">    for obj in lt:</span><br><span class="line">        # 获取海报</span><br><span class="line">        post = obj[&apos;cover_url&apos;]</span><br><span class="line">        # 电影名字</span><br><span class="line">        name = obj[&apos;title&apos;]</span><br><span class="line">        # 评分</span><br><span class="line">        score = obj[&apos;score&apos;]</span><br><span class="line">        # 评论人数</span><br><span class="line">        count = obj[&apos;vote_count&apos;]</span><br><span class="line">        item = &#123;</span><br><span class="line">            &apos;海报&apos;: post,</span><br><span class="line">            &apos;电影&apos;: name,</span><br><span class="line">            &apos;评分&apos;: score,</span><br><span class="line">            &apos;品论人数&apos;: count</span><br><span class="line">        &#125;</span><br><span class="line">        lala.append(item)</span><br><span class="line">        # print(obj)</span><br><span class="line">        # exit()</span><br><span class="line">    string = json.dumps(lala, ensure_ascii=False)</span><br><span class="line">    fp.write(string)</span><br><span class="line">    fp.close()</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="jsonpath-py"><a href="#jsonpath-py" class="headerlink" title="jsonpath.py :"></a>jsonpath.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line">import jsonpath</span><br><span class="line"></span><br><span class="line">fp = open(&apos;book.json&apos;, &apos;r&apos;, encoding=&apos;utf8&apos;)</span><br><span class="line">string = fp.read()</span><br><span class="line">fp.close()</span><br><span class="line"></span><br><span class="line">obj = json.loads(string)</span><br><span class="line"></span><br><span class="line"># 得到所有book的author</span><br><span class="line">ret = jsonpath.jsonpath(obj, &apos;$.store.book[*].author&apos;)</span><br><span class="line"># 直接找到所有的author</span><br><span class="line">ret = jsonpath.jsonpath(obj, &apos;$..author&apos;)</span><br><span class="line"># 得到store下面的所有的price</span><br><span class="line">ret = jsonpath.jsonpath(obj, &apos;$.store..price&apos;)</span><br><span class="line"># 得到第3本书</span><br><span class="line">ret = jsonpath.jsonpath(obj, &apos;$..book[2]&apos;)</span><br><span class="line"># 得到最后一本书</span><br><span class="line">ret = jsonpath.jsonpath(obj, &apos;$..book[(@.length-1)]&apos;)</span><br><span class="line"># </span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure>
+<h5 id="taobao-py"><a href="#taobao-py" class="headerlink" title="taobao.py :"></a>taobao.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line">import jsonpath</span><br><span class="line">import urllib.request</span><br><span class="line"></span><br><span class="line">url = &apos;https://rate.tmall.com/list_detail_rate.htm?itemId=562099309982&amp;spuId=893336129&amp;sellerId=2616970884&amp;order=3&amp;currentPage=2&apos;</span><br><span class="line">headers = &#123;</span><br><span class="line">        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">content = urllib.request.urlopen(request).read().decode(&apos;gbk&apos;)</span><br><span class="line">content = &apos;&#123;&apos; + content + &apos;&#125;&apos;</span><br><span class="line"># print(content)</span><br><span class="line">fp = open(&apos;taobao.txt&apos;, &apos;w&apos;, encoding=&apos;utf8&apos;)</span><br><span class="line">obj = json.loads(content)</span><br><span class="line"># print(type(obj))</span><br><span class="line"># 找到所有的评论列表</span><br><span class="line">comments_list = obj[&apos;rateDetail&apos;][&apos;rateList&apos;]</span><br><span class="line"># 遍历列表，依次获取每一个评论内容</span><br><span class="line">for com_obj in comments_list:</span><br><span class="line">    # 评论内容</span><br><span class="line">    comment = com_obj[&apos;rateContent&apos;]</span><br><span class="line">    # 用户名</span><br><span class="line">    name = jsonpath.jsonpath(com_obj, &apos;$..displayUserNick&apos;)[0]</span><br><span class="line">    # 上传照片</span><br><span class="line">    images = jsonpath.jsonpath(com_obj, &apos;$..pics&apos;)[0]</span><br><span class="line">    # 评论时间</span><br><span class="line">    tt = jsonpath.jsonpath(com_obj, &apos;$..rateDate&apos;)[0]</span><br><span class="line">    # print(images)</span><br><span class="line">    # print(&apos;*&apos; * 50)</span><br><span class="line">    item = &#123;</span><br><span class="line">        &apos;评论内容&apos;: comment,</span><br><span class="line">        &apos;用户名&apos;: name,</span><br><span class="line">        &apos;照片&apos;: images,</span><br><span class="line">        &apos;评论时间&apos;: tt</span><br><span class="line">    &#125;</span><br><span class="line">    fp.write(str(item) + &apos;\n&apos;)</span><br><span class="line"></span><br><span class="line">fp.close()</span><br></pre></td></tr></table></figure>
+<h5 id="book-json"><a href="#book-json" class="headerlink" title="book.json :"></a>book.json :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;store&quot;: &#123;</span><br><span class="line">    &quot;book&quot;: [ </span><br><span class="line">      &#123; &quot;category&quot;: &quot;文学&quot;,</span><br><span class="line">        &quot;author&quot;: &quot;路遥&quot;,</span><br><span class="line">        &quot;title&quot;: &quot;平凡的世界&quot;,</span><br><span class="line">        &quot;price&quot;: 18.95</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123; &quot;category&quot;: &quot;文学&quot;,</span><br><span class="line">        &quot;author&quot;: &quot;霍达&quot;,</span><br><span class="line">        &quot;title&quot;: &quot;穆斯林的葬礼&quot;,</span><br><span class="line">        &quot;price&quot;: 32.99</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123; &quot;category&quot;: &quot;科技&quot;,</span><br><span class="line">        &quot;author&quot;: &quot;崔庆才&quot;,</span><br><span class="line">        &quot;title&quot;: &quot;Python网络爬虫开发实战&quot;,</span><br><span class="line">        &quot;isbn&quot;: &quot;0-553-21311-3&quot;,</span><br><span class="line">        &quot;price&quot;: 68.99</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123; &quot;category&quot;: &quot;历史&quot;,</span><br><span class="line">        &quot;author&quot;: &quot;当年明月&quot;,</span><br><span class="line">        &quot;title&quot;: &quot;明朝那些事儿&quot;,</span><br><span class="line">        &quot;isbn&quot;: &quot;0-395-19395-8&quot;,</span><br><span class="line">        &quot;price&quot;: 32.99</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;bicycle&quot;: &#123;</span><br><span class="line">      &quot;color&quot;: &quot;red&quot;,</span><br><span class="line">      &quot;price&quot;: 19.95</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="test-html"><a href="#test-html" class="headerlink" title="test.html :"></a>test.html :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;title&gt;xpath测试&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;hero&quot;&gt;</span><br><span class="line">        杨玉环</span><br><span class="line">        &lt;p&gt;王昭君&lt;/p&gt;</span><br><span class="line">        大乔</span><br><span class="line">        &lt;p&gt;妲己&lt;/p&gt;</span><br><span class="line">        蔡文姬</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;tang&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;b class=&quot;meixi&quot;&gt;岐王宅里寻常见,崔九堂前几度闻,正是江南好风景,落花时节又逢君&lt;/b&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;b class=&quot;meizi&quot;&gt;一骑红尘妃子笑,无人知是荔枝来&lt;/b&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;b class=&quot;meiqiu&quot;&gt;凤凰台上凤凰游,凤去台空江自流,吴宫花草埋幽径,晋代衣冠成古丘&lt;/b&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;b class=&quot;cluo&quot;&gt;朝辞白帝彩云间,千里江陵一日还,两岸猿声啼不住,轻舟已过万重山&lt;/b&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;song&quot;&gt;</span><br><span class="line">        &lt;a href=&quot;www.yuefei.com&quot;&gt;怒发冲冠凭栏处,潇潇雨歇抬望眼&lt;/a&gt;</span><br><span class="line">        &lt;a href=&quot;www.su.com&quot; class=&quot;lala&quot;&gt;十年生死两茫茫,不思量,自难忘,千里孤坟无处话凄凉&lt;/a&gt;</span><br><span class="line">        &lt;a href=&quot;www.susu.com&quot; id=&quot;dudu&quot;&gt;一枝梨花压海棠&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="taobao-txt"><a href="#taobao-txt" class="headerlink" title="taobao.txt :"></a>taobao.txt :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;&apos;评论内容&apos;: &apos;用了一段时间才来评价的，首先确认是正品，产品质量有保证，使用顺手流畅，显示清晰细腻，功能强大。一如既往的好一如既往的喜欢。&apos;, &apos;用户名&apos;: &apos;踏***8&apos;, &apos;照片&apos;: &apos;&apos;, &apos;评论时间&apos;: &apos;2018-08-09 23:20:06&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;我觉得很不错，是全新的国行未拆封，就是刚用上会有些操作不习惯，慢慢就好了，好评&apos;, &apos;用户名&apos;: &apos;秦***o&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i3/TB2u2PrI1OSBuNjy0FdXXbDnVXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-05 11:21:53&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;用了几天后过来评价的，首先夸一下苏宁的火箭哥们，送货快，主动提出拆箱验货。手机运行速度一流，电池续航能力强，扫脸解锁真的超方便。大屏看着很舒服，拍照很棒。&apos;, &apos;用户名&apos;: &apos;s***2&apos;, &apos;照片&apos;: &apos;&apos;, &apos;评论时间&apos;: &apos;2018-08-07 09:25:50&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;终于下单啦，安卓换回苹果，还是很好用～哈哈哈哈&apos;, &apos;用户名&apos;: &apos;t***2&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i3/TB2c1h2c6fguuRjSspaXXaXVXXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-09 20:41:17&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;此用户没有填写评论!&apos;, &apos;用户名&apos;: &apos;与***后&apos;, &apos;照片&apos;: &apos;&apos;, &apos;评论时间&apos;: &apos;2018-07-01 17:57:27&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;非常不错，国行正版，序列号查询也没问题，苏宁比其他地方也便宜，还买了iwatch airport 晚上拍的第二天就到了&apos;, &apos;用户名&apos;: &apos;流***5&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i1/TB2flTxJAOWBuNjSsppXXXPgpXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i3/TB2JJejJwmTBuNjy1XbXXaMrVXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i2/TB2GSqBJuOSBuNjy0FdXXbDnVXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-07 11:25:54&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;无话可说  因为实在是太好了！喜欢的简直不能自已，好开心好开心！正好还赶上活动。太合适了。太喜欢了～&apos;, &apos;用户名&apos;: &apos;m***1&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i1/TB23FRHJGSWBuNjSsrbXXa0mVXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i1/TB2xozEJQ9WBuNjSspeXXaz5VXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-08 16:21:42&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;一下子在苏宁易购买了2台，苏宁易购是电商中最经济实惠的，而且晚上下单隔天早上就到了，那天正好台风暴雨，送货师傅保证了货物按时送到我手里，十分感谢！&apos;, &apos;用户名&apos;: &apos;y***7&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i1/TB2EGrQJMaTBuNjSszfXXXgfpXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i4/TB2oXlvJ7CWBuNjy0FaXXXUlXXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-08 23:20:39&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;手机正品！物流快！服务好！推荐各位。非常好的一次购物体验！&apos;, &apos;用户名&apos;: &apos;d***s&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i4/TB22geJJH9YBuNjy0FgXXcxcXXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i2/TB29DZ4mv6TBKNjSZJiXXbKVFXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i2/TB2PEGVcy6guuRkSmLyXXculFXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-07 23:43:34&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;对于苏宁，第一次买东西可以说相当的满意了、无论什么事效率杠杠的！以后肯定会继续的.哈哈哈哈哈哈哈哈回家哈哈哈哈哈哈回家哈哈回家就斤斤计较哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈回家哈哈哈哈哈哈回家哈哈回家就斤斤计较哈哈哈哈哈哈哈哈哈&apos;, &apos;用户名&apos;: &apos;h***1&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i2/TB2UCx7BiCYBuNkHFCcXXcHtVXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-07 22:21:04&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;到货前 看到有些人说 机子容易发烫 今儿试了试 没有所说的烫手 温和而已 也没有什么大毛病  ix用着就是爽  各种科技 性能就不用说了 一分价钱一分货 非常好 让我爱不释手 机不离手 大爱 大爱 大爱 大爱 大爱 大爱 大爱 啊 啊啊啊 啊啊啊啊啊 啊啊啊 啊啊啊啊啊啊啊啊 呀呀呀呀 噢噢噢噢噢噢噢噢噢&apos;, &apos;用户名&apos;: &apos;g***d&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i2/TB2Jp6zmj7nBKNjSZLeXXbxCFXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i3/TB20hzzIA9WBuNjSspeXXaz5VXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-02 23:27:11&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;iPhone X是目前苹果最好的手机了，从手感到系统都非常不错，很人性化，从4用到X 每代都在用，能看出苹果在为用户着想，而且苏宁有300优惠券很划算&apos;, &apos;用户名&apos;: &apos;龙***3&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i1/TB2z41AagZupeRjt_jqXXcfAFXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-07 19:44:18&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;第二次购买，国行正品，信得过，运行流畅&apos;, &apos;用户名&apos;: &apos;羽***9&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i4/TB2PQa0ylmWBuNkSndVXXcsApXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-07-24 19:30:54&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;手机是买来送给我妹的，一开始她让我给她买个7P或者8p,因为以前我女朋友要8P但我送了她个三千块的OPPO，然后我就变成前男友了，哈哈哈，所以我痛定思痛，以后买东西送女孩子，送的一定要超出她期望一点点，给我妹买8p她会开心，但不会有惊喜，所以偷偷给她买了X，收到过后，她说她觉得X性价比不高，从没考虑过，但看得出来很高兴，哈哈哈，还说她以后挣到钱给我买一个，懂事，哈哈。所以到这手机好不好不重要，关键是我和我妹都很开心，在苏宁我也买了个小米，别问我为什么我妹用苹果，我用小米，我不会告诉你我妹穿AJ，我穿回力，对我来说都一样，小米用到现在也没一点问题，苏宁还是信的过，手机不在我身上，所以没法晒图，后续怎么样，我问了之后再追加吧&apos;, &apos;用户名&apos;: &apos;t***9&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i4/TB2qDCCIKOSBuNjy0FdXXbDnVXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-03 21:18:25&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;此用户没有填写评论!&apos;, &apos;用户名&apos;: &apos;曾***二&apos;, &apos;照片&apos;: &apos;&apos;, &apos;评论时间&apos;: &apos;2018-08-02 16:08:35&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;真品!快递服務好!送货上門!送货速度快&apos;, &apos;用户名&apos;: &apos;i***馆&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i3/TB2suaQJeuSBuNjSsplXXbe8pXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-06 11:21:18&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;非常愉快的一次购物，正品。物流也快，喜欢的亲们可以直接拍下额&apos;, &apos;用户名&apos;: &apos;l***i&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i4/TB2evqRJA9WBuNjSspeXXaz5VXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i4/TB2uSePBlyWBuNkSmFPXXXguVXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-07 11:17:12&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;喜欢?手机?是正品，感觉不错?&apos;, &apos;用户名&apos;: &apos;j***钰&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i2/TB2CVeDBfiSBuNkSnhJXXbDcpXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i3/TB2X1rwJuuSBuNjSsplXXbe8pXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i2/TB2ayL7JpOWBuNjy0FiXXXFxVXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-07 15:25:21&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;还不错，刚开始还用不习惯！现在方便多了&apos;, &apos;用户名&apos;: &apos;t***2&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i4/TB2WDPiJH9YBuNjy0FgXXcxcXXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-08 07:37:56&apos;&#125;</span><br><span class="line">&#123;&apos;评论内容&apos;: &apos;非常满意。X就是帅，配上兰博基尼，更加合适，skr！&apos;, &apos;用户名&apos;: &apos;h***5&apos;, &apos;照片&apos;: [&apos;//img.alicdn.com/bao/uploaded/i3/TB21vhYAMKTBuNkSne1XXaJoXXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i2/TB2AJIQINSYBuNjSsphXXbGvVXa_!!0-rate.jpg&apos;, &apos;//img.alicdn.com/bao/uploaded/i3/TB2CVfQI4WYBuNjy1zkXXXGGpXa_!!0-rate.jpg&apos;], &apos;评论时间&apos;: &apos;2018-08-04 20:44:46&apos;&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="qiu-txt"><a href="#qiu-txt" class="headerlink" title="qiu.txt :"></a>qiu.txt :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/1564/15642663/thumb/20150407183903.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n有座坟藏着未亡人\n&apos;, &apos;年龄&apos;: &apos;21&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3750/37507340/thumb/20180729095851.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n奔跑的小土狼\n&apos;, &apos;年龄&apos;: &apos;26&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3940/39406856/thumb/20180810222528.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n甘小宝666\n&apos;, &apos;年龄&apos;: &apos;28&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3363/33634799/thumb/20180802092632.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n诗诗妈！！！\n&apos;, &apos;年龄&apos;: &apos;27&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3144/31443014/thumb/2016103012512119.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n社会学ba\n&apos;, &apos;年龄&apos;: &apos;101&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3095/30957671/thumb/20160113171514.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n有趣精选\n&apos;, &apos;年龄&apos;: &apos;31&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3078/30789405/thumb/2016120413362210.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n上凹下凸\n&apos;, &apos;年龄&apos;: &apos;78&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/1089/10897524/thumb/2018070919372061.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n凹凹+凸凸\n&apos;, &apos;年龄&apos;: &apos;31&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/1063/10633497/thumb/20180416103701.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n日邢一珊\n&apos;, &apos;年龄&apos;: &apos;34&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3327/33279276/thumb/20170119004600.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n小乌龟wy\n&apos;, &apos;年龄&apos;: &apos;22&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3495/34958112/thumb/2018061910525865.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n百毒不春\n&apos;, &apos;年龄&apos;: &apos;34&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3866/38662180/thumb/2018061600472198.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n爆笑好莱污\n&apos;, &apos;年龄&apos;: &apos;56&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3794/37949906/thumb/2018041821543947.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n滕州内涵还我初心\n&apos;, &apos;年龄&apos;: &apos;35&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3940/39402992/thumb/20180810130603.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n哎～情路\n&apos;, &apos;年龄&apos;: &apos;23&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/958/9581923/thumb/20150307134246.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n糗雪中狼\n&apos;, &apos;年龄&apos;: &apos;28&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/1722/17221979/thumb/20180524141023.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n挖鼻孔的老虎\n&apos;, &apos;年龄&apos;: &apos;100&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/1026/10267550/thumb/20170801104040.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n别动我零食\n&apos;, &apos;年龄&apos;: &apos;34&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/1151/11518983/thumb/20140717085457.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n你TMD真的在逗我…\n&apos;, &apos;年龄&apos;: &apos;34&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3371/33712263/thumb/20180807233018.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n偷惢\n&apos;, &apos;年龄&apos;: &apos;18&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/2845/28459514/thumb/20150517004055.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n帅哥狠爱你\n&apos;, &apos;年龄&apos;: &apos;25&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3288/32882611/thumb/2016121421240671.JPEG?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n瞅你那损样儿\n&apos;, &apos;年龄&apos;: &apos;25&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;&apos;, &apos;用户名&apos;: &apos;匿名用户&apos;, &apos;年龄&apos;: &apos;&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3371/33712263/thumb/20180807233018.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n偷惢\n&apos;, &apos;年龄&apos;: &apos;18&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3095/30957671/thumb/20160113171514.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n有趣精选\n&apos;, &apos;年龄&apos;: &apos;31&apos;&#125;</span><br><span class="line">&#123;&apos;头像&apos;: &apos;//pic.qiushibaike.com/system/avtnew/3164/31645747/thumb/20160420122425.jpg?imageView2/1/w/90/h/90&apos;, &apos;用户名&apos;: &apos;\n引人犯罪的季节\n&apos;, &apos;年龄&apos;: &apos;21&apos;&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="movie-json"><a href="#movie-json" class="headerlink" title="movie.json :"></a>movie.json :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1910813120.jpg&quot;, &quot;电影&quot;: &quot;霸王别姬&quot;, &quot;评分&quot;: &quot;9.5&quot;, &quot;品论人数&quot;: 805016&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p510861873.jpg&quot;, &quot;电影&quot;: &quot;美丽人生&quot;, &quot;评分&quot;: &quot;9.5&quot;, &quot;品论人数&quot;: 509653&#125;, &#123;&quot;海报&quot;: &quot;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p510876377.jpg&quot;, &quot;电影&quot;: &quot;阿甘正传&quot;, &quot;评分&quot;: &quot;9.4&quot;, &quot;品论人数&quot;: 872583&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1408665952.jpg&quot;, &quot;电影&quot;: &quot;泰坦尼克号 3D版&quot;, &quot;评分&quot;: &quot;9.4&quot;, &quot;品论人数&quot;: 168503&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1161132422.jpg&quot;, &quot;电影&quot;: &quot;灿烂人生&quot;, &quot;评分&quot;: &quot;9.4&quot;, &quot;品论人数&quot;: 25845&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2224933614.jpg&quot;, &quot;电影&quot;: &quot;罗密欧与朱丽叶&quot;, &quot;评分&quot;: &quot;9.4&quot;, &quot;品论人数&quot;: 1058&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p457760035.jpg&quot;, &quot;电影&quot;: &quot;泰坦尼克号&quot;, &quot;评分&quot;: &quot;9.3&quot;, &quot;品论人数&quot;: 811531&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1461851991.jpg&quot;, &quot;电影&quot;: &quot;机器人总动员&quot;, &quot;评分&quot;: &quot;9.3&quot;, &quot;品论人数&quot;: 593806&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2329626263.jpg&quot;, &quot;电影&quot;: &quot;巴黎圣母院&quot;, &quot;评分&quot;: &quot;9.3&quot;, &quot;品论人数&quot;: 3484&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p579729551.jpg&quot;, &quot;电影&quot;: &quot;三傻大闹宝莱坞&quot;, &quot;评分&quot;: &quot;9.2&quot;, &quot;品论人数&quot;: 810029&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2455050536.jpg&quot;, &quot;电影&quot;: &quot;大话西游之大圣娶亲&quot;, &quot;评分&quot;: &quot;9.2&quot;, &quot;品论人数&quot;: 602049&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1963126880.jpg&quot;, &quot;电影&quot;: &quot;乱世佳人&quot;, &quot;评分&quot;: &quot;9.2&quot;, &quot;品论人数&quot;: 314589&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2173707976.jpg&quot;, &quot;电影&quot;: &quot;摩登时代&quot;, &quot;评分&quot;: &quot;9.2&quot;, &quot;品论人数&quot;: 104454&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2099815842.jpg&quot;, &quot;电影&quot;: &quot;城市之光&quot;, &quot;评分&quot;: &quot;9.2&quot;, &quot;品论人数&quot;: 49313&#125;, &#123;&quot;海报&quot;: &quot;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p771490367.jpg&quot;, &quot;电影&quot;: &quot;生活多美好&quot;, &quot;评分&quot;: &quot;9.2&quot;, &quot;品论人数&quot;: 37187&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2029574250.jpg&quot;, &quot;电影&quot;: &quot;哀乐中年&quot;, &quot;评分&quot;: &quot;9.2&quot;, &quot;品论人数&quot;: 5498&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2409467410.jpg&quot;, &quot;电影&quot;: &quot;狐妖小红娘剧场版：王权富贵&quot;, &quot;评分&quot;: &quot;9.2&quot;, &quot;品论人数&quot;: 2059&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2427045524.jpg&quot;, &quot;电影&quot;: &quot;狐妖小红娘剧场版：月红篇&quot;, &quot;评分&quot;: &quot;9.2&quot;, &quot;品论人数&quot;: 1941&#125;, &#123;&quot;海报&quot;: &quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1910901025.jpg&quot;, &quot;电影&quot;: &quot;天堂电影院&quot;, &quot;评分&quot;: &quot;9.1&quot;, &quot;品论人数&quot;: 350484&#125;, &#123;&quot;海报&quot;: &quot;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2328424489.jpg&quot;, &quot;电影&quot;: &quot;南海十三郎&quot;, &quot;评分&quot;: &quot;9.1&quot;, &quot;品论人数&quot;: 14875&#125;]</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月13日 19:39</p>
+        <p>原始链接： <a class="post-url" href="/2018/08/11/xpath使用,xpath案例, json数据分析/" title="Spider">http://yoursite.com/2018/08/11/xpath使用,xpath案例, json数据分析/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/08/11/xpath使用,xpath案例, json数据分析/&title=《Spider》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/08/11/xpath使用,xpath案例, json数据分析/&title=《Spider》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/11/xpath使用,xpath案例, json数据分析/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spider》 — Hexo&url=http://yoursite.com/2018/08/11/xpath使用,xpath案例, json数据分析/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/08/11/xpath使用,xpath案例, json数据分析/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/08/11/xpath使用,xpath案例, json数据分析/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/xpath使用,xpath案例,json数据分析/" class="color1">xpath使用,xpath案例, json数据分析</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-xpath使用"><span class="post-toc-text">1. xpath使用 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#xpath-py"><span class="post-toc-text">xpath.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-xpath案例"><span class="post-toc-text">2. xpath案例 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#meinv-py"><span class="post-toc-text">meinv.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#qiubai-py"><span class="post-toc-text">qiubai.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-json数据分析"><span class="post-toc-text">3. json数据分析 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#json-py"><span class="post-toc-text">json.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#douban-py"><span class="post-toc-text">douban.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#jsonpath-py"><span class="post-toc-text">jsonpath.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#taobao-py"><span class="post-toc-text">taobao.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#book-json"><span class="post-toc-text">book.json :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#test-html"><span class="post-toc-text">test.html :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#taobao-txt"><span class="post-toc-text">taobao.txt :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#qiu-txt"><span class="post-toc-text">qiu.txt :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#movie-json"><span class="post-toc-text">movie.json :</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/08/13/selenium+phantomjs,headlesschrome,requests/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Spider
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/08/10/正则替换,配置国内源,bs获取属性, bs4语法学习,三国演义下载,智联招聘,xpath语法学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Spider</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/selenium-phantomjs-headlesschrome-requests/" style="font-size: 10px;">selenium+phantomjs,headlesschrome,requests</a> <a href="/tags/urllib-parse-构建请求-模拟请求-Handler-代理/" style="font-size: 10px;">urllib.parse,构建请求,模拟请求,Handler,代理</a> <a href="/tags/xpath使用-xpath案例-json数据分析/" style="font-size: 10px;">xpath使用,xpath案例, json数据分析</a> <a href="/tags/代理池ip-阿布云代理使用-cookie使用-正则简单回顾-正则子模式-糗图正则匹配-正则抓取励志/" style="font-size: 10px;">代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志</a> <a href="/tags/关于爬虫/" style="font-size: 10px;">关于爬虫</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/正则替换-配置国内源-bs获取属性-bs4语法学习-三国演义下载-智联招聘-xpath语法学习/" style="font-size: 10px;">正则替换-配置国内源,bs获取属性, bs4语法学习-三国演义下载,智联招聘,xpath语法学习</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/selenium-phantomjs-headlesschrome-requests/" style="font-size: 10px;">selenium+phantomjs,headlesschrome,requests</a> <a href="/tags/urllib-parse-构建请求-模拟请求-Handler-代理/" style="font-size: 10px;">urllib.parse,构建请求,模拟请求,Handler,代理</a> <a href="/tags/xpath使用-xpath案例-json数据分析/" style="font-size: 10px;">xpath使用,xpath案例, json数据分析</a> <a href="/tags/代理池ip-阿布云代理使用-cookie使用-正则简单回顾-正则子模式-糗图正则匹配-正则抓取励志/" style="font-size: 10px;">代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志</a> <a href="/tags/关于爬虫/" style="font-size: 10px;">关于爬虫</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/正则替换-配置国内源-bs获取属性-bs4语法学习-三国演义下载-智联招聘-xpath语法学习/" style="font-size: 10px;">正则替换-配置国内源,bs获取属性, bs4语法学习-三国演义下载,智联招聘,xpath语法学习</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
