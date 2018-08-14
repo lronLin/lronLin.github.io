@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Spider | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="lronLin,lronLin's Blog" />
+  
+  <meta name="description" content="多任务同时执行 : 抽烟打游戏, 唱歌跳舞, 开车手脚并用,  电脑中 : vscode, 录屏工具, vnc, 浏览器等 代码中 : 唱歌跳舞为例 , 一个函数就是一个任务多任务.py :123456789101112131415161718192021import timedef sing():	for x in rang(1, 6):		print(&amp;apos;我在唱女儿情&amp;apos;)">
+<meta name="keywords" content="多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spider">
+<meta property="og:url" content="http://yoursite.com/2018/08/14/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多任务同时执行 : 抽烟打游戏, 唱歌跳舞, 开车手脚并用,  电脑中 : vscode, 录屏工具, vnc, 浏览器等 代码中 : 唱歌跳舞为例 , 一个函数就是一个任务多任务.py :123456789101112131415161718192021import timedef sing():	for x in rang(1, 6):		print(&amp;apos;我在唱女儿情&amp;apos;)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/同步.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/异步.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/并行.png">
+<meta property="og:image" content="c:/Users/95358/Desktop/桌面/img/并发.png">
+<meta property="og:updated_time" content="2018-08-14T10:49:03.053Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spider">
+<meta name="twitter:description" content="多任务同时执行 : 抽烟打游戏, 唱歌跳舞, 开车手脚并用,  电脑中 : vscode, 录屏工具, vnc, 浏览器等 代码中 : 唱歌跳舞为例 , 一个函数就是一个任务多任务.py :123456789101112131415161718192021import timedef sing():	for x in rang(1, 6):		print(&amp;apos;我在唱女儿情&amp;apos;)">
+<meta name="twitter:image" content="c:/Users/95358/Desktop/桌面/img/同步.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">lronLin&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>文档管理</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        lronLin&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        简洁是智慧的灵魂, 冗长是肤浅的藻饰!
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="lronLin" target="_blank" href="//lronlin.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/lronLin">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/玩世卟恭木小妞">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="pages-多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Spider
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-08-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>多任务同时执行 : 抽烟打游戏, 唱歌跳舞, 开车手脚并用, </p>
+<p>电脑中 : vscode, 录屏工具, vnc, 浏览器等</p>
+<h5 id="代码中-唱歌跳舞为例-一个函数就是一个任务"><a href="#代码中-唱歌跳舞为例-一个函数就是一个任务" class="headerlink" title="代码中 : 唱歌跳舞为例 , 一个函数就是一个任务"></a>代码中 : 唱歌跳舞为例 , 一个函数就是一个任务</h5><h5 id="多任务-py"><a href="#多任务-py" class="headerlink" title="多任务.py :"></a>多任务.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def sing():</span><br><span class="line">	for x in rang(1, 6):</span><br><span class="line">		print(&apos;我在唱女儿情&apos;)</span><br><span class="line">		time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def dance():</span><br><span class="line">	for x in range(1, 6):</span><br><span class="line">		print(&apos;我在跳广场舞&apos;)</span><br><span class="line">		time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">	sing()</span><br><span class="line">	dance()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	main()</span><br></pre></td></tr></table></figure>
+<p>如果要实现多任务 : 多进程或者多线程</p>
+<h5 id="同步-异步-并行-并发"><a href="#同步-异步-并行-并发" class="headerlink" title="同步, 异步, 并行, 并发 :"></a>同步, 异步, 并行, 并发 :</h5><h5 id="同步-先执行a-再执行b-称任务a和b是同步的"><a href="#同步-先执行a-再执行b-称任务a和b是同步的" class="headerlink" title="同步 : 先执行a, 再执行b, 称任务a和b是同步的"></a>同步 : 先执行a, 再执行b, 称任务a和b是同步的</h5><p><img src="C:\Users\95358\Desktop\桌面\img\同步.png" alt="同步"></p>
+<h5 id="异步-任务a和b同时执行-称任务a和b是异步的"><a href="#异步-任务a和b同时执行-称任务a和b是异步的" class="headerlink" title="异步 : 任务a和b同时执行, 称任务a和b是异步的"></a>异步 : 任务a和b同时执行, 称任务a和b是异步的</h5><h5 id="实现异步的时候-还有不同-一种是真正的异步-一种是伪异步"><a href="#实现异步的时候-还有不同-一种是真正的异步-一种是伪异步" class="headerlink" title="实现异步的时候, 还有不同, 一种是真正的异步, 一种是伪异步"></a>实现异步的时候, 还有不同, 一种是真正的异步, 一种是伪异步</h5><p><img src="C:\Users\95358\Desktop\桌面\img\异步.png" alt="异步"></p>
+<h5 id="并行-真正的异步"><a href="#并行-真正的异步" class="headerlink" title="并行 : 真正的异步"></a>并行 : 真正的异步</h5><p><img src="C:\Users\95358\Desktop\桌面\img\并行.png" alt="并行"></p>
+<h5 id="并发-伪异步-通过计算机的快速切换-达到同时运行的假象"><a href="#并发-伪异步-通过计算机的快速切换-达到同时运行的假象" class="headerlink" title="并发 : 伪异步, 通过计算机的快速切换, 达到同时运行的假象"></a>并发 : 伪异步, 通过计算机的快速切换, 达到同时运行的假象</h5><p><img src="C:\Users\95358\Desktop\桌面\img\并发.png" alt="并发"></p>
+<h5 id="1-进程"><a href="#1-进程" class="headerlink" title="1. 进程 :"></a>1. 进程 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">进程 : vscode, vnc, 录屏, 软件启动之后就是一个进程, kill -9 进程id</span><br><span class="line"></span><br><span class="line">代码中 : 没有运行之前, 称之为程序, 程序运行起来就是一个进程, 如果只有一个进程, 称之为主进程. 如果通过这个进程创建了其他进程, 称之为子进程.</span><br><span class="line"></span><br><span class="line">进程创建 (process) : </span><br><span class="line">	(1) 面向过程</span><br><span class="line">		p = Process(target=xxx, args=(xxx,))</span><br><span class="line">		target : 进程启动之后要执行的函数</span><br><span class="line">		args : 主进程给子进程传递的参数</span><br><span class="line">		p.start() : 启动进程</span><br><span class="line">		p.join() : 主进程等待子进程结束</span><br><span class="line">		os.getpid() : 获取进程id</span><br><span class="line">		os.getppid() : 获取父进程id</span><br><span class="line">	(2) 面向对象</span><br><span class="line">		class MyProcess(Process):</span><br><span class="line">			def run(self):</span><br><span class="line">				pass</span><br><span class="line">		如果传递参数, 需要重写构造方法, 注意手动调用父类构造方法</span><br><span class="line">	(3) 进程之间是否共享局部变量</span><br><span class="line">		不共享局部变量</span><br><span class="line">	(4) 进程之间是否共享全局变量</span><br><span class="line">		不共享全局变量</span><br><span class="line">	(5) 进程池</span><br><span class="line">		进程是不是创建的越多越好呢?</span><br><span class="line">		以拷贝文件夹为例, 文件夹里面有100个文件. </span><br><span class="line">		一个进程, 没有充分利用电脑的性能, 也不行</span><br><span class="line">		最后测试结果为5个进程, 100个文件全部拷贝成功</span><br><span class="line">		进程池意思 : 最多就创建5个进程, 然后你给他100个任务, 5个进程将100个任务全部执行完毕.</span><br><span class="line">		po = Pool(5)  # 创建进程池</span><br><span class="line">		po.apply_async(demo, args=(xxx,))  # 给进程池添加任务并且传递参数</span><br><span class="line">		po.close()  # 关闭进程池, 不再向里面添加任务</span><br><span class="line">		po.join()  # 让主进程等待进程池中所有进程结束之后再结束</span><br></pre></td></tr></table></figure>
+<h5 id="process-create-py-—-创建进程-—-面向过程"><a href="#process-create-py-—-创建进程-—-面向过程" class="headerlink" title="process_create.py :  — 创建进程  — 面向过程"></a>process_create.py :  — 创建进程  — 面向过程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Process</span><br><span class="line">import time</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">def sing(name):</span><br><span class="line">    print(&apos;sing接受过来的明星为%s&apos; % name)</span><br><span class="line">    print(&apos;sing的id号为%s&apos; % os.getpid())</span><br><span class="line">    print(&apos;sing的父进程id为%s&apos; % os.getppid())</span><br><span class="line">    for x in range(1, 6):</span><br><span class="line">        print(&apos;我在唱青藏高原&apos;)</span><br><span class="line">        time.sleep(1)</span><br><span class="line"></span><br><span class="line">def dance():</span><br><span class="line">    print(&apos;dance的id号为%s&apos; % os.getpid())</span><br><span class="line">    print(&apos;dance的父进程id为%s&apos; % os.getppid())</span><br><span class="line">    for x in range(1, 6):</span><br><span class="line">        print(&apos;我在跳拉丁舞&apos;)</span><br><span class="line">        time.sleep(1)</span><br><span class="line"></span><br><span class="line"># 一个主进程，用来负责创建子进程的，然后一个唱歌子进程，一个跳舞子进程</span><br><span class="line">def main():</span><br><span class="line">    # 主进程可以给子进程传递参数</span><br><span class="line">    name = &apos;高圆圆&apos;</span><br><span class="line">    print(&apos;主进程的id号为%s&apos; % os.getpid())</span><br><span class="line">    # 创建进程</span><br><span class="line">    p_sing = Process(target=sing, args=(name,))</span><br><span class="line">    p_dance = Process(target=dance)</span><br><span class="line"></span><br><span class="line">    # 启动进程</span><br><span class="line">    p_sing.start()</span><br><span class="line">    p_dance.start()</span><br><span class="line"></span><br><span class="line">    # 需要让主进程等待子进程结束之后再结束</span><br><span class="line">    p_sing.join()</span><br><span class="line">    p_dance.join()</span><br><span class="line"></span><br><span class="line">    print(&apos;主进程、子进程全部运行结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="process-obj-py-—-面向对象"><a href="#process-obj-py-—-面向对象" class="headerlink" title="process_obj.py — 面向对象"></a>process_obj.py — 面向对象</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Process</span><br><span class="line">import time</span><br><span class="line">class SingProcess(Process):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        # 手动调用父类的构造方法</span><br><span class="line">        super().__init__()</span><br><span class="line">        self.name = name</span><br><span class="line">    # 进程启动之后，默认执行这个函数 </span><br><span class="line">    def run(self):</span><br><span class="line">        print(&apos;传递过来的参数为%s&apos; % self.name)</span><br><span class="line">        for x in range(1, 6):</span><br><span class="line">            print(&apos;我在唱女儿情&apos;)</span><br><span class="line">            time.sleep(1)</span><br><span class="line"></span><br><span class="line">class DanceProcess(Process):</span><br><span class="line">    def run(self):</span><br><span class="line">        for x in range(1, 6):</span><br><span class="line">            print(&apos;我在跳广场舞&apos;)</span><br><span class="line">            time.sleep(1)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    name = &apos;柳岩&apos;</span><br><span class="line">    ps = SingProcess(name)</span><br><span class="line">    pd = DanceProcess()</span><br><span class="line">    ps.start()</span><br><span class="line">    pd.start()</span><br><span class="line">    ps.join()</span><br><span class="line">    pd.join()</span><br><span class="line">    print(&apos;主进程子进程全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="进程是否共享局部变量-py"><a href="#进程是否共享局部变量-py" class="headerlink" title="进程是否共享局部变量.py :"></a>进程是否共享局部变量.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Process</span><br><span class="line">import time</span><br><span class="line">def demo(lala):</span><br><span class="line">    # 朱茵眨眼、张敏回头、祖贤穿衣、青霞喝酒</span><br><span class="line">    name = &apos;朱茵&apos;</span><br><span class="line">    if lala == &apos;change&apos;:</span><br><span class="line">        name = &apos;张敏&apos;</span><br><span class="line">        print(&apos;change修改后的值为%s&apos; % name)</span><br><span class="line">    else:</span><br><span class="line">        time.sleep(3)</span><br><span class="line">        print(&apos;read进来读取name的值为%s&apos; % name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    p1 = Process(target=demo, args=(&apos;change&apos;, ))</span><br><span class="line">    p2 = Process(target=demo, args=(&apos;read&apos;, ))</span><br><span class="line"></span><br><span class="line">    p1.start()</span><br><span class="line">    p2.start()</span><br><span class="line">    p1.join()</span><br><span class="line">    p2.join()</span><br><span class="line">    print(&apos;全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="进程是否共享全局变量-py"><a href="#进程是否共享全局变量-py" class="headerlink" title="进程是否共享全局变量.py :"></a>进程是否共享全局变量.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Process</span><br><span class="line">import time</span><br><span class="line">name = &apos;宋小宝&apos;</span><br><span class="line"></span><br><span class="line">def change():</span><br><span class="line">    global name</span><br><span class="line">    name = &apos;金城武&apos;</span><br><span class="line">    print(&apos;change进程修改后的值为%s&apos; % name)</span><br><span class="line"></span><br><span class="line">def read():</span><br><span class="line">    time.sleep(3)</span><br><span class="line">    print(&apos;read进程读取的值为%s&apos; % name)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    p1 = Process(target=change)</span><br><span class="line">    p2 = Process(target=read)</span><br><span class="line"></span><br><span class="line">    p1.start()</span><br><span class="line">    p2.start()</span><br><span class="line">    p1.join()</span><br><span class="line">    p2.join()</span><br><span class="line">    print(&apos;全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="进程池-py"><a href="#进程池-py" class="headerlink" title="进程池.py :"></a>进程池.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Pool</span><br><span class="line">import time</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">def demo(name):</span><br><span class="line">    print(&apos;任务的名称为%s,当前进程的id号为%s&apos; % (name, os.getpid()))</span><br><span class="line">    time.sleep(2)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    # 创建一个进程池对象</span><br><span class="line">    po = Pool(5)</span><br><span class="line">    # 给进程池扔任务</span><br><span class="line">    lt = [&apos;关羽&apos;, &apos;张飞&apos;, &apos;赵云&apos;, &apos;马超&apos;, &apos;黄忠&apos;, &apos;许褚&apos;, &apos;典韦&apos;, &apos;张辽&apos;, &apos;夏侯惇&apos;, &apos;夏侯渊&apos;, &apos;张郃&apos;]</span><br><span class="line">    for name in lt:</span><br><span class="line">        po.apply_async(demo, args=(name, ))</span><br><span class="line">    </span><br><span class="line">    # 关闭进程池，不能再向进程池中添加任务了</span><br><span class="line">    po.close()</span><br><span class="line">    # 让主进程等待进程池中进程全部结束之后再结束</span><br><span class="line">    po.join()</span><br><span class="line">    print(&apos;主进程、子进程全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="2-线程"><a href="#2-线程" class="headerlink" title="2. 线程 :"></a>2. 线程 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">线程 : 一个qq, 可以语音, 可以视频, 一个暴风影音, 可以播放音频, 播放视频, 一个word文档, 可以编辑, 可以实时检查和保存等</span><br><span class="line"></span><br><span class="line">一个进程里面如果只有一个线程, 称之为主线程, 如果还有其他线程, 称之为子线程</span><br><span class="line"></span><br><span class="line">CPU切换的基本单位是线程</span><br><span class="line"></span><br><span class="line">多进程 : 切换进程消耗资源大, 但是稳定, 如果一个子进程挂了, 不影响其他进程</span><br><span class="line"></span><br><span class="line">多线程 : 切换线程消耗资源小, 但是不稳定, 如果一个线程挂了, 整个进程就挂了</span><br><span class="line"></span><br><span class="line">线程创建 (thread):</span><br><span class="line">	(1) 面向过程</span><br><span class="line">		t = threading.Thread(target=xxx, name=xxx, args=(xxx, ))</span><br><span class="line">		target : 线程启动执行函数</span><br><span class="line">		name : 线程的名字</span><br><span class="line">		args : 给子线程传递参数</span><br><span class="line">		threading.current_thread().name : 获取线程名字</span><br><span class="line">		t.start() : 启动线程</span><br><span class="line">		t.join() : 让主线程等待</span><br><span class="line">		</span><br><span class="line">	(2) 面向对象</span><br><span class="line">        class MyThread(threading.Thread):</span><br><span class="line">            def run(self):</span><br><span class="line">           		pass</span><br><span class="line">        如果传递参数, 需要重写构造方法, 注意手动调用父类构造方法</span><br><span class="line">     线程之间能否共享局部变量</span><br><span class="line">     	不共享</span><br><span class="line">     线程之间是否共享全局变量</span><br><span class="line">     	共享</span><br><span class="line">     线程安全</span><br><span class="line">     	使用线程锁来解决, 谁先抢到谁先用</span><br><span class="line">     	from threading import Lock</span><br><span class="line">     	lock = Lock()</span><br><span class="line">     	lock.acquire()</span><br><span class="line">     	lock.release()</span><br><span class="line">     队列 :</span><br><span class="line">     	队列 : 买火车票, 先进先出</span><br><span class="line">     	栈 : 先进后出  函数的运行 - main函数</span><br><span class="line">     	使用队列?</span><br><span class="line">     	from queue import Queue</span><br><span class="line">     	q = Queue(5)</span><br><span class="line">     	q.put(&apos;xxx&apos;)</span><br><span class="line">     	q.put(&apos;xxx&apos;, False)  如果队列满, 立即抛出异常</span><br><span class="line">     	q.put(&apos;xxx&apos;, True, 5)  如果队列满, 5s之后抛出异常</span><br><span class="line">     	</span><br><span class="line">     	获取元素</span><br><span class="line">     	q.get()</span><br><span class="line">     	q.get(False) 如果队列为空, 立即抛出异常</span><br><span class="line">     	q.get(True, 5)  如果队列为空, 5s之后抛出异常</span><br><span class="line">     	</span><br><span class="line">     	q.full() : 队列是否满</span><br><span class="line">        q.empty() : 队列是否空</span><br><span class="line">        q.qsize() : 队列的元素的个数</span><br><span class="line">     线程加队列 --- 生产者消费者模型</span><br><span class="line">     	while 1:</span><br><span class="line">     		生产数据</span><br><span class="line">     		消费数据</span><br><span class="line">     		</span><br><span class="line">     	生产数据线程 </span><br><span class="line">     		队列</span><br><span class="line">     	消费数据线程</span><br></pre></td></tr></table></figure>
+<h5 id="thread-create-py-—-创建线程-—-面对过程"><a href="#thread-create-py-—-创建线程-—-面对过程" class="headerlink" title="thread_create.py : — 创建线程 — 面对过程 :"></a>thread_create.py : — 创建线程 — 面对过程 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import threading</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">def sing(dudu):</span><br><span class="line">    print(&apos;传递过来的参数为%s&apos; % dudu)</span><br><span class="line">    print(&apos;sing线程的名字为%s&apos; % threading.current_thread().name)</span><br><span class="line">    for x in range(1, 6):</span><br><span class="line">        print(&apos;我喜欢唱走进新时代&apos;)</span><br><span class="line">        time.sleep(1)</span><br><span class="line"></span><br><span class="line">def dance():</span><br><span class="line">    print(&apos;dance线程的名字为%s&apos; % threading.current_thread().name)</span><br><span class="line">    for x in range(1, 6):</span><br><span class="line">        print(&apos;你喜欢跳钢管舞&apos;)</span><br><span class="line">        time.sleep(1)</span><br><span class="line"></span><br><span class="line"># 一个主线程，两个子线程</span><br><span class="line">def main():</span><br><span class="line">    lala = &apos;赵丽颖&apos;</span><br><span class="line">    print(&apos;主线程的名字为%s&apos; % threading.current_thread().name)</span><br><span class="line">    t_sing = threading.Thread(target=sing, name=&apos;唱歌&apos;, args=(lala,))</span><br><span class="line">    t_dance = threading.Thread(target=dance)</span><br><span class="line"></span><br><span class="line">    # 启动线程</span><br><span class="line">    t_sing.start()</span><br><span class="line">    t_dance.start()</span><br><span class="line"></span><br><span class="line">    # 让主线程等待子线程结束之后再结束</span><br><span class="line">    t_sing.join()</span><br><span class="line">    t_dance.join()</span><br><span class="line"></span><br><span class="line">    print(&apos;全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="thread-obj-py-线程面向对象"><a href="#thread-obj-py-线程面向对象" class="headerlink" title="thread_obj.py : 线程面向对象 :"></a>thread_obj.py : 线程面向对象 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import threading</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">class SingThread(threading.Thread):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        super().__init__()</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        print(&apos;传递过来的参数为%s&apos; % self.name)</span><br><span class="line">        for x in range(1, 6):</span><br><span class="line">            print(&apos;我喜欢唱走进新时代&apos;)</span><br><span class="line">            time.sleep(1)</span><br><span class="line"></span><br><span class="line">class DanceThread(threading.Thread):</span><br><span class="line">    def run(self):</span><br><span class="line">        for x in range(1, 6):</span><br><span class="line">            print(&apos;你喜欢跳钢管舞&apos;)</span><br><span class="line">            time.sleep(1)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    name = &apos;迪丽热巴&apos;</span><br><span class="line">    t_sing = SingThread(name)</span><br><span class="line">    t_dance = DanceThread()</span><br><span class="line"></span><br><span class="line">    # 启动线程</span><br><span class="line">    t_sing.start()</span><br><span class="line">    t_dance.start()</span><br><span class="line"></span><br><span class="line">    # 让主线程等待子线程结束之后再结束</span><br><span class="line">    t_sing.join()</span><br><span class="line">    t_dance.join()</span><br><span class="line"></span><br><span class="line">    print(&apos;全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="线程之间局部-py"><a href="#线程之间局部-py" class="headerlink" title="线程之间局部.py :"></a>线程之间局部.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from threading import Thread</span><br><span class="line">import time</span><br><span class="line">def demo(lala):</span><br><span class="line">    name = &apos;朱茵&apos;</span><br><span class="line">    if lala == &apos;change&apos;:</span><br><span class="line">        name = &apos;张敏&apos;</span><br><span class="line">        print(&apos;change修改后的值为%s&apos; % name)</span><br><span class="line">    else:</span><br><span class="line">        time.sleep(3)</span><br><span class="line">        print(&apos;read进来读取name的值为%s&apos; % name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    t1 = Thread(target=demo, args=(&apos;change&apos;, ))</span><br><span class="line">    t2 = Thread(target=demo, args=(&apos;read&apos;, ))</span><br><span class="line"></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br><span class="line">    print(&apos;全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="线程之间全局-py"><a href="#线程之间全局-py" class="headerlink" title="线程之间全局.py :"></a>线程之间全局.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from threading import Thread</span><br><span class="line">import time</span><br><span class="line">name = &apos;宋小宝&apos;</span><br><span class="line"></span><br><span class="line">def change():</span><br><span class="line">    global name</span><br><span class="line">    name = &apos;金城武&apos;</span><br><span class="line">    print(&apos;change线程修改后的值为%s&apos; % name)</span><br><span class="line"></span><br><span class="line">def read():</span><br><span class="line">    time.sleep(3)</span><br><span class="line">    print(&apos;read线程读取的值为%s&apos; % name)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    t1 = Thread(target=change)</span><br><span class="line">    t2 = Thread(target=read)</span><br><span class="line"></span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br><span class="line">    print(&apos;全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="线程安全-py"><a href="#线程安全-py" class="headerlink" title="线程安全.py :"></a>线程安全.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import threading</span><br><span class="line">from threading import Lock</span><br><span class="line">count = 100</span><br><span class="line"></span><br><span class="line"># 通过加锁机制解决线程安全问题</span><br><span class="line"># a b c d e   一个厕所   a抢到了， a先用  加锁   释放锁</span><br><span class="line"># 加锁机制是建立在降低性能基础上的</span><br><span class="line"># 一把锁</span><br><span class="line">lock = Lock()</span><br><span class="line"></span><br><span class="line">def test(n):</span><br><span class="line">    global count</span><br><span class="line">    for x in range(1, 1000000):</span><br><span class="line">        lock.acquire()</span><br><span class="line">        count += n</span><br><span class="line">        count -= n</span><br><span class="line">        lock.release()</span><br><span class="line">    print(&apos;%s线程--运行结束之后count的值为%s&apos; % (threading.current_thread().name, count))</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    t1 = threading.Thread(target=test, args=(3, ))</span><br><span class="line">    t2 = threading.Thread(target=test, args=(5, ))</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br><span class="line">    print(&apos;主线程读取count的值为%s&apos; % count)</span><br><span class="line">    print(&apos;全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h5 id="queque-py-队列"><a href="#queque-py-队列" class="headerlink" title="queque.py : (队列) :"></a>queque.py : (队列) :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">from queue import Queue</span><br><span class="line"></span><br><span class="line"># 创建一个队列, 可以指定队列的长度，如果不写长度，默认无限长</span><br><span class="line">q = Queue(5)</span><br><span class="line"></span><br><span class="line">print(q.full())</span><br><span class="line">print(q.empty())</span><br><span class="line">print(q.qsize())</span><br><span class="line"></span><br><span class="line"># 向队列中添加元素</span><br><span class="line">q.put(&apos;库里&apos;)</span><br><span class="line">q.put(&apos;乔丹&apos;)</span><br><span class="line">q.put(&apos;韦德&apos;)</span><br><span class="line">print(q.full())</span><br><span class="line">print(q.empty())</span><br><span class="line">print(q.qsize())</span><br><span class="line">q.put(&apos;字母哥&apos;)</span><br><span class="line">q.put(&apos;恩比德&apos;)</span><br><span class="line"># q.put(&apos;米切尔&apos;, False)</span><br><span class="line"># q.put(&apos;米切尔&apos;, True, 5)</span><br><span class="line">print(q.full())</span><br><span class="line">print(q.empty())</span><br><span class="line">print(q.qsize())</span><br><span class="line"></span><br><span class="line">print(q.get())</span><br><span class="line">print(q.get())</span><br><span class="line">print(q.get())</span><br><span class="line">print(q.get())</span><br><span class="line">print(q.get())</span><br><span class="line"># print(q.get(False))</span><br><span class="line">print(q.get(True, 3))</span><br></pre></td></tr></table></figure>
+<h5 id="3-多线程爬虫"><a href="#3-多线程爬虫" class="headerlink" title="3. 多线程爬虫 :"></a>3. 多线程爬虫 :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while 1:</span><br><span class="line">	根据url发送请求, 得到响应 (生产者)</span><br><span class="line">	解析响应 (消费者)</span><br><span class="line">生产者线程 3</span><br><span class="line">	队列</span><br><span class="line">消费者线程 3</span><br></pre></td></tr></table></figure>
+<h5 id="多线程爬虫-py"><a href="#多线程爬虫-py" class="headerlink" title="多线程爬虫.py :"></a>多线程爬虫.py :</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">from threading import Thread, Lock</span><br><span class="line">from queue import Queue</span><br><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">class CrawlThread(Thread):</span><br><span class="line">    def __init__(self, name, page_queue, data_queue):</span><br><span class="line">        super().__init__()</span><br><span class="line">        self.name = name</span><br><span class="line">        self.page_queue = page_queue</span><br><span class="line">        self.data_queue = data_queue</span><br><span class="line">        self.url = &apos;http://www.fanjian.net/duanzi-&#123;&#125;&apos;</span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36&apos;,</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        print(&apos;线程--%s--启动成功----&apos; % self.name)</span><br><span class="line">        &apos;&apos;&apos;</span><br><span class="line">        1、从页码队列取出一个页码</span><br><span class="line">        2、拼接生成待发送的url</span><br><span class="line">        3、发送请求，得到响应</span><br><span class="line">        4、将响应添加到数据队列中</span><br><span class="line">        &apos;&apos;&apos;</span><br><span class="line">        while 1:</span><br><span class="line">            page = self.page_queue.get()</span><br><span class="line">            url = self.url.format(page)</span><br><span class="line">            content = requests.get(url=url, headers=self.headers).text</span><br><span class="line">            self.data_queue.put(content)</span><br><span class="line">        print(&apos;线程-%s-运行结束--&apos; % self.name)</span><br><span class="line"></span><br><span class="line">class ParseThread(Thread):</span><br><span class="line">    def __init__(self, name, data_queue, fp, lock):</span><br><span class="line">        super().__init__()</span><br><span class="line">        self.name = name</span><br><span class="line">        self.data_queue = data_queue</span><br><span class="line">        self.fp = fp</span><br><span class="line">        self.lock = lock</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        print(&apos;线程--%s--启动成功----&apos; % self.name)</span><br><span class="line">        &apos;&apos;&apos;</span><br><span class="line">        1、从数据队列中取出一个数据</span><br><span class="line">        2、解析和处理数据</span><br><span class="line">        &apos;&apos;&apos;</span><br><span class="line">        while 1:</span><br><span class="line">            content = self.data_queue.get()</span><br><span class="line">            self.parse_content(content)</span><br><span class="line">        print(&apos;线程-%s-运行结束--&apos; % self.name)</span><br><span class="line">    </span><br><span class="line">    def parse_content(self, content):</span><br><span class="line">        # 生成soup对象</span><br><span class="line">        soup = BeautifulSoup(content, &apos;lxml&apos;)</span><br><span class="line">        # 开始解析</span><br><span class="line">        item = &#123;&#125;</span><br><span class="line">        string = json.dumps(item, ensure_ascii=False)</span><br><span class="line">        self.lock.acquire()</span><br><span class="line">        self.fp.write(string + &apos;\n&apos;)</span><br><span class="line">        self.lock.release()</span><br><span class="line"></span><br><span class="line">def create_queue():</span><br><span class="line">    page_queue = Queue()</span><br><span class="line">    data_queue = Queue()</span><br><span class="line">    for page in range(1, 6):</span><br><span class="line">        page_queue.put(page)</span><br><span class="line">    return page_queue, data_queue</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    # 搞一个列表，用来存放所有的线程对象</span><br><span class="line">    t_list = []</span><br><span class="line">    # 打开文件</span><br><span class="line">    fp = open(&apos;jian.txt&apos;, &apos;w&apos;, encoding=&apos;utf8&apos;)</span><br><span class="line">    # 创建锁</span><br><span class="line">    lock = Lock()</span><br><span class="line">    # 在这创建队列</span><br><span class="line">    page_queue, data_queue = create_queue()</span><br><span class="line">    # 创建采集线程</span><br><span class="line">    crawl_name_list = [&apos;采集线程1&apos;, &apos;采集线程2&apos;, &apos;采集线程3&apos;]</span><br><span class="line">    for crawl_name in crawl_name_list:</span><br><span class="line">        t_crawl = CrawlThread(crawl_name, page_queue, data_queue)</span><br><span class="line">        t_crawl.start()</span><br><span class="line">        # 将线程保存到列表中</span><br><span class="line">        t_list.append(t_crawl)</span><br><span class="line">    # 创建解析线程</span><br><span class="line">    parse_name_list = [&apos;解析线程1&apos;, &apos;解析线程2&apos;, &apos;解析线程3&apos;]</span><br><span class="line">    for parse_name in parse_name_list:</span><br><span class="line">        t_parse = ParseThread(parse_name, data_queue, fp, lock)</span><br><span class="line">        t_parse.start()</span><br><span class="line">        t_list.append(t_parse)</span><br><span class="line">    </span><br><span class="line">    # 主线程要等待所有的子线程结束我才能结束</span><br><span class="line">    for t_tmp in t_list:</span><br><span class="line">        t_tmp.join()</span><br><span class="line">    </span><br><span class="line">    # 关闭文件</span><br><span class="line">    fp.close()</span><br><span class="line">    print(&apos;主线程、子线程全部结束&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">1、文件解析，每一个段子解析为字典</span><br><span class="line">2、采集线程和解析线程都是死循环，何时退出线程呢？</span><br><span class="line">&apos;&apos;&apos;</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月14日 18:49</p>
+        <p>原始链接： <a class="post-url" href="/2018/08/14/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/" title="Spider">http://yoursite.com/2018/08/14/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="lronLin">
+                lronLin
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/08/14/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/&title=《Spider》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/08/14/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/&title=《Spider》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/14/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spider》 — Hexo&url=http://yoursite.com/2018/08/14/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/08/14/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/08/14/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架/" class="color3">多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#代码中-唱歌跳舞为例-一个函数就是一个任务"><span class="post-toc-text">代码中 : 唱歌跳舞为例 , 一个函数就是一个任务</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#多任务-py"><span class="post-toc-text">多任务.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#同步-异步-并行-并发"><span class="post-toc-text">同步, 异步, 并行, 并发 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#同步-先执行a-再执行b-称任务a和b是同步的"><span class="post-toc-text">同步 : 先执行a, 再执行b, 称任务a和b是同步的</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#异步-任务a和b同时执行-称任务a和b是异步的"><span class="post-toc-text">异步 : 任务a和b同时执行, 称任务a和b是异步的</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#实现异步的时候-还有不同-一种是真正的异步-一种是伪异步"><span class="post-toc-text">实现异步的时候, 还有不同, 一种是真正的异步, 一种是伪异步</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#并行-真正的异步"><span class="post-toc-text">并行 : 真正的异步</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#并发-伪异步-通过计算机的快速切换-达到同时运行的假象"><span class="post-toc-text">并发 : 伪异步, 通过计算机的快速切换, 达到同时运行的假象</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-进程"><span class="post-toc-text">1. 进程 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#process-create-py-—-创建进程-—-面向过程"><span class="post-toc-text">process_create.py :  — 创建进程  — 面向过程</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#process-obj-py-—-面向对象"><span class="post-toc-text">process_obj.py — 面向对象</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#进程是否共享局部变量-py"><span class="post-toc-text">进程是否共享局部变量.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#进程是否共享全局变量-py"><span class="post-toc-text">进程是否共享全局变量.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#进程池-py"><span class="post-toc-text">进程池.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-线程"><span class="post-toc-text">2. 线程 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#thread-create-py-—-创建线程-—-面对过程"><span class="post-toc-text">thread_create.py : — 创建线程 — 面对过程 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#thread-obj-py-线程面向对象"><span class="post-toc-text">thread_obj.py : 线程面向对象 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#线程之间局部-py"><span class="post-toc-text">线程之间局部.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#线程之间全局-py"><span class="post-toc-text">线程之间全局.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#线程安全-py"><span class="post-toc-text">线程安全.py :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#queque-py-队列"><span class="post-toc-text">queque.py : (队列) :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-多线程爬虫"><span class="post-toc-text">3. 多线程爬虫 :</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#多线程爬虫-py"><span class="post-toc-text">多线程爬虫.py :</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/13/selenium+phantomjs,headlesschrome,requests/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Spider</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 lronLin<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/selenium-phantomjs-headlesschrome-requests/" style="font-size: 10px;">selenium+phantomjs,headlesschrome,requests</a> <a href="/tags/urllib-parse-构建请求-模拟请求-Handler-代理/" style="font-size: 10px;">urllib.parse,构建请求,模拟请求,Handler,代理</a> <a href="/tags/xpath使用-xpath案例-json数据分析/" style="font-size: 10px;">xpath使用,xpath案例, json数据分析</a> <a href="/tags/代理池ip-阿布云代理使用-cookie使用-正则简单回顾-正则子模式-糗图正则匹配-正则抓取励志/" style="font-size: 10px;">代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志</a> <a href="/tags/关于爬虫/" style="font-size: 10px;">关于爬虫</a> <a href="/tags/多任务概念-进程创建-是否共享局部或者全局-进程池-进程线程特点-线程创建-共享全局-线程安全-锁-队列使用-多线程爬虫框架/" style="font-size: 10px;">多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/正则替换-配置国内源-bs获取属性-bs4语法学习-三国演义下载-智联招聘-xpath语法学习/" style="font-size: 10px;">正则替换-配置国内源,bs获取属性, bs4语法学习-三国演义下载,智联招聘,xpath语法学习</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>文档管理</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Centos部署Django项目/" style="font-size: 10px;">Centos部署Django项目</a> <a href="/tags/Cookie与Session/" style="font-size: 10px;">Cookie与Session</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Flask/" style="font-size: 20px;">Flask</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Web与Django/" style="font-size: 10px;">Web与Django</a> <a href="/tags/axf/" style="font-size: 10px;">axf</a> <a href="/tags/axf项目部署/" style="font-size: 10px;">axf项目部署</a> <a href="/tags/flask部署/" style="font-size: 10px;">flask部署</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/restful的使用/" style="font-size: 10px;">restful的使用</a> <a href="/tags/selenium-phantomjs-headlesschrome-requests/" style="font-size: 10px;">selenium+phantomjs,headlesschrome,requests</a> <a href="/tags/urllib-parse-构建请求-模拟请求-Handler-代理/" style="font-size: 10px;">urllib.parse,构建请求,模拟请求,Handler,代理</a> <a href="/tags/xpath使用-xpath案例-json数据分析/" style="font-size: 10px;">xpath使用,xpath案例, json数据分析</a> <a href="/tags/代理池ip-阿布云代理使用-cookie使用-正则简单回顾-正则子模式-糗图正则匹配-正则抓取励志/" style="font-size: 10px;">代理池ip,阿布云代理使用,cookie使用,正则简单回顾,正则子模式,糗图正则匹配,正则抓取励志</a> <a href="/tags/关于爬虫/" style="font-size: 10px;">关于爬虫</a> <a href="/tags/多任务概念-进程创建-是否共享局部或者全局-进程池-进程线程特点-线程创建-共享全局-线程安全-锁-队列使用-多线程爬虫框架/" style="font-size: 10px;">多任务概念,进程创建,是否共享局部或者全局,进程池,进程线程特点,线程创建,共享全局,线程安全,锁,队列使用,多线程爬虫框架</a> <a href="/tags/多对多关系/" style="font-size: 10px;">多对多关系</a> <a href="/tags/搭建个人博客/" style="font-size: 10px;">搭建个人博客</a> <a href="/tags/数据库增删改查与一对多关系/" style="font-size: 10px;">数据库增删改查与一对多关系</a> <a href="/tags/模型/" style="font-size: 10px;">模型</a> <a href="/tags/正则替换-配置国内源-bs获取属性-bs4语法学习-三国演义下载-智联招聘-xpath语法学习/" style="font-size: 10px;">正则替换-配置国内源,bs获取属性, bs4语法学习-三国演义下载,智联招聘,xpath语法学习</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
